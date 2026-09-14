@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AutoLux | About Us</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#090909;
+    color:#fff;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    height:76px;
+    padding:0 7%;
+    background:#111;
+    border-bottom:1px solid #292929;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    color:#ff6a00;
+    text-decoration:none;
+    font-size:29px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#fff;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:22px;
+}
+
+.nav-links a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:14px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#ff6a00;
+}
+
+.cart-btn{
+    background:#ff6a00;
+    color:#fff !important;
+    padding:10px 17px;
+    border-radius:25px;
+}
+
+.account-btn{
+    border:1px solid #444;
+    padding:9px 15px;
+    border-radius:25px;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:430px;
+
+    display:flex;
+    align-items:center;
+
+    padding:70px 7%;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(0,0,0,.94),
+        rgba(0,0,0,.62),
+        rgba(0,0,0,.25)
+    ),
+    url("https://images.unsplash.com/photo-1504215680853-026ed2a45def?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+}
+
+.hero-content{
+    max-width:650px;
+}
+
+.badge{
+    display:inline-block;
+    color:#ff8b42;
+    background:#26170e;
+    border:1px solid #63350f;
+    padding:9px 15px;
+    border-radius:25px;
+    font-size:12px;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:56px;
+    margin-bottom:17px;
+}
+
+.hero h1 span{
+    color:#ff6a00;
+}
+
+.hero p{
+    color:#bbb;
+    font-size:16px;
+    line-height:1.7;
+}
+
+
+/* ================= SECTION ================= */
+
+.section{
+    width:86%;
+    max-width:1200px;
+    margin:80px auto;
+}
+
+.heading{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.heading h2{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.heading h2 span{
+    color:#ff6a00;
+}
+
+.heading p{
+    color:#888;
+}
+
+
+/* ================= ABOUT ================= */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    align-items:center;
+}
+
+.about-image{
+    height:430px;
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid #292929;
+}
+
+.about-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.about-text h2{
+    font-size:36px;
+    margin-bottom:18px;
+}
+
+.about-text h2 span{
+    color:#ff6a00;
+}
+
+.about-text p{
+    color:#999;
+    line-height:1.8;
+    margin-bottom:16px;
+}
+
+.highlight{
+    color:#ff6a00;
+    font-weight:bold;
+}
+
+
+/* ================= MISSION ================= */
+
+.mission{
+    background:#151515;
+    border:1px solid #292929;
+    border-radius:20px;
+    padding:50px;
+    text-align:center;
+}
+
+.mission h2{
+    font-size:34px;
+    margin-bottom:15px;
+}
+
+.mission h2 span{
+    color:#ff6a00;
+}
+
+.mission p{
+    color:#999;
+    max-width:800px;
+    margin:auto;
+    line-height:1.8;
+}
+
+
+/* ================= VALUES ================= */
+
+.values{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.value{
+    background:#151515;
+    border:1px solid #292929;
+    border-radius:15px;
+    padding:28px 20px;
+    text-align:center;
+    transition:.3s;
+}
+
+.value:hover{
+    transform:translateY(-6px);
+    border-color:#ff6a00;
+}
+
+.value-icon{
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+.value h3{
+    margin-bottom:10px;
+}
+
+.value p{
+    color:#888;
+    font-size:13px;
+    line-height:1.6;
+}
+
+
+/* ================= FEATURES ================= */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.feature{
+    background:#151515;
+    border:1px solid #292929;
+    border-radius:15px;
+    padding:30px;
+}
+
+.feature-number{
+    font-size:13px;
+    color:#ff6a00;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.feature h3{
+    margin-bottom:10px;
+}
+
+.feature p{
+    color:#888;
+    font-size:13px;
+    line-height:1.7;
+}
+
+
+/* ================= CTA ================= */
+
+.cta{
+    background:
+    linear-gradient(
+        135deg,
+        #291508,
+        #111
+    );
+
+    border:1px solid #573015;
+    border-radius:20px;
+    padding:50px;
+    text-align:center;
+}
+
+.cta h2{
+    font-size:38px;
+    margin-bottom:12px;
+}
+
+.cta p{
+    color:#999;
+    margin-bottom:25px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 23px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.primary{
+    background:#ff6a00;
+    color:#fff;
+}
+
+.primary:hover{
+    background:#ff7a1a;
+}
+
+.secondary{
+    background:#292929;
+    color:#fff;
+    margin-left:8px;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+    margin-top:80px;
+    padding:45px 7% 25px;
+    background:#111;
+    border-top:1px solid #292929;
+}
+
+.footer-grid{
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:30px;
+}
+
+.footer-column h3{
+    color:#ff6a00;
+    margin-bottom:15px;
+}
+
+.footer-column p{
+    color:#777;
+    font-size:13px;
+    line-height:1.7;
+}
+
+.footer-column a{
+    display:block;
+    color:#888;
+    text-decoration:none;
+    font-size:13px;
+    margin:9px 0;
+}
+
+.footer-column a:hover{
+    color:#ff6a00;
+}
+
+.copyright{
+    text-align:center;
+    color:#555;
+    font-size:12px;
+    border-top:1px solid #292929;
+    margin-top:35px;
+    padding-top:20px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .values{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:550px){
+
+    .hero{
+        min-height:380px;
+        padding:50px 6%;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .section{
+        width:92%;
+    }
+
+    .about-image{
+        height:300px;
+    }
+
+    .values{
+        grid-template-columns:1fr;
+    }
+
+    .mission{
+        padding:30px 20px;
+    }
+
+    .cta{
+        padding:35px 20px;
+    }
+
+    .cta h2{
+        font-size:29px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+        Auto<span>Lux</span>
+    </a>
+
+    <div class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="accessories.html">
+            Accessories
+        </a>
+
+        <a href="ev-zone.html">
+            EV Zone
+        </a>
+
+        <a href="workshops.html">
+            Workshops
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a
+            href="cart.html"
+            class="cart-btn">
+
+            🛒 Cart
+            (<span id="cartCount">0</span>)
+
+        </a>
+
+        <a
+            href="login.html"
+            class="account-btn"
+            id="accountLink">
+
+            Login
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            ABOUT AUTOLUX
+        </div>
+
+        <h1>
+            Driven By
+            <span>Innovation.</span>
+        </h1>
+
+        <p>
+
+            AutoLux is a modern automotive marketplace
+            designed to make car upgrades simpler,
+            smarter and more connected.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="section">
+
+    <div class="about-grid">
+
+
+        <div class="about-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1100&q=85"
+                alt="Premium Car">
+
+        </div>
+
+
+        <div class="about-text">
+
+            <h2>
+                What Is <span>AutoLux?</span>
+            </h2>
+
+            <p>
+
+                AutoLux is a car accessories store website
+                created to bring automotive products,
+                electric vehicle accessories and workshop
+                services together on one platform.
+
+            </p>
+
+            <p>
+
+                Instead of simply purchasing an accessory,
+                customers can discover a product,
+                add it to their cart and connect with a
+                suitable workshop for professional installation.
+
+            </p>
+
+            <p>
+
+                Our goal is to create a smooth digital
+                experience where <span class="highlight">
+                shopping, installation and vehicle care
+                </span> are connected.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MISSION ================= -->
+
+<section class="section">
+
+    <div class="mission">
+
+        <h2>
+            Our <span>Mission</span>
+        </h2>
+
+        <p>
+
+            To create a convenient automotive platform
+            where vehicle owners can discover quality
+            accessories, explore EV solutions, purchase
+            products online and connect with professional
+            workshops for installation and services.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= VALUES ================= -->
+
+<section class="section">
+
+    <div class="heading">
+
+        <h2>
+            Our <span>Values</span>
+        </h2>
+
+        <p>
+            What makes the AutoLux concept different.
+        </p>
+
+    </div>
+
+
+    <div class="values">
+
+
+        <div class="value">
+
+            <div class="value-icon">
+                🛡️
+            </div>
+
+            <h3>
+                Quality
+            </h3>
+
+            <p>
+                Focus on reliable and premium
+                automotive products.
+            </p>
+
+        </div>
+
+
+        <div class="value">
+
+            <div class="value-icon">
+                💡
+            </div>
+
+            <h3>
+                Innovation
+            </h3>
+
+            <p>
+                Modern digital features for
+                today's vehicle owners.
+            </p>
+
+        </div>
+
+
+        <div class="value">
+
+            <div class="value-icon">
+                ⚡
+            </div>
+
+            <h3>
+                Future Ready
+            </h3>
+
+            <p>
+                Dedicated solutions for
+                electric vehicles.
+            </p>
+
+        </div>
+
+
+        <div class="value">
+
+            <div class="value-icon">
+                🤝
+            </div>
+
+            <h3>
+                Connection
+            </h3>
+
+            <p>
+                Connecting customers with
+                professional workshops.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="section">
+
+    <div class="heading">
+
+        <h2>
+            What Makes AutoLux <span>Special?</span>
+        </h2>
+
+        <p>
+            More than a normal online accessories store.
+        </p>
+
+    </div>
+
+
+    <div class="features">
+
+
+        <div class="feature">
+
+            <div class="feature-number">
+                01 — SHOP
+            </div>
+
+            <h3>
+                Automotive Marketplace
+            </h3>
+
+            <p>
+
+                Browse interior, exterior,
+                electronic and car-care products
+                from one online store.
+
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-number">
+                02 — CONNECT
+            </div>
+
+            <h3>
+                Workshop Integration
+            </h3>
+
+            <p>
+
+                Customers can choose a workshop
+                and book professional accessory
+                installation.
+
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-number">
+                03 — ELECTRIC
+            </div>
+
+            <h3>
+                Dedicated EV Zone
+            </h3>
+
+            <p>
+
+                EV chargers, cables, safety products
+                and electric vehicle accessories are
+                available in a dedicated section.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="section">
+
+    <div class="cta">
+
+        <h2>
+            Upgrade Your Drive With AutoLux
+        </h2>
+
+        <p>
+            Explore accessories or connect with a workshop today.
+        </p>
+
+        <a
+            href="accessories.html"
+            class="btn primary">
+
+            Shop Accessories →
+
+        </a>
+
+        <a
+            href="workshops.html"
+            class="btn secondary">
+
+            Find Workshop
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-grid">
+
+
+        <div class="footer-column">
+
+            <h3>
+                AutoLux
+            </h3>
+
+            <p>
+
+                Premium car accessories,
+                EV solutions and professional
+                workshop services — connected
+                in one platform.
+
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Shop
+            </h3>
+
+            <a href="accessories.html">
+                Accessories
+            </a>
+
+            <a href="ev-zone.html">
+                EV Zone
+            </a>
+
+            <a href="cart.html">
+                Cart
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Services
+            </h3>
+
+            <a href="workshops.html">
+                Workshops
+            </a>
+
+            <a href="booking.html">
+                Installation
+            </a>
+
+            <a href="about.html">
+                About Us
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Account
+            </h3>
+
+            <a href="login.html">
+                Login
+            </a>
+
+            <a href="signup.html">
+                Sign Up
+            </a>
+
+            <a href="account.html">
+                My Account
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 AutoLux — Premium Car Accessories & EV Solutions
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   CART COUNT
+========================= */
+
+function updateCartCount(){
+
+    const cart =
+        JSON.parse(
+            localStorage.getItem("autoluxCart")
+        ) || [];
+
+    const count =
+        cart.reduce(
+            (sum,item) =>
+            sum + Number(item.quantity || 1),
+            0
+        );
+
+    document.getElementById("cartCount")
+        .textContent = count;
+
+}
+
+
+/* =========================
+   ACCOUNT
+========================= */
+
+function checkAccount(){
+
+    const user =
+        JSON.parse(
+            localStorage.getItem("autoluxUser")
+        );
+
+    const loggedIn =
+        localStorage.getItem(
+            "autoluxLoggedIn"
+        );
+
+    const accountLink =
+        document.getElementById(
+            "accountLink"
+        );
+
+
+    if(
+        user &&
+        loggedIn === "true"
+    ){
+
+        accountLink.href =
+            "account.html";
+
+        accountLink.textContent =
+            "👤 My Account";
+
+    }else{
+
+        accountLink.href =
+            "login.html";
+
+        accountLink.textContent =
+            "Login";
+
+    }
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+updateCartCount();
+
+checkAccount();
+
+</script>
+
+</body>
+</html>

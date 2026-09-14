@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoLux | Login</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:#080808;
+    color:#fff;
+}
+
+/* NAVBAR */
+
+.navbar{
+    height:75px;
+    background:#111;
+    border-bottom:1px solid #292929;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+}
+
+.logo{
+    text-decoration:none;
+    color:#ff6a00;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#fff;
+}
+
+.home-link{
+    text-decoration:none;
+    color:#aaa;
+    font-size:14px;
+}
+
+.home-link:hover{
+    color:#ff6a00;
+}
+
+
+/* MAIN */
+
+.login-section{
+    min-height:calc(100vh - 75px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:45px 20px;
+    background:
+    radial-gradient(
+        circle at top right,
+        #2b1608,
+        transparent 35%
+    );
+}
+
+
+/* LOGIN CARD */
+
+.login-card{
+    width:100%;
+    max-width:450px;
+    background:#151515;
+    border:1px solid #303030;
+    border-radius:20px;
+    padding:38px;
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+
+.logo-small{
+    width:60px;
+    height:60px;
+    border-radius:15px;
+    background:#ff6a00;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    font-weight:bold;
+    margin:0 auto 20px;
+}
+
+.login-card h1{
+    text-align:center;
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#888;
+    font-size:14px;
+    margin-bottom:30px;
+}
+
+
+/* FORM */
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    color:#bbb;
+    font-size:13px;
+    margin-bottom:8px;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    background:#0c0c0c;
+    border:1px solid #333;
+    border-radius:9px;
+    color:#fff;
+    outline:none;
+    font-size:14px;
+}
+
+input:focus{
+    border-color:#ff6a00;
+}
+
+.password-box{
+    position:relative;
+}
+
+.password-box input{
+    padding-right:50px;
+}
+
+.eye{
+    position:absolute;
+    right:15px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    color:#888;
+}
+
+.eye:hover{
+    color:#ff6a00;
+}
+
+
+/* BUTTON */
+
+.login-btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:9px;
+    background:#ff6a00;
+    color:white;
+    font-weight:bold;
+    font-size:15px;
+    cursor:pointer;
+    margin-top:5px;
+}
+
+.login-btn:hover{
+    background:#ff7a1a;
+}
+
+
+/* ERROR */
+
+.error{
+    display:none;
+    background:#321414;
+    border:1px solid #672525;
+    color:#ff7777;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:18px;
+    font-size:13px;
+}
+
+
+/* DIVIDER */
+
+.divider{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#666;
+    font-size:12px;
+    margin:25px 0;
+}
+
+.divider::before,
+.divider::after{
+    content:"";
+    height:1px;
+    background:#292929;
+    flex:1;
+}
+
+
+/* SIGN UP */
+
+.signup-text{
+    text-align:center;
+    color:#888;
+    font-size:14px;
+}
+
+.signup-text a{
+    color:#ff6a00;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+
+/* VERIFICATION */
+
+.verification{
+    display:none;
+}
+
+.verification h2{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.verification p{
+    text-align:center;
+    color:#999;
+    line-height:1.5;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.otp-input{
+    text-align:center;
+    font-size:24px;
+    letter-spacing:8px;
+    font-weight:bold;
+}
+
+.verify-btn{
+    width:100%;
+    margin-top:15px;
+    padding:14px;
+    border:none;
+    border-radius:9px;
+    background:#ff6a00;
+    color:#fff;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.back-login{
+    display:block;
+    text-align:center;
+    margin-top:18px;
+    color:#888;
+    text-decoration:none;
+    font-size:13px;
+}
+
+.back-login:hover{
+    color:#ff6a00;
+}
+
+.demo-otp{
+    display:none;
+    text-align:center;
+    margin-top:15px;
+    padding:12px;
+    background:#0d1d12;
+    border:1px solid #245b35;
+    color:#76d98f;
+    border-radius:8px;
+    font-size:12px;
+}
+
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:22px;
+    color:#666;
+    font-size:12px;
+    border-top:1px solid #222;
+    background:#101010;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:500px){
+
+    .login-card{
+        padding:28px 22px;
+    }
+
+    .login-card h1{
+        font-size:25px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+        Auto<span>Lux</span>
+    </a>
+
+    <a href="index.html" class="home-link">
+        ← Back to Home
+    </a>
+
+</nav>
+
+
+<!-- LOGIN -->
+
+<section class="login-section">
+
+    <div class="login-card">
+
+
+        <!-- NORMAL LOGIN -->
+
+        <div id="loginBox">
+
+            <div class="logo-small">
+                A
+            </div>
+
+            <h1>
+                Welcome Back
+            </h1>
+
+            <p class="subtitle">
+                Login to your AutoLux account
+            </p>
+
+
+            <div
+                class="error"
+                id="errorMessage">
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    autocomplete="email">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Password
+                </label>
+
+                <div class="password-box">
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password">
+
+                    <span
+                        class="eye"
+                        onclick="togglePassword()">
+
+                        👁
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="login-btn"
+                onclick="login()">
+
+                Login to AutoLux
+
+            </button>
+
+
+            <div class="divider">
+                OR
+            </div>
+
+
+            <p class="signup-text">
+
+                Don't have an account?
+
+                <a href="signup.html">
+                    Create Account
+                </a>
+
+            </p>
+
+        </div>
+
+
+        <!-- VERIFICATION -->
+
+        <div
+            class="verification"
+            id="verificationBox">
+
+            <div class="logo-small">
+                ✓
+            </div>
+
+            <h2>
+                Verify Your Account
+            </h2>
+
+            <p>
+
+                The password is incorrect.
+
+                For this project demo, verify your
+                account using the 6-digit verification code.
+
+            </p>
+
+
+            <input
+                type="text"
+                id="otp"
+                class="otp-input"
+                maxlength="6"
+                placeholder="000000"
+                inputmode="numeric">
+
+
+            <button
+                class="verify-btn"
+                onclick="verifyOTP()">
+
+                Verify & Continue
+
+            </button>
+
+
+            <div
+                class="demo-otp"
+                id="demoOTP">
+
+            </div>
+
+
+            <a
+                href="#"
+                class="back-login"
+                onclick="backToLogin();return false;">
+
+                ← Back to Login
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    © 2026 AutoLux — Premium Car Accessories & EV Solutions
+
+</footer>
+
+
+<script>
+
+/* =========================
+   PASSWORD VISIBILITY
+========================= */
+
+function togglePassword(){
+
+    const password =
+        document.getElementById("password");
+
+    if(password.type === "password"){
+
+        password.type = "text";
+
+    }else{
+
+        password.type = "password";
+
+    }
+
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+function login(){
+
+    const email =
+        document.getElementById("email")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const password =
+        document.getElementById("password")
+        .value;
+
+    const error =
+        document.getElementById("errorMessage");
+
+
+    error.style.display = "none";
+
+
+    /* EMPTY CHECK */
+
+    if(!email || !password){
+
+        error.textContent =
+            "Please enter your email and password.";
+
+        error.style.display = "block";
+
+        return;
+
+    }
+
+
+    /* GET REGISTERED USER */
+
+    const user =
+        JSON.parse(
+            localStorage.getItem("autoluxUser")
+        );
+
+
+    /* NO ACCOUNT */
+
+    if(!user){
+
+        error.innerHTML =
+            `No AutoLux account found.
+             <br>
+             <a href="signup.html"
+                style="color:#ff6a00;">
+                Create an account
+             </a>`;
+
+        error.style.display = "block";
+
+        return;
+
+    }
+
+
+    /* EMAIL CHECK */
+
+    if(email !== user.email.toLowerCase()){
+
+        error.textContent =
+            "This email is not registered with AutoLux.";
+
+        error.style.display = "block";
+
+        return;
+
+    }
+
+
+    /* PASSWORD CHECK */
+
+    if(password !== user.password){
+
+        startVerification();
+
+        return;
+
+    }
+
+
+    /* CORRECT LOGIN */
+
+    localStorage.setItem(
+        "autoluxLoggedIn",
+        "true"
+    );
+
+
+    /* SAVE LAST LOGIN */
+
+    localStorage.setItem(
+        "autoluxLastLogin",
+        new Date().toLocaleString()
+    );
+
+
+    /* GO HOME */
+
+    window.location.href =
+        "index.html?login=success";
+
+}
+
+
+/* =========================
+   VERIFICATION
+========================= */
+
+let generatedOTP = "";
+
+
+function startVerification(){
+
+    document.getElementById("loginBox")
+        .style.display = "none";
+
+    document.getElementById("verificationBox")
+        .style.display = "block";
+
+
+    /* DEMO OTP */
+
+    generatedOTP =
+        Math.floor(
+            100000 +
+            Math.random() * 900000
+        ).toString();
+
+
+    localStorage.setItem(
+        "autoluxVerificationOTP",
+        generatedOTP
+    );
+
+
+    document.getElementById("demoOTP")
+        .style.display = "block";
+
+    document.getElementById("demoOTP")
+        .textContent =
+        "Demo Verification Code: " +
+        generatedOTP;
+
+}
+
+
+/* =========================
+   VERIFY OTP
+========================= */
+
+function verifyOTP(){
+
+    const entered =
+        document.getElementById("otp")
+        .value
+        .trim();
+
+
+    const savedOTP =
+        localStorage.getItem(
+            "autoluxVerificationOTP"
+        );
+
+
+    if(!entered){
+
+        alert(
+            "Please enter the verification code."
+        );
+
+        return;
+
+    }
+
+
+    if(entered !== savedOTP){
+
+        alert(
+            "Incorrect verification code. Please try again."
+        );
+
+        return;
+
+    }
+
+
+    /* VERIFIED */
+
+    localStorage.setItem(
+        "autoluxLoggedIn",
+        "true"
+    );
+
+
+    localStorage.removeItem(
+        "autoluxVerificationOTP"
+    );
+
+
+    alert(
+        "Account verified successfully!"
+    );
+
+
+    window.location.href =
+        "index.html?login=verified";
+
+}
+
+
+/* =========================
+   BACK
+========================= */
+
+function backToLogin(){
+
+    document.getElementById("verificationBox")
+        .style.display = "none";
+
+    document.getElementById("loginBox")
+        .style.display = "block";
+
+    document.getElementById("otp")
+        .value = "";
+
+}
+
+
+/* =========================
+   ENTER KEY
+========================= */
+
+document
+    .getElementById("password")
+    .addEventListener(
+        "keydown",
+        function(event){
+
+            if(event.key === "Enter"){
+                login();
+            }
+
+        }
+    );
+
+
+document
+    .getElementById("otp")
+    .addEventListener(
+        "keydown",
+        function(event){
+
+            if(event.key === "Enter"){
+                verifyOTP();
+            }
+
+        }
+    );
+
+</script>
+
+</body>
+</html>

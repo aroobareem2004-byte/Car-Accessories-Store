@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AutoLux | My Account</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#0b0b0b;
+    color:#fff;
+}
+
+/* NAVBAR */
+
+.navbar{
+    background:#111;
+    border-bottom:1px solid #292929;
+    padding:18px 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    color:#ff6a00;
+    font-size:28px;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.logo span{
+    color:white;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:22px;
+}
+
+.nav-links a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.nav-links a:hover{
+    color:#ff6a00;
+}
+
+.cart-btn{
+    background:#ff6a00;
+    color:white !important;
+    padding:10px 17px;
+    border-radius:25px;
+}
+
+/* CONTAINER */
+
+.container{
+    width:86%;
+    max-width:1200px;
+    margin:45px auto;
+}
+
+/* HEADER */
+
+.account-header{
+    background:linear-gradient(
+        135deg,
+        #171717,
+        #0d0d0d
+    );
+    border:1px solid #292929;
+    border-radius:20px;
+    padding:35px;
+    display:flex;
+    align-items:center;
+    gap:25px;
+    margin-bottom:28px;
+}
+
+.profile-circle{
+    width:85px;
+    height:85px;
+    border-radius:50%;
+    background:#ff6a00;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:34px;
+    font-weight:bold;
+}
+
+.account-header h1{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.account-header p{
+    color:#999;
+}
+
+/* GRID */
+
+.dashboard{
+    display:grid;
+    grid-template-columns:260px 1fr;
+    gap:25px;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    background:#151515;
+    border:1px solid #292929;
+    border-radius:17px;
+    padding:18px;
+    height:max-content;
+}
+
+.side-btn{
+    width:100%;
+    background:transparent;
+    color:#bbb;
+    border:none;
+    padding:14px;
+    text-align:left;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:14px;
+    margin-bottom:5px;
+}
+
+.side-btn:hover,
+.side-btn.active{
+    background:#ff6a00;
+    color:white;
+}
+
+/* CONTENT */
+
+.content{
+    min-width:0;
+}
+
+.panel{
+    background:#151515;
+    border:1px solid #292929;
+    border-radius:17px;
+    padding:28px;
+    display:none;
+}
+
+.panel.active{
+    display:block;
+}
+
+.panel h2{
+    font-size:22px;
+    margin-bottom:20px;
+}
+
+/* DETAILS */
+
+.details-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.detail-box{
+    background:#0e0e0e;
+    border:1px solid #292929;
+    border-radius:10px;
+    padding:17px;
+}
+
+.detail-box small{
+    display:block;
+    color:#777;
+    margin-bottom:7px;
+}
+
+.detail-box strong{
+    color:#eee;
+}
+
+/* ORDER */
+
+.order-card{
+    background:#0e0e0e;
+    border:1px solid #292929;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:15px;
+}
+
+.order-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.order-id{
+    color:#ff6a00;
+    font-weight:bold;
+}
+
+.status{
+    color:#66d98a;
+    background:#102419;
+    padding:6px 10px;
+    border-radius:20px;
+    font-size:12px;
+}
+
+.order-info{
+    color:#aaa;
+    font-size:13px;
+    line-height:1.8;
+}
+
+.order-items{
+    border-top:1px solid #292929;
+    margin-top:14px;
+    padding-top:14px;
+}
+
+.order-item{
+    display:flex;
+    justify-content:space-between;
+    padding:7px 0;
+    color:#bbb;
+}
+
+.order-total{
+    color:#ff6a00;
+    font-size:18px;
+    font-weight:bold;
+    text-align:right;
+    margin-top:10px;
+}
+
+/* BOOKING */
+
+.booking-card{
+    background:#0e0e0e;
+    border:1px solid #292929;
+    border-radius:12px;
+    padding:22px;
+}
+
+.booking-id{
+    color:#ff6a00;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.booking-row{
+    padding:8px 0;
+    color:#aaa;
+    border-bottom:1px solid #222;
+}
+
+.booking-row:last-child{
+    border-bottom:none;
+}
+
+.booking-row strong{
+    color:#fff;
+}
+
+/* BUTTONS */
+
+.primary-btn{
+    display:inline-block;
+    background:#ff6a00;
+    color:white;
+    text-decoration:none;
+    padding:12px 20px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.secondary-btn{
+    display:inline-block;
+    background:#292929;
+    color:#fff;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:8px;
+    margin-left:8px;
+}
+
+.primary-btn:hover{
+    background:#ff7b1a;
+}
+
+/* EMPTY */
+
+.empty{
+    text-align:center;
+    padding:40px 15px;
+    color:#888;
+}
+
+.empty h3{
+    color:#fff;
+    margin-bottom:10px;
+}
+
+/* LOGOUT */
+
+.logout{
+    margin-top:20px;
+    width:100%;
+    padding:13px;
+    background:#221414;
+    border:1px solid #522020;
+    color:#ff6666;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.logout:hover{
+    background:#321818;
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:60px;
+    padding:30px;
+    background:#111;
+    border-top:1px solid #292929;
+    text-align:center;
+    color:#777;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:850px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .dashboard{
+        grid-template-columns:1fr;
+    }
+
+    .sidebar{
+        display:flex;
+        overflow-x:auto;
+        gap:5px;
+    }
+
+    .side-btn{
+        min-width:130px;
+        margin:0;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .container{
+        width:92%;
+    }
+
+    .account-header{
+        padding:25px;
+    }
+
+    .profile-circle{
+        width:65px;
+        height:65px;
+        font-size:25px;
+    }
+
+    .account-header h1{
+        font-size:23px;
+    }
+
+    .details-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+        Auto<span>Lux</span>
+    </a>
+
+    <div class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="accessories.html">
+            Accessories
+        </a>
+
+        <a href="ev-zone.html">
+            EV Zone
+        </a>
+
+        <a href="workshops.html">
+            Workshops
+        </a>
+
+        <a href="cart.html" class="cart-btn">
+            🛒 Cart (<span id="cartCount">0</span>)
+        </a>
+
+    </div>
+
+</nav>
+
+
+<main class="container">
+
+
+<!-- ACCOUNT HEADER -->
+
+<section class="account-header">
+
+    <div class="profile-circle" id="profileInitial">
+        A
+    </div>
+
+    <div>
+
+        <h1>
+            Welcome, <span id="userName">Customer</span>!
+        </h1>
+
+        <p>
+            Manage your AutoLux account, orders and workshop bookings.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- DASHBOARD -->
+
+<div class="dashboard">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <button
+            class="side-btn active"
+            onclick="showPanel('profile',this)">
+            👤 My Profile
+        </button>
+
+        <button
+            class="side-btn"
+            onclick="showPanel('orders',this)">
+            📦 My Orders
+        </button>
+
+        <button
+            class="side-btn"
+            onclick="showPanel('booking',this)">
+            🔧 Workshop Booking
+        </button>
+
+        <button
+            class="side-btn"
+            onclick="showPanel('quick',this)">
+            🚗 AutoLux Services
+        </button>
+
+        <button
+            class="logout"
+            onclick="logout()">
+            Logout
+        </button>
+
+    </aside>
+
+
+    <!-- CONTENT -->
+
+    <section class="content">
+
+
+        <!-- PROFILE -->
+
+        <div
+            class="panel active"
+            id="profile">
+
+            <h2>
+                My Profile
+            </h2>
+
+            <div class="details-grid">
+
+                <div class="detail-box">
+
+                    <small>
+                        Full Name
+                    </small>
+
+                    <strong id="profileName">
+                        Not available
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <small>
+                        Email
+                    </small>
+
+                    <strong id="profileEmail">
+                        Not available
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <small>
+                        Phone
+                    </small>
+
+                    <strong id="profilePhone">
+                        Not available
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <small>
+                        Vehicle
+                    </small>
+
+                    <strong id="profileVehicle">
+                        Not specified
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <small>
+                        EV Owner
+                    </small>
+
+                    <strong id="profileEV">
+                        Not specified
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <small>
+                        Account
+                    </small>
+
+                    <strong style="color:#ff6a00;">
+                        AutoLux Member
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ORDERS -->
+
+        <div
+            class="panel"
+            id="orders">
+
+            <h2>
+                My Orders
+            </h2>
+
+            <div id="ordersContent"></div>
+
+        </div>
+
+
+        <!-- BOOKING -->
+
+        <div
+            class="panel"
+            id="booking">
+
+            <h2>
+                Workshop Booking
+            </h2>
+
+            <div id="bookingContent"></div>
+
+        </div>
+
+
+        <!-- QUICK SERVICES -->
+
+        <div
+            class="panel"
+            id="quick">
+
+            <h2>
+                AutoLux Services
+            </h2>
+
+            <div class="details-grid">
+
+                <div class="detail-box">
+
+                    <h3 style="margin-bottom:8px;">
+                        🛍️ Car Accessories
+                    </h3>
+
+                    <p style="color:#888;margin-bottom:15px;">
+                        Explore premium interior and exterior accessories.
+                    </p>
+
+                    <a
+                        href="accessories.html"
+                        class="primary-btn">
+
+                        Shop Now
+
+                    </a>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <h3 style="margin-bottom:8px;">
+                        ⚡ EV Zone
+                    </h3>
+
+                    <p style="color:#888;margin-bottom:15px;">
+                        Discover accessories specially designed for electric vehicles.
+                    </p>
+
+                    <a
+                        href="ev-zone.html"
+                        class="primary-btn">
+
+                        Explore EV
+
+                    </a>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <h3 style="margin-bottom:8px;">
+                        🔧 Workshops
+                    </h3>
+
+                    <p style="color:#888;margin-bottom:15px;">
+                        Find a suitable workshop and book professional installation.
+                    </p>
+
+                    <a
+                        href="workshops.html"
+                        class="primary-btn">
+
+                        Find Workshop
+
+                    </a>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <h3 style="margin-bottom:8px;">
+                        🛒 Cart
+                    </h3>
+
+                    <p style="color:#888;margin-bottom:15px;">
+                        View selected accessories and proceed to checkout.
+                    </p>
+
+                    <a
+                        href="cart.html"
+                        class="primary-btn">
+
+                        View Cart
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+</main>
+
+
+<footer>
+
+    © 2026 AutoLux — Premium Car Accessories & EV Solutions
+
+</footer>
+
+
+<script>
+
+/* =========================
+   USER
+========================= */
+
+const user =
+    JSON.parse(
+        localStorage.getItem("autoluxUser")
+    );
+
+
+/* =========================
+   LOAD USER
+========================= */
+
+function loadUser(){
+
+    if(!user){
+
+        document.getElementById("userName")
+            .textContent = "Guest";
+
+        document.getElementById("profileName")
+            .textContent = "Guest";
+
+        return;
+    }
+
+
+    const name =
+        user.name || "Customer";
+
+
+    document.getElementById("userName")
+        .textContent = name;
+
+    document.getElementById("profileInitial")
+        .textContent =
+        name.charAt(0).toUpperCase();
+
+    document.getElementById("profileName")
+        .textContent =
+        user.name || "Not available";
+
+    document.getElementById("profileEmail")
+        .textContent =
+        user.email || "Not available";
+
+    document.getElementById("profilePhone")
+        .textContent =
+        user.phone || "Not available";
+
+    document.getElementById("profileVehicle")
+        .textContent =
+        user.vehicle || "Not specified";
+
+    document.getElementById("profileEV")
+        .textContent =
+        user.ev || "Not specified";
+
+}
+
+
+/* =========================
+   CART COUNT
+========================= */
+
+function updateCartCount(){
+
+    const cart =
+        JSON.parse(
+            localStorage.getItem("autoluxCart")
+        ) || [];
+
+    const count =
+        cart.reduce(
+            (sum,item)=>
+            sum + Number(item.quantity || 1),
+            0
+        );
+
+    document.getElementById("cartCount")
+        .textContent = count;
+
+}
+
+
+/* =========================
+   PANELS
+========================= */
+
+function showPanel(
+    panelID,
+    button
+){
+
+    document
+        .querySelectorAll(".panel")
+        .forEach(panel => {
+
+            panel.classList.remove("active");
+
+        });
+
+
+    document
+        .querySelectorAll(".side-btn")
+        .forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+
+    document
+        .getElementById(panelID)
+        .classList.add("active");
+
+
+    button.classList.add("active");
+
+
+    if(panelID === "orders"){
+        loadOrder();
+    }
+
+
+    if(panelID === "booking"){
+        loadBooking();
+    }
+
+}
+
+
+/* =========================
+   ORDER
+========================= */
+
+function loadOrder(){
+
+    const container =
+        document.getElementById("ordersContent");
+
+
+    const order =
+        JSON.parse(
+            localStorage.getItem("autoluxOrder")
+        );
+
+
+    if(!order){
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <h3>
+                    No Orders Yet
+                </h3>
+
+                <p>
+                    Your AutoLux orders will appear here.
+                </p>
+
+                <br>
+
+                <a
+                    href="accessories.html"
+                    class="primary-btn">
+
+                    Start Shopping
+
+                </a>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    let itemsHTML = "";
+
+
+    order.items.forEach(item => {
+
+        itemsHTML += `
+
+            <div class="order-item">
+
+                <span>
+                    ${item.name}
+                    × ${item.quantity || 1}
+                </span>
+
+                <span>
+                    ₹${(
+                        Number(item.price) *
+                        Number(item.quantity || 1)
+                    ).toLocaleString("en-IN")}
+                </span>
+
+            </div>
+
+        `;
+
+    });
+
+
+    container.innerHTML = `
+
+        <div class="order-card">
+
+            <div class="order-top">
+
+                <div>
+
+                    <div class="order-id">
+                        ${order.orderID}
+                    </div>
+
+                    <small style="color:#777;">
+                        ${order.date}
+                    </small>
+
+                </div>
+
+                <span class="status">
+                    ${order.status}
+                </span>
+
+            </div>
+
+
+            <div class="order-info">
+
+                <div>
+                    <strong>Delivery:</strong>
+                    ${order.customer.address},
+                    ${order.customer.city},
+                    ${order.customer.state}
+                    - ${order.customer.pincode}
+                </div>
+
+                <div>
+                    <strong>Payment:</strong>
+                    ${order.payment}
+                </div>
+
+            </div>
+
+
+            <div class="order-items">
+
+                ${itemsHTML}
+
+            </div>
+
+
+            <div class="order-total">
+
+                Total:
+                ₹${Number(order.total)
+                    .toLocaleString("en-IN")}
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================
+   BOOKING
+========================= */
+
+function loadBooking(){
+
+    const container =
+        document.getElementById("bookingContent");
+
+
+    const booking =
+        JSON.parse(
+            localStorage.getItem("autoluxBooking")
+        );
+
+
+    if(!booking){
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <h3>
+                    No Workshop Booking
+                </h3>
+
+                <p>
+                    Book professional accessory installation or EV services.
+                </p>
+
+                <br>
+
+                <a
+                    href="booking.html"
+                    class="primary-btn">
+
+                    Book a Workshop
+
+                </a>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    container.innerHTML = `
+
+        <div class="booking-card">
+
+            <div class="booking-id">
+
+                Booking ID:
+                ${booking.bookingID}
+
+            </div>
+
+
+            <div class="booking-row">
+
+                <strong>Workshop:</strong>
+                ${booking.workshop}
+
+            </div>
+
+
+            <div class="booking-row">
+
+                <strong>Customer:</strong>
+                ${booking.name}
+
+            </div>
+
+
+            <div class="booking-row">
+
+                <strong>Phone:</strong>
+                ${booking.phone}
+
+            </div>
+
+
+            <div class="booking-row">
+
+                <strong>Vehicle:</strong>
+                ${booking.car}
+
+            </div>
+
+
+            <div class="booking-row">
+
+                <strong>Service:</strong>
+                ${booking.service}
+
+            </div>
+
+
+            <div class="booking-row">
+
+                <strong>Date:</strong>
+                ${booking.date}
+
+            </div>
+
+
+            <div class="booking-row">
+
+                <strong>Time:</strong>
+                ${booking.time}
+
+            </div>
+
+
+            ${
+                booking.note
+                ?
+                `<div class="booking-row">
+                    <strong>Note:</strong>
+                    ${booking.note}
+                </div>`
+                :
+                ""
+            }
+
+
+            <div style="margin-top:20px;">
+
+                <a
+                    href="booking.html"
+                    class="primary-btn">
+
+                    Manage Booking
+
+                </a>
+
+                <a
+                    href="workshops.html"
+                    class="secondary-btn">
+
+                    View Workshops
+
+                </a>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logout(){
+
+    const confirmLogout =
+        confirm(
+            "Are you sure you want to logout?"
+        );
+
+
+    if(!confirmLogout) return;
+
+
+    localStorage.removeItem(
+        "autoluxLoggedIn"
+    );
+
+
+    window.location.href =
+        "index.html";
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+loadUser();
+
+updateCartCount();
+
+</script>
+
+</body>
+</html>

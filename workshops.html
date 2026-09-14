@@ -1,0 +1,2016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AutoLux | Workshops</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#090909;
+    color:#fff;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    height:76px;
+    padding:0 7%;
+    background:#111;
+    border-bottom:1px solid #292929;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    color:#ff6a00;
+    text-decoration:none;
+    font-size:29px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#fff;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.nav-links a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.nav-links a:hover{
+    color:#ff6a00;
+}
+
+.cart-btn{
+    background:#ff6a00;
+    color:#fff !important;
+    padding:10px 17px;
+    border-radius:25px;
+}
+
+.account-btn{
+    border:1px solid #444;
+    padding:9px 15px;
+    border-radius:25px;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:440px;
+
+    display:flex;
+    align-items:center;
+
+    padding:70px 7%;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(0,0,0,.95),
+        rgba(0,0,0,.60),
+        rgba(0,0,0,.25)
+    ),
+    url("https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+}
+
+.hero-content{
+    max-width:700px;
+}
+
+.badge{
+    display:inline-block;
+
+    padding:9px 15px;
+
+    border-radius:25px;
+
+    color:#ff8b42;
+    background:#26170e;
+    border:1px solid #63350f;
+
+    font-size:12px;
+
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:55px;
+    margin-bottom:16px;
+}
+
+.hero h1 span{
+    color:#ff6a00;
+}
+
+.hero p{
+    color:#aaa;
+    line-height:1.7;
+    max-width:620px;
+}
+
+.hero-buttons{
+    margin-top:25px;
+    display:flex;
+    gap:12px;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:14px 22px;
+    border-radius:9px;
+    font-weight:bold;
+}
+
+.primary{
+    background:#ff6a00;
+    color:#fff;
+}
+
+.secondary{
+    background:#292929;
+    color:#fff;
+}
+
+.primary:hover{
+    background:#ff7b1c;
+}
+
+
+/* ================= SECTION ================= */
+
+.section{
+    width:86%;
+    max-width:1200px;
+    margin:70px auto;
+}
+
+.heading{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.heading h2{
+    font-size:35px;
+}
+
+.heading h2 span{
+    color:#ff6a00;
+}
+
+.heading p{
+    color:#777;
+    margin-top:9px;
+}
+
+
+/* ================= LOCATION FINDER ================= */
+
+.finder{
+    background:#151515;
+
+    border:1px solid #292929;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    text-align:center;
+}
+
+.finder h2{
+    font-size:27px;
+    margin-bottom:10px;
+}
+
+.finder h2 span{
+    color:#ff6a00;
+}
+
+.finder p{
+    color:#888;
+    font-size:14px;
+    margin-bottom:25px;
+}
+
+.location-row{
+    display:flex;
+    max-width:700px;
+    margin:auto;
+    gap:10px;
+}
+
+.location-row input{
+    flex:1;
+
+    padding:14px;
+
+    background:#0d0d0d;
+    color:#fff;
+
+    border:1px solid #333;
+
+    border-radius:8px;
+
+    outline:none;
+}
+
+.location-row input:focus{
+    border-color:#ff6a00;
+}
+
+.location-row button{
+    padding:14px 20px;
+
+    border:none;
+
+    background:#ff6a00;
+    color:#fff;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.location-row button:hover{
+    background:#ff7b1c;
+}
+
+.location-status{
+    margin-top:20px;
+
+    color:#ff8b42;
+
+    font-size:13px;
+}
+
+
+/* ================= NEAREST RESULT ================= */
+
+.nearest{
+    display:none;
+
+    margin-top:25px;
+
+    background:#17120e;
+
+    border:1px solid #593014;
+
+    border-radius:15px;
+
+    padding:22px;
+
+    text-align:left;
+}
+
+.nearest h3{
+    color:#ff6a00;
+    margin-bottom:8px;
+}
+
+.nearest p{
+    color:#aaa;
+    line-height:1.6;
+    margin-bottom:12px;
+}
+
+.nearest a{
+    display:inline-block;
+
+    background:#ff6a00;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    padding:10px 15px;
+
+    border-radius:7px;
+
+    font-size:13px;
+
+    font-weight:bold;
+}
+
+
+/* ================= WORKSHOPS ================= */
+
+.workshop-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:20px;
+}
+
+.workshop{
+    background:#151515;
+
+    border:1px solid #292929;
+
+    border-radius:17px;
+
+    overflow:hidden;
+
+    transition:.3s;
+}
+
+.workshop:hover{
+    transform:translateY(-6px);
+    border-color:#ff6a00;
+}
+
+.workshop-image{
+    position:relative;
+}
+
+.workshop-image img{
+    width:100%;
+    height:210px;
+
+    object-fit:cover;
+}
+
+.tag{
+    position:absolute;
+
+    top:12px;
+    left:12px;
+
+    background:#ff6a00;
+
+    color:#fff;
+
+    padding:7px 10px;
+
+    border-radius:6px;
+
+    font-size:11px;
+
+    font-weight:bold;
+}
+
+.workshop-content{
+    padding:22px;
+}
+
+.workshop-content h3{
+    margin-bottom:7px;
+}
+
+.location{
+    color:#ff6a00;
+    font-size:13px;
+    margin-bottom:10px;
+}
+
+.rating{
+    color:#ffc107;
+    font-size:13px;
+    margin-bottom:12px;
+}
+
+.workshop-content p{
+    color:#888;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+    margin-bottom:14px;
+}
+
+.services{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+
+    margin-bottom:18px;
+}
+
+.service{
+    background:#242424;
+
+    color:#aaa;
+
+    padding:6px 9px;
+
+    border-radius:5px;
+
+    font-size:10px;
+}
+
+.workshop-buttons{
+    display:flex;
+    gap:8px;
+}
+
+.workshop-buttons a{
+    flex:1;
+
+    text-align:center;
+
+    padding:11px 5px;
+
+    border-radius:7px;
+
+    text-decoration:none;
+
+    font-size:12px;
+
+    font-weight:bold;
+}
+
+.book{
+    background:#ff6a00;
+    color:#fff;
+}
+
+.map{
+    background:#292929;
+    color:#fff;
+}
+
+.book:hover{
+    background:#ff7b1c;
+}
+
+
+/* ================= SERVICES ================= */
+
+.services-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:15px;
+}
+
+.service-card{
+    background:#151515;
+
+    border:1px solid #292929;
+
+    border-radius:14px;
+
+    padding:25px 15px;
+
+    text-align:center;
+
+    transition:.3s;
+}
+
+.service-card:hover{
+    border-color:#ff6a00;
+    transform:translateY(-4px);
+}
+
+.service-icon{
+    font-size:30px;
+    margin-bottom:12px;
+}
+
+.service-card h3{
+    font-size:15px;
+    margin-bottom:8px;
+}
+
+.service-card p{
+    color:#777;
+    font-size:12px;
+    line-height:1.6;
+}
+
+
+/* ================= PROCESS ================= */
+
+.process{
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:15px;
+}
+
+.step{
+    text-align:center;
+    padding:25px;
+}
+
+.step-number{
+    width:48px;
+    height:48px;
+
+    margin:0 auto 15px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#ff6a00;
+
+    border-radius:50%;
+
+    font-weight:bold;
+}
+
+.step h3{
+    margin-bottom:8px;
+}
+
+.step p{
+    color:#777;
+    font-size:12px;
+    line-height:1.6;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+    margin-top:70px;
+
+    padding:45px 7% 25px;
+
+    background:#111;
+
+    border-top:1px solid #292929;
+}
+
+.footer-grid{
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    2fr 1fr 1fr 1fr;
+
+    gap:30px;
+}
+
+.footer-column h3{
+    color:#ff6a00;
+    margin-bottom:15px;
+}
+
+.footer-column p{
+    color:#777;
+    font-size:13px;
+    line-height:1.7;
+}
+
+.footer-column a{
+    display:block;
+
+    color:#888;
+
+    text-decoration:none;
+
+    font-size:13px;
+
+    margin:9px 0;
+}
+
+.footer-column a:hover{
+    color:#ff6a00;
+}
+
+.copyright{
+    text-align:center;
+
+    color:#555;
+
+    font-size:12px;
+
+    border-top:1px solid #292929;
+
+    margin-top:35px;
+
+    padding-top:20px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:1000px){
+
+    .workshop-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .services-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .process{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:700px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .location-row{
+        flex-direction:column;
+    }
+
+    .workshop-grid{
+        grid-template-columns:1fr;
+    }
+
+    .services-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .process{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+        Auto<span>Lux</span>
+    </a>
+
+    <div class="nav-links">
+
+        <a href="index.html">Home</a>
+
+        <a href="accessories.html">
+            Accessories
+        </a>
+
+        <a href="ev-zone.html">
+            EV Zone
+        </a>
+
+        <a href="workshops.html">
+            Workshops
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+        <a href="cart.html" class="cart-btn">
+            🛒 Cart
+            (<span id="cartCount">0</span>)
+        </a>
+
+        <a href="login.html"
+           class="account-btn"
+           id="accountLink">
+
+            Login
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            AUTOLUX WORKSHOP NETWORK
+        </div>
+
+        <h1>
+            Find Your
+            <span>Nearest Workshop.</span>
+        </h1>
+
+        <p>
+
+            Purchase your favourite car accessories
+            and connect with professional workshops
+            for installation, detailing, EV servicing
+            and vehicle care.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#finder"
+                class="btn primary">
+
+                📍 Find Nearby
+
+            </a>
+
+            <a
+                href="booking.html"
+                class="btn secondary">
+
+                📅 Book Installation
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FINDER ================= -->
+
+<section
+    class="section"
+    id="finder">
+
+    <div class="heading">
+
+        <h2>
+            Find <span>Nearest Workshop</span>
+        </h2>
+
+        <p>
+            Enter your location to find the closest AutoLux workshop.
+        </p>
+
+    </div>
+
+
+    <div class="finder">
+
+        <h2>
+            📍 Workshop <span>Locator</span>
+        </h2>
+
+        <p>
+            Enter your city or area name.
+        </p>
+
+
+        <div class="location-row">
+
+            <input
+                type="text"
+                id="locationInput"
+                placeholder="Example: Tirur, Kottakkal, Kozhikode">
+
+            <button
+                onclick="findNearest()">
+
+                Find Workshop
+
+            </button>
+
+        </div>
+
+
+        <div
+            class="location-status"
+            id="locationStatus">
+
+        </div>
+
+
+        <div
+            class="nearest"
+            id="nearestResult">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= WORKSHOPS ================= -->
+
+<section class="section">
+
+    <div class="heading">
+
+        <h2>
+            Our <span>Workshop Network</span>
+        </h2>
+
+        <p>
+            Choose a workshop for installation and vehicle services.
+        </p>
+
+    </div>
+
+
+    <div class="workshop-grid">
+
+
+        <!-- 1 -->
+
+        <div class="workshop">
+
+            <div class="workshop-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=900&q=80"
+                    alt="AutoLux Tirur">
+
+                <div class="tag">
+                    ACCESSORIES
+                </div>
+
+            </div>
+
+
+            <div class="workshop-content">
+
+                <h3>
+                    AutoLux Care Tirur
+                </h3>
+
+                <div class="location">
+                    📍 Tirur, Malappuram
+                </div>
+
+                <div class="rating">
+                    ⭐ 4.8 / 5
+                </div>
+
+                <p>
+                    Professional installation for interior,
+                    exterior and electronic accessories.
+                </p>
+
+                <div class="services">
+
+                    <span class="service">
+                        Seat Covers
+                    </span>
+
+                    <span class="service">
+                        LED
+                    </span>
+
+                    <span class="service">
+                        Dashcam
+                    </span>
+
+                    <span class="service">
+                        Detailing
+                    </span>
+
+                </div>
+
+
+                <div class="workshop-buttons">
+
+                    <a
+                        href="booking.html?workshop=AutoLux%20Care%20Tirur"
+                        class="book">
+
+                        Book
+
+                    </a>
+
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=AutoLux+Care+Tirur"
+                        target="_blank"
+                        class="map">
+
+                        🗺 Directions
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 2 -->
+
+        <div class="workshop">
+
+            <div class="workshop-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=900&q=80"
+                    alt="AutoLux EV Hub">
+
+                <div class="tag">
+                    EV SPECIALIST
+                </div>
+
+            </div>
+
+
+            <div class="workshop-content">
+
+                <h3>
+                    AutoLux EV Hub
+                </h3>
+
+                <div class="location">
+                    📍 Malappuram
+                </div>
+
+                <div class="rating">
+                    ⭐ 4.9 / 5
+                </div>
+
+                <p>
+                    Specialist workshop for EV charging,
+                    cables, accessories and electric vehicles.
+                </p>
+
+                <div class="services">
+
+                    <span class="service">
+                        EV Charger
+                    </span>
+
+                    <span class="service">
+                        Type-2
+                    </span>
+
+                    <span class="service">
+                        EV Safety
+                    </span>
+
+                    <span class="service">
+                        Inspection
+                    </span>
+
+                </div>
+
+
+                <div class="workshop-buttons">
+
+                    <a
+                        href="booking.html?workshop=AutoLux%20EV%20Hub"
+                        class="book">
+
+                        Book
+
+                    </a>
+
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=AutoLux+EV+Hub+Malappuram"
+                        target="_blank"
+                        class="map">
+
+                        🗺 Directions
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 3 -->
+
+        <div class="workshop">
+
+            <div class="workshop-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=900&q=80"
+                    alt="AutoLux Detail Studio">
+
+                <div class="tag">
+                    DETAILING
+                </div>
+
+            </div>
+
+
+            <div class="workshop-content">
+
+                <h3>
+                    AutoLux Detail Studio
+                </h3>
+
+                <div class="location">
+                    📍 Kozhikode
+                </div>
+
+                <div class="rating">
+                    ⭐ 4.7 / 5
+                </div>
+
+                <p>
+                    Premium car detailing, polishing,
+                    ceramic protection and interior care.
+                </p>
+
+                <div class="services">
+
+                    <span class="service">
+                        Detailing
+                    </span>
+
+                    <span class="service">
+                        Polish
+                    </span>
+
+                    <span class="service">
+                        Ceramic
+                    </span>
+
+                    <span class="service">
+                        Interior
+                    </span>
+
+                </div>
+
+
+                <div class="workshop-buttons">
+
+                    <a
+                        href="booking.html?workshop=AutoLux%20Detail%20Studio"
+                        class="book">
+
+                        Book
+
+                    </a>
+
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=AutoLux+Detail+Studio+Kozhikode"
+                        target="_blank"
+                        class="map">
+
+                        🗺 Directions
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 4 -->
+
+        <div class="workshop">
+
+            <div class="workshop-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1597007066704-67bf2068d5b2?auto=format&fit=crop&w=900&q=80"
+                    alt="AutoLux Garage Kottakkal">
+
+                <div class="tag">
+                    ACCESSORIES
+                </div>
+
+            </div>
+
+
+            <div class="workshop-content">
+
+                <h3>
+                    AutoLux Garage Kottakkal
+                </h3>
+
+                <div class="location">
+                    📍 Kottakkal, Malappuram
+                </div>
+
+                <div class="rating">
+                    ⭐ 4.8 / 5
+                </div>
+
+                <p>
+                    Accessory installation and general
+                    car upgrade services.
+                </p>
+
+                <div class="services">
+
+                    <span class="service">
+                        Infotainment
+                    </span>
+
+                    <span class="service">
+                        Camera
+                    </span>
+
+                    <span class="service">
+                        LED
+                    </span>
+
+                    <span class="service">
+                        Mats
+                    </span>
+
+                </div>
+
+
+                <div class="workshop-buttons">
+
+                    <a
+                        href="booking.html?workshop=AutoLux%20Garage%20Kottakkal"
+                        class="book">
+
+                        Book
+
+                    </a>
+
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=AutoLux+Garage+Kottakkal"
+                        target="_blank"
+                        class="map">
+
+                        🗺 Directions
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 5 -->
+
+        <div class="workshop">
+
+            <div class="workshop-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?auto=format&fit=crop&w=900&q=80"
+                    alt="AutoLux Electric Centre">
+
+                <div class="tag">
+                    EV SPECIALIST
+                </div>
+
+            </div>
+
+
+            <div class="workshop-content">
+
+                <h3>
+                    AutoLux Electric Centre
+                </h3>
+
+                <div class="location">
+                    📍 Kochi
+                </div>
+
+                <div class="rating">
+                    ⭐ 4.9 / 5
+                </div>
+
+                <p>
+                    EV charging equipment and electric
+                    vehicle accessory installation.
+                </p>
+
+                <div class="services">
+
+                    <span class="service">
+                        Wallbox
+                    </span>
+
+                    <span class="service">
+                        EV Cable
+                    </span>
+
+                    <span class="service">
+                        Charger
+                    </span>
+
+                    <span class="service">
+                        Diagnostics
+                    </span>
+
+                </div>
+
+
+                <div class="workshop-buttons">
+
+                    <a
+                        href="booking.html?workshop=AutoLux%20Electric%20Centre"
+                        class="book">
+
+                        Book
+
+                    </a>
+
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=AutoLux+Electric+Centre+Kochi"
+                        target="_blank"
+                        class="map">
+
+                        🗺 Directions
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 6 -->
+
+        <div class="workshop">
+
+            <div class="workshop-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1632823469850-1f77f8f2d6e5?auto=format&fit=crop&w=900&q=80"
+                    alt="AutoLux Shine Garage">
+
+                <div class="tag">
+                    DETAILING
+                </div>
+
+            </div>
+
+
+            <div class="workshop-content">
+
+                <h3>
+                    AutoLux Shine Garage
+                </h3>
+
+                <div class="location">
+                    📍 Perinthalmanna
+                </div>
+
+                <div class="rating">
+                    ⭐ 4.6 / 5
+                </div>
+
+                <p>
+                    Interior cleaning, exterior detailing
+                    and car care services.
+                </p>
+
+                <div class="services">
+
+                    <span class="service">
+                        Cleaning
+                    </span>
+
+                    <span class="service">
+                        Polish
+                    </span>
+
+                    <span class="service">
+                        Vacuum
+                    </span>
+
+                    <span class="service">
+                        Care
+                    </span>
+
+                </div>
+
+
+                <div class="workshop-buttons">
+
+                    <a
+                        href="booking.html?workshop=AutoLux%20Shine%20Garage"
+                        class="book">
+
+                        Book
+
+                    </a>
+
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=AutoLux+Shine+Garage+Perinthalmanna"
+                        target="_blank"
+                        class="map">
+
+                        🗺 Directions
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section class="section">
+
+    <div class="heading">
+
+        <h2>
+            Workshop <span>Services</span>
+        </h2>
+
+        <p>
+            Professional services available through AutoLux.
+        </p>
+
+    </div>
+
+
+    <div class="services-grid">
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🪑
+            </div>
+
+            <h3>
+                Interior Installation
+            </h3>
+
+            <p>
+                Seat covers, floor mats,
+                ambient lighting and more.
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                💡
+            </div>
+
+            <h3>
+                Exterior Upgrades
+            </h3>
+
+            <p>
+                LED lights, styling accessories
+                and exterior upgrades.
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                📷
+            </div>
+
+            <h3>
+                Electronics
+            </h3>
+
+            <p>
+                Dashcams, cameras,
+                infotainment and accessories.
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                ⚡
+            </div>
+
+            <h3>
+                EV Services
+            </h3>
+
+            <p>
+                EV chargers, cables and
+                electric vehicle accessories.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROCESS ================= -->
+
+<section class="section">
+
+    <div class="heading">
+
+        <h2>
+            How It <span>Works</span>
+        </h2>
+
+    </div>
+
+
+    <div class="process">
+
+
+        <div class="step">
+
+            <div class="step-number">
+                01
+            </div>
+
+            <h3>
+                Choose Product
+            </h3>
+
+            <p>
+                Select your desired car accessory
+                from AutoLux.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                02
+            </div>
+
+            <h3>
+                Find Workshop
+            </h3>
+
+            <p>
+                Search for a nearby workshop
+                using the locator.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                03
+            </div>
+
+            <h3>
+                Book Installation
+            </h3>
+
+            <p>
+                Choose a date and time that
+                suits you.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                04
+            </div>
+
+            <h3>
+                Get It Installed
+            </h3>
+
+            <p>
+                Visit the workshop and get
+                professional installation.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-grid">
+
+
+        <div class="footer-column">
+
+            <h3>
+                AutoLux
+            </h3>
+
+            <p>
+                Premium car accessories,
+                EV solutions and professional
+                workshop services connected
+                in one platform.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Shop
+            </h3>
+
+            <a href="accessories.html">
+                Accessories
+            </a>
+
+            <a href="ev-zone.html">
+                EV Zone
+            </a>
+
+            <a href="compare.html">
+                Compare
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Services
+            </h3>
+
+            <a href="workshops.html">
+                Workshops
+            </a>
+
+            <a href="booking.html">
+                Booking
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Account
+            </h3>
+
+            <a href="login.html">
+                Login
+            </a>
+
+            <a href="signup.html">
+                Sign Up
+            </a>
+
+            <a href="account.html">
+                My Account
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 AutoLux — Premium Car Accessories & EV Solutions
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   WORKSHOP DATA
+========================= */
+
+const workshops = [
+
+    {
+        name:"AutoLux Care Tirur",
+        city:"tirur",
+        location:"Tirur, Malappuram",
+        type:"Accessories",
+        map:"https://www.google.com/maps/search/?api=1&query=AutoLux+Care+Tirur",
+        booking:"booking.html?workshop=AutoLux%20Care%20Tirur"
+    },
+
+    {
+        name:"AutoLux EV Hub",
+        city:"malappuram",
+        location:"Malappuram",
+        type:"EV Specialist",
+        map:"https://www.google.com/maps/search/?api=1&query=AutoLux+EV+Hub+Malappuram",
+        booking:"booking.html?workshop=AutoLux%20EV%20Hub"
+    },
+
+    {
+        name:"AutoLux Detail Studio",
+        city:"kozhikode",
+        location:"Kozhikode",
+        type:"Detailing",
+        map:"https://www.google.com/maps/search/?api=1&query=AutoLux+Detail+Studio+Kozhikode",
+        booking:"booking.html?workshop=AutoLux%20Detail%20Studio"
+    },
+
+    {
+        name:"AutoLux Garage Kottakkal",
+        city:"kottakkal",
+        location:"Kottakkal, Malappuram",
+        type:"Accessories",
+        map:"https://www.google.com/maps/search/?api=1&query=AutoLux+Garage+Kottakkal",
+        booking:"booking.html?workshop=AutoLux%20Garage%20Kottakkal"
+    },
+
+    {
+        name:"AutoLux Electric Centre",
+        city:"kochi",
+        location:"Kochi",
+        type:"EV Specialist",
+        map:"https://www.google.com/maps/search/?api=1&query=AutoLux+Electric+Centre+Kochi",
+        booking:"booking.html?workshop=AutoLux%20Electric%20Centre"
+    },
+
+    {
+        name:"AutoLux Shine Garage",
+        city:"perinthalmanna",
+        location:"Perinthalmanna",
+        type:"Detailing",
+        map:"https://www.google.com/maps/search/?api=1&query=AutoLux+Shine+Garage+Perinthalmanna",
+        booking:"booking.html?workshop=AutoLux%20Shine%20Garage"
+    }
+
+];
+
+
+/* =========================
+   FIND NEAREST
+========================= */
+
+function findNearest(){
+
+    const input =
+        document
+        .getElementById("locationInput")
+        .value
+        .trim()
+        .toLowerCase();
+
+
+    const status =
+        document
+        .getElementById("locationStatus");
+
+
+    const result =
+        document
+        .getElementById("nearestResult");
+
+
+    if(!input){
+
+        status.textContent =
+            "Please enter your city or area.";
+
+        result.style.display = "none";
+
+        return;
+
+    }
+
+
+    let found = null;
+
+
+    /* Exact / partial city match */
+
+    for(let workshop of workshops){
+
+        if(
+            input.includes(workshop.city) ||
+            workshop.city.includes(input)
+        ){
+
+            found = workshop;
+            break;
+
+        }
+
+    }
+
+
+    /* Additional area matching */
+
+    if(!found){
+
+        if(
+            input.includes("tirur") ||
+            input.includes("tanur")
+        ){
+
+            found = workshops[0];
+
+        }
+
+        else if(
+            input.includes("kottakkal") ||
+            input.includes("valanchery")
+        ){
+
+            found = workshops[3];
+
+        }
+
+        else if(
+            input.includes("kozhikode") ||
+            input.includes("calicut")
+        ){
+
+            found = workshops[2];
+
+        }
+
+        else if(
+            input.includes("perinthalmanna") ||
+            input.includes("manjeri")
+        ){
+
+            found = workshops[5];
+
+        }
+
+        else if(
+            input.includes("kochi") ||
+            input.includes("ernakulam")
+        ){
+
+            found = workshops[4];
+
+        }
+
+        else if(
+            input.includes("malappuram")
+        ){
+
+            found = workshops[1];
+
+        }
+
+    }
+
+
+    if(found){
+
+        status.textContent =
+            "✓ Workshop found near your selected area.";
+
+
+        result.style.display = "block";
+
+
+        result.innerHTML = `
+
+            <h3>
+                📍 ${found.name}
+            </h3>
+
+            <p>
+
+                <strong>Location:</strong>
+                ${found.location}
+
+                <br>
+
+                <strong>Speciality:</strong>
+                ${found.type}
+
+            </p>
+
+            <a
+                href="${found.booking}">
+
+                📅 Book Installation
+
+            </a>
+
+            &nbsp;
+
+            <a
+                href="${found.map}"
+                target="_blank">
+
+                🗺 Get Directions
+
+            </a>
+
+        `;
+
+
+        result.scrollIntoView({
+
+            behavior:"smooth",
+            block:"center"
+
+        });
+
+    }
+
+    else{
+
+        status.textContent =
+            "No exact workshop match found. Showing our available network below.";
+
+        result.style.display = "block";
+
+        result.innerHTML = `
+
+            <h3>
+                🔎 No Exact Match
+            </h3>
+
+            <p>
+
+                Try searching:
+                Tirur, Kottakkal, Malappuram,
+                Kozhikode, Perinthalmanna or Kochi.
+
+            </p>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================
+   CART COUNT
+========================= */
+
+function updateCartCount(){
+
+    const cart =
+        JSON.parse(
+            localStorage.getItem(
+                "autoluxCart"
+            )
+        ) || [];
+
+
+    const count =
+        cart.reduce(
+
+            (sum,item) =>
+            sum +
+            Number(item.quantity || 1),
+
+            0
+
+        );
+
+
+    document
+    .getElementById("cartCount")
+    .textContent = count;
+
+}
+
+
+/* =========================
+   ACCOUNT
+========================= */
+
+function checkAccount(){
+
+    const user =
+        JSON.parse(
+            localStorage.getItem(
+                "autoluxUser"
+            )
+        );
+
+
+    const loggedIn =
+        localStorage.getItem(
+            "autoluxLoggedIn"
+        );
+
+
+    const account =
+        document.getElementById(
+            "accountLink"
+        );
+
+
+    if(
+        user &&
+        loggedIn === "true"
+    ){
+
+        account.href =
+            "account.html";
+
+        account.textContent =
+            "👤 My Account";
+
+    }
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+updateCartCount();
+
+checkAccount();
+
+</script>
+
+</body>
+</html>

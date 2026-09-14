@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AutoLux | Workshop Booking</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#090909;
+    color:#fff;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    height:76px;
+    padding:0 7%;
+    background:#111;
+    border-bottom:1px solid #292929;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    color:#ff6a00;
+    text-decoration:none;
+    font-size:29px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#fff;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.nav-links a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.nav-links a:hover{
+    color:#ff6a00;
+}
+
+.cart-btn{
+    background:#ff6a00;
+    color:#fff !important;
+    padding:10px 17px;
+    border-radius:25px;
+}
+
+.account-btn{
+    border:1px solid #444;
+    padding:9px 15px;
+    border-radius:25px;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    padding:65px 7%;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.82),
+        rgba(0,0,0,.94)
+    ),
+    url("https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+}
+
+.badge{
+    display:inline-block;
+
+    padding:9px 15px;
+
+    border-radius:25px;
+
+    color:#ff8b42;
+
+    background:#26170e;
+
+    border:1px solid #63350f;
+
+    font-size:12px;
+
+    margin-bottom:15px;
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:12px;
+}
+
+.hero h1 span{
+    color:#ff6a00;
+}
+
+.hero p{
+    color:#999;
+}
+
+
+/* ================= SECTION ================= */
+
+.section{
+    width:86%;
+    max-width:900px;
+    margin:60px auto;
+}
+
+
+/* ================= BOOKING CARD ================= */
+
+.booking-card{
+    background:#151515;
+
+    border:1px solid #292929;
+
+    border-radius:20px;
+
+    padding:35px;
+}
+
+
+/* ================= SELECTED WORKSHOP ================= */
+
+.selected{
+    display:none;
+
+    margin-bottom:25px;
+
+    padding:20px;
+
+    background:#17120e;
+
+    border:1px solid #593014;
+
+    border-radius:12px;
+}
+
+.selected-title{
+    color:#ff6a00;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    margin-bottom:7px;
+}
+
+.selected-name{
+    font-size:20px;
+
+    font-weight:bold;
+}
+
+.selected-location{
+    color:#888;
+
+    font-size:13px;
+
+    margin-top:5px;
+}
+
+
+/* ================= FORM ================= */
+
+.form-row{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:18px;
+}
+
+.field{
+    margin-bottom:18px;
+}
+
+.field label{
+    display:block;
+
+    color:#ccc;
+
+    font-size:13px;
+
+    margin-bottom:8px;
+}
+
+.field input,
+.field select,
+.field textarea{
+
+    width:100%;
+
+    padding:14px;
+
+    background:#0d0d0d;
+
+    color:#fff;
+
+    border:1px solid #333;
+
+    border-radius:8px;
+
+    outline:none;
+
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+
+    border-color:#ff6a00;
+
+}
+
+.field textarea{
+
+    min-height:100px;
+
+    resize:vertical;
+
+}
+
+
+/* ================= BUTTON ================= */
+
+.submit-btn{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:9px;
+
+    background:#ff6a00;
+
+    color:#fff;
+
+    font-weight:bold;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+}
+
+.submit-btn:hover{
+
+    background:#ff7b1c;
+
+}
+
+
+/* ================= ERROR ================= */
+
+.error{
+
+    display:none;
+
+    padding:13px;
+
+    margin-bottom:18px;
+
+    background:#291010;
+
+    border:1px solid #642727;
+
+    border-radius:8px;
+
+    color:#ff9999;
+
+    font-size:13px;
+
+}
+
+
+/* ================= SUCCESS ================= */
+
+.success{
+
+    display:none;
+
+    text-align:center;
+
+    padding:35px;
+
+    background:#101b13;
+
+    border:1px solid #275a35;
+
+    border-radius:15px;
+
+}
+
+.success-icon{
+
+    font-size:55px;
+
+    margin-bottom:15px;
+
+}
+
+.success h2{
+
+    margin-bottom:10px;
+
+}
+
+.success h2 span{
+
+    color:#ff6a00;
+
+}
+
+.success p{
+
+    color:#999;
+
+    line-height:1.7;
+
+    margin-bottom:20px;
+
+}
+
+.booking-id{
+
+    display:inline-block;
+
+    background:#191919;
+
+    border:1px solid #333;
+
+    padding:12px 18px;
+
+    border-radius:8px;
+
+    color:#ff6a00;
+
+    font-weight:bold;
+
+    margin-bottom:25px;
+
+}
+
+.success-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+}
+
+.success-buttons a{
+
+    text-decoration:none;
+
+    padding:12px 18px;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+    font-size:13px;
+
+}
+
+.home-btn{
+
+    background:#ff6a00;
+
+    color:#fff;
+
+}
+
+.account-btn2{
+
+    background:#292929;
+
+    color:#fff;
+
+}
+
+
+/* ================= EXISTING BOOKING ================= */
+
+.existing{
+
+    margin-top:25px;
+
+    padding:22px;
+
+    background:#151515;
+
+    border:1px solid #292929;
+
+    border-radius:15px;
+
+}
+
+.existing h3{
+
+    color:#ff6a00;
+
+    margin-bottom:12px;
+
+}
+
+.existing p{
+
+    color:#888;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+}
+
+.cancel-btn{
+
+    margin-top:15px;
+
+    padding:10px 15px;
+
+    border:none;
+
+    border-radius:7px;
+
+    background:#292929;
+
+    color:#fff;
+
+    cursor:pointer;
+
+}
+
+.cancel-btn:hover{
+
+    background:#3a3a3a;
+
+}
+
+
+/* ================= INFO ================= */
+
+.info-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:15px;
+
+    margin-top:30px;
+
+}
+
+.info{
+
+    text-align:center;
+
+    padding:22px;
+
+    background:#151515;
+
+    border:1px solid #292929;
+
+    border-radius:14px;
+
+}
+
+.info-icon{
+
+    font-size:28px;
+
+    margin-bottom:10px;
+
+}
+
+.info h3{
+
+    font-size:14px;
+
+    margin-bottom:7px;
+
+}
+
+.info p{
+
+    color:#777;
+
+    font-size:12px;
+
+    line-height:1.5;
+
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+
+    margin-top:70px;
+
+    padding:45px 7% 25px;
+
+    background:#111;
+
+    border-top:1px solid #292929;
+
+}
+
+.footer-grid{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    2fr 1fr 1fr 1fr;
+
+    gap:30px;
+
+}
+
+.footer-column h3{
+
+    color:#ff6a00;
+
+    margin-bottom:15px;
+
+}
+
+.footer-column p{
+
+    color:#777;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+}
+
+.footer-column a{
+
+    display:block;
+
+    color:#888;
+
+    text-decoration:none;
+
+    font-size:13px;
+
+    margin:9px 0;
+
+}
+
+.footer-column a:hover{
+
+    color:#ff6a00;
+
+}
+
+.copyright{
+
+    text-align:center;
+
+    color:#555;
+
+    font-size:12px;
+
+    border-top:1px solid #292929;
+
+    margin-top:35px;
+
+    padding-top:20px;
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:800px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .form-row{
+        grid-template-columns:1fr;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .section{
+        width:92%;
+    }
+
+    .booking-card{
+        padding:22px;
+    }
+
+    .success-buttons{
+        flex-direction:column;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+        Auto<span>Lux</span>
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="accessories.html">
+            Accessories
+        </a>
+
+        <a href="ev-zone.html">
+            EV Zone
+        </a>
+
+        <a href="workshops.html">
+            Workshops
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+        <a href="cart.html" class="cart-btn">
+
+            🛒 Cart
+            (<span id="cartCount">0</span>)
+
+        </a>
+
+        <a
+            href="login.html"
+            class="account-btn"
+            id="accountLink">
+
+            Login
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="badge">
+        AUTOLUX INSTALLATION
+    </div>
+
+    <h1>
+        Book Your <span>Workshop</span>
+    </h1>
+
+    <p>
+        Choose a workshop, select a service and schedule your visit.
+    </p>
+
+</section>
+
+
+<!-- ================= BOOKING ================= -->
+
+<section class="section">
+
+
+    <div class="booking-card">
+
+
+        <!-- SELECTED WORKSHOP -->
+
+        <div
+            class="selected"
+            id="selectedWorkshop">
+
+            <div class="selected-title">
+                SELECTED WORKSHOP
+            </div>
+
+            <div
+                class="selected-name"
+                id="selectedName">
+
+            </div>
+
+            <div
+                class="selected-location"
+                id="selectedLocation">
+
+            </div>
+
+        </div>
+
+
+        <!-- FORM -->
+
+        <form id="bookingForm">
+
+
+            <div class="form-row">
+
+
+                <div class="field">
+
+                    <label>
+                        Full Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name"
+                        required>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        Phone Number *
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="10-digit phone number"
+                        maxlength="10"
+                        required>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="form-row">
+
+
+                <div class="field">
+
+                    <label>
+                        Car Model *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="car"
+                        placeholder="Example: Toyota Fortuner"
+                        required>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        Workshop *
+                    </label>
+
+                    <select
+                        id="workshop"
+                        required>
+
+                        <option value="">
+                            Select Workshop
+                        </option>
+
+                        <option>
+                            AutoLux Care Tirur
+                        </option>
+
+                        <option>
+                            AutoLux EV Hub
+                        </option>
+
+                        <option>
+                            AutoLux Detail Studio
+                        </option>
+
+                        <option>
+                            AutoLux Garage Kottakkal
+                        </option>
+
+                        <option>
+                            AutoLux Electric Centre
+                        </option>
+
+                        <option>
+                            AutoLux Shine Garage
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="form-row">
+
+
+                <div class="field">
+
+                    <label>
+                        Service *
+                    </label>
+
+                    <select
+                        id="service"
+                        required>
+
+                        <option value="">
+                            Select Service
+                        </option>
+
+                        <option>
+                            Seat Cover Installation
+                        </option>
+
+                        <option>
+                            Floor Mat Installation
+                        </option>
+
+                        <option>
+                            LED Light Installation
+                        </option>
+
+                        <option>
+                            Dashcam Installation
+                        </option>
+
+                        <option>
+                            Android Infotainment Installation
+                        </option>
+
+                        <option>
+                            Parking Camera Installation
+                        </option>
+
+                        <option>
+                            Car Detailing
+                        </option>
+
+                        <option>
+                            Ceramic Coating
+                        </option>
+
+                        <option>
+                            EV Charger Installation
+                        </option>
+
+                        <option>
+                            EV Cable / Charging Service
+                        </option>
+
+                        <option>
+                            EV Inspection
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        Preferred Date *
+                    </label>
+
+                    <input
+                        type="date"
+                        id="date"
+                        required>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Preferred Time *
+                </label>
+
+                <select
+                    id="time"
+                    required>
+
+                    <option value="">
+                        Select Time
+                    </option>
+
+                    <option>
+                        09:00 AM
+                    </option>
+
+                    <option>
+                        10:00 AM
+                    </option>
+
+                    <option>
+                        11:00 AM
+                    </option>
+
+                    <option>
+                        12:00 PM
+                    </option>
+
+                    <option>
+                        02:00 PM
+                    </option>
+
+                    <option>
+                        03:00 PM
+                    </option>
+
+                    <option>
+                        04:00 PM
+                    </option>
+
+                    <option>
+                        05:00 PM
+                    </option>
+
+                    <option>
+                        06:00 PM
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Additional Notes
+                </label>
+
+                <textarea
+                    id="note"
+                    placeholder="Tell us anything we should know about your vehicle..."></textarea>
+
+            </div>
+
+
+            <div
+                class="error"
+                id="errorMessage">
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="submit-btn">
+
+                📅 Confirm Workshop Booking
+
+            </button>
+
+
+        </form>
+
+
+        <!-- ================= SUCCESS ================= -->
+
+        <div
+            class="success"
+            id="successMessage">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h2>
+                Booking <span>Confirmed!</span>
+            </h2>
+
+            <p>
+
+                Your AutoLux workshop appointment
+                has been successfully booked.
+
+                <br>
+
+                Please arrive a few minutes before
+                your selected appointment time.
+
+            </p>
+
+
+            <div
+                class="booking-id"
+                id="bookingID">
+
+            </div>
+
+
+            <div class="success-buttons">
+
+                <a
+                    href="index.html"
+                    class="home-btn">
+
+                    Back to Home
+
+                </a>
+
+                <a
+                    href="account.html"
+                    class="account-btn2">
+
+                    My Account
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ================= INFO ================= -->
+
+    <div class="info-grid">
+
+
+        <div class="info">
+
+            <div class="info-icon">
+                🔧
+            </div>
+
+            <h3>
+                Professional Installation
+            </h3>
+
+            <p>
+                Get your accessories installed
+                by trained workshop staff.
+            </p>
+
+        </div>
+
+
+        <div class="info">
+
+            <div class="info-icon">
+                ⚡
+            </div>
+
+            <h3>
+                EV Specialists
+            </h3>
+
+            <p>
+                Selected workshops provide
+                EV charging and accessory services.
+            </p>
+
+        </div>
+
+
+        <div class="info">
+
+            <div class="info-icon">
+                📍
+            </div>
+
+            <h3>
+                Multiple Locations
+            </h3>
+
+            <p>
+                Choose a workshop closer to
+                your preferred location.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= EXISTING BOOKING ================= -->
+
+<section
+    class="section"
+    id="existingSection"
+    style="display:none;">
+
+    <div class="existing">
+
+        <h3>
+            📅 Your Current Booking
+        </h3>
+
+        <p id="existingDetails"></p>
+
+        <button
+            class="cancel-btn"
+            onclick="cancelBooking()">
+
+            Cancel Booking
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-grid">
+
+
+        <div class="footer-column">
+
+            <h3>
+                AutoLux
+            </h3>
+
+            <p>
+                Premium car accessories,
+                EV solutions and professional
+                workshop services connected
+                in one platform.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Shop
+            </h3>
+
+            <a href="accessories.html">
+                Accessories
+            </a>
+
+            <a href="ev-zone.html">
+                EV Zone
+            </a>
+
+            <a href="compare.html">
+                Compare
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Services
+            </h3>
+
+            <a href="workshops.html">
+                Workshops
+            </a>
+
+            <a href="booking.html">
+                Booking
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Account
+            </h3>
+
+            <a href="login.html">
+                Login
+            </a>
+
+            <a href="signup.html">
+                Sign Up
+            </a>
+
+            <a href="account.html">
+                My Account
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 AutoLux — Premium Car Accessories & EV Solutions
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =========================================
+   WORKSHOP INFORMATION
+========================================= */
+
+const workshopData = {
+
+    "AutoLux Care Tirur":{
+        location:"Tirur, Malappuram"
+    },
+
+    "AutoLux EV Hub":{
+        location:"Malappuram"
+    },
+
+    "AutoLux Detail Studio":{
+        location:"Kozhikode"
+    },
+
+    "AutoLux Garage Kottakkal":{
+        location:"Kottakkal, Malappuram"
+    },
+
+    "AutoLux Electric Centre":{
+        location:"Kochi"
+    },
+
+    "AutoLux Shine Garage":{
+        location:"Perinthalmanna"
+    }
+
+};
+
+
+/* =========================================
+   URL WORKSHOP SELECTION
+========================================= */
+
+function loadWorkshopFromURL(){
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    const workshop =
+        params.get("workshop");
+
+
+    if(!workshop){
+        return;
+    }
+
+
+    const decoded =
+        decodeURIComponent(workshop);
+
+
+    const select =
+        document.getElementById(
+            "workshop"
+        );
+
+
+    let found = false;
+
+
+    for(
+        let option of select.options
+    ){
+
+        if(
+            option.text.trim()
+            .toLowerCase()
+            ===
+            decoded.trim()
+            .toLowerCase()
+        ){
+
+            select.value =
+                option.text;
+
+            found = true;
+
+            break;
+
+        }
+
+    }
+
+
+    if(found){
+
+        showSelectedWorkshop(
+            select.value
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   SHOW SELECTED WORKSHOP
+========================================= */
+
+function showSelectedWorkshop(name){
+
+    const selected =
+        document.getElementById(
+            "selectedWorkshop"
+        );
+
+    const selectedName =
+        document.getElementById(
+            "selectedName"
+        );
+
+    const selectedLocation =
+        document.getElementById(
+            "selectedLocation"
+        );
+
+
+    if(
+        workshopData[name]
+    ){
+
+        selected.style.display =
+            "block";
+
+        selectedName.textContent =
+            name;
+
+        selectedLocation.textContent =
+            "📍 " +
+            workshopData[name].location;
+
+    }
+
+}
+
+
+/* =========================================
+   WORKSHOP CHANGE
+========================================= */
+
+document
+.getElementById("workshop")
+.addEventListener(
+    "change",
+    function(){
+
+        if(this.value){
+
+            showSelectedWorkshop(
+                this.value
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   DATE
+========================================= */
+
+const dateInput =
+    document.getElementById("date");
+
+
+const today =
+    new Date();
+
+
+const year =
+    today.getFullYear();
+
+
+const month =
+    String(
+        today.getMonth()+1
+    ).padStart(2,"0");
+
+
+const day =
+    String(
+        today.getDate()
+    ).padStart(2,"0");
+
+
+dateInput.min =
+    `${year}-${month}-${day}`;
+
+
+/* =========================================
+   BOOKING FORM
+========================================= */
+
+document
+.getElementById("bookingForm")
+.addEventListener(
+    "submit",
+    function(event){
+
+        event.preventDefault();
+
+
+        const name =
+            document
+            .getElementById("name")
+            .value.trim();
+
+
+        const phone =
+            document
+            .getElementById("phone")
+            .value.trim();
+
+
+        const car =
+            document
+            .getElementById("car")
+            .value.trim();
+
+
+        const workshop =
+            document
+            .getElementById("workshop")
+            .value;
+
+
+        const service =
+            document
+            .getElementById("service")
+            .value;
+
+
+        const date =
+            document
+            .getElementById("date")
+            .value;
+
+
+        const time =
+            document
+            .getElementById("time")
+            .value;
+
+
+        const note =
+            document
+            .getElementById("note")
+            .value.trim();
+
+
+        const error =
+            document
+            .getElementById(
+                "errorMessage"
+            );
+
+
+        /* PHONE */
+
+        if(
+            !/^[0-9]{10}$/.test(phone)
+        ){
+
+            error.style.display =
+                "block";
+
+            error.textContent =
+                "Please enter a valid 10-digit phone number.";
+
+            return;
+
+        }
+
+
+        /* DATE */
+
+        if(
+            date < dateInput.min
+        ){
+
+            error.style.display =
+                "block";
+
+            error.textContent =
+                "Please select today or a future date.";
+
+            return;
+
+        }
+
+
+        error.style.display =
+            "none";
+
+
+        /* BOOKING ID */
+
+        const bookingID =
+            "ALX-W" +
+            Math.floor(
+                100000 +
+                Math.random() * 900000
+            );
+
+
+        /* BOOKING OBJECT */
+
+        const booking = {
+
+            bookingID:bookingID,
+
+            workshop:workshop,
+
+            name:name,
+
+            phone:phone,
+
+            car:car,
+
+            service:service,
+
+            date:date,
+
+            time:time,
+
+            note:note,
+
+            createdAt:
+                new Date()
+                .toLocaleString()
+
+        };
+
+
+        /* SAVE */
+
+        localStorage.setItem(
+
+            "autoluxBooking",
+
+            JSON.stringify(
+                booking
+            )
+
+        );
+
+
+        /* SUCCESS */
+
+        document
+        .getElementById(
+            "bookingForm"
+        )
+        .style.display =
+            "none";
+
+
+        document
+        .getElementById(
+            "selectedWorkshop"
+        )
+        .style.display =
+            "none";
+
+
+        document
+        .getElementById(
+            "successMessage"
+        )
+        .style.display =
+            "block";
+
+
+        document
+        .getElementById(
+            "bookingID"
+        )
+        .textContent =
+            "Booking ID: " +
+            bookingID;
+
+
+        loadExistingBooking();
+
+    }
+);
+
+
+/* =========================================
+   EXISTING BOOKING
+========================================= */
+
+function loadExistingBooking(){
+
+    const booking =
+        JSON.parse(
+            localStorage.getItem(
+                "autoluxBooking"
+            )
+        );
+
+
+    if(!booking){
+        return;
+    }
+
+
+    const section =
+        document.getElementById(
+            "existingSection"
+        );
+
+
+    const details =
+        document.getElementById(
+            "existingDetails"
+        );
+
+
+    section.style.display =
+        "block";
+
+
+    details.innerHTML =
+
+        `<strong>${booking.bookingID}</strong>
+        <br>
+        Workshop: ${booking.workshop}
+        <br>
+        Service: ${booking.service}
+        <br>
+        Date: ${booking.date}
+        <br>
+        Time: ${booking.time}
+        <br>
+        Car: ${booking.car}`;
+
+}
+
+
+/* =========================================
+   CANCEL BOOKING
+========================================= */
+
+function cancelBooking(){
+
+    const confirmCancel =
+        confirm(
+            "Are you sure you want to cancel your booking?"
+        );
+
+
+    if(!confirmCancel){
+        return;
+    }
+
+
+    localStorage.removeItem(
+        "autoluxBooking"
+    );
+
+
+    document
+    .getElementById(
+        "existingSection"
+    )
+    .style.display =
+        "none";
+
+
+    alert(
+        "Your AutoLux workshop booking has been cancelled."
+    );
+
+}
+
+
+/* =========================================
+   CART COUNT
+========================================= */
+
+function updateCartCount(){
+
+    const cart =
+        JSON.parse(
+            localStorage.getItem(
+                "autoluxCart"
+            )
+        ) || [];
+
+
+    const count =
+        cart.reduce(
+
+            (sum,item) =>
+            sum +
+            Number(
+                item.quantity || 1
+            ),
+
+            0
+
+        );
+
+
+    document
+    .getElementById(
+        "cartCount"
+    )
+    .textContent =
+        count;
+
+}
+
+
+/* =========================================
+   ACCOUNT
+========================================= */
+
+function checkAccount(){
+
+    const user =
+        JSON.parse(
+            localStorage.getItem(
+                "autoluxUser"
+            )
+        );
+
+
+    const loggedIn =
+        localStorage.getItem(
+            "autoluxLoggedIn"
+        );
+
+
+    const account =
+        document.getElementById(
+            "accountLink"
+        );
+
+
+    if(
+        user &&
+        loggedIn === "true"
+    ){
+
+        account.href =
+            "account.html";
+
+        account.textContent =
+            "👤 My Account";
+
+    }
+
+}
+
+
+/* =========================================
+   START
+========================================= */
+
+loadWorkshopFromURL();
+
+loadExistingBooking();
+
+updateCartCount();
+
+checkAccount();
+
+</script>
+
+</body>
+
+</html>

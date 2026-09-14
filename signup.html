@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AutoLux | Create Account</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:#080808;
+    color:#fff;
+}
+
+/* NAVBAR */
+
+.navbar{
+    height:75px;
+    background:#111;
+    border-bottom:1px solid #292929;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+}
+
+.logo{
+    color:#ff6a00;
+    font-size:28px;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.logo span{
+    color:#fff;
+}
+
+.home-link{
+    color:#aaa;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.home-link:hover{
+    color:#ff6a00;
+}
+
+
+/* MAIN */
+
+.signup-section{
+    min-height:calc(100vh - 75px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:45px 20px;
+    background:
+    radial-gradient(
+        circle at top left,
+        #2b1608,
+        transparent 35%
+    );
+}
+
+
+/* CARD */
+
+.signup-card{
+    width:100%;
+    max-width:600px;
+    background:#151515;
+    border:1px solid #303030;
+    border-radius:20px;
+    padding:38px;
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+
+.logo-small{
+    width:60px;
+    height:60px;
+    background:#ff6a00;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 18px;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.signup-card h1{
+    text-align:center;
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#888;
+    font-size:14px;
+    margin-bottom:30px;
+}
+
+
+/* FORM */
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:17px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+label{
+    color:#bbb;
+    font-size:13px;
+}
+
+input,
+select{
+    width:100%;
+    padding:13px;
+    background:#0c0c0c;
+    border:1px solid #333;
+    border-radius:9px;
+    color:#fff;
+    outline:none;
+    font-size:14px;
+}
+
+input:focus,
+select:focus{
+    border-color:#ff6a00;
+}
+
+
+/* PASSWORD */
+
+.password-box{
+    position:relative;
+}
+
+.password-box input{
+    padding-right:50px;
+}
+
+.eye{
+    position:absolute;
+    right:15px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    color:#888;
+}
+
+.eye:hover{
+    color:#ff6a00;
+}
+
+
+/* PASSWORD STRENGTH */
+
+.strength{
+    height:4px;
+    background:#292929;
+    border-radius:5px;
+    margin-top:5px;
+    overflow:hidden;
+}
+
+.strength-bar{
+    height:100%;
+    width:0%;
+    transition:.3s;
+}
+
+.strength-text{
+    color:#777;
+    font-size:11px;
+    margin-top:4px;
+}
+
+
+/* TERMS */
+
+.terms{
+    display:flex;
+    gap:9px;
+    align-items:flex-start;
+    margin:22px 0;
+    color:#888;
+    font-size:12px;
+    line-height:1.5;
+}
+
+.terms input{
+    width:auto;
+    margin-top:3px;
+    accent-color:#ff6a00;
+}
+
+.terms a{
+    color:#ff6a00;
+    text-decoration:none;
+}
+
+
+/* ERROR */
+
+.error{
+    display:none;
+    background:#321414;
+    border:1px solid #672525;
+    color:#ff7777;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:18px;
+    font-size:13px;
+}
+
+
+/* SUCCESS */
+
+.success{
+    display:none;
+    text-align:center;
+    padding:20px 0;
+}
+
+.success-icon{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:#ff6a00;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+    margin:0 auto 18px;
+}
+
+.success h2{
+    margin-bottom:10px;
+}
+
+.success p{
+    color:#999;
+    line-height:1.6;
+}
+
+
+/* BUTTON */
+
+.signup-btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:9px;
+    background:#ff6a00;
+    color:#fff;
+    font-weight:bold;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.signup-btn:hover{
+    background:#ff7a1a;
+}
+
+
+/* LOGIN */
+
+.login-text{
+    text-align:center;
+    color:#888;
+    font-size:14px;
+    margin-top:25px;
+}
+
+.login-text a{
+    color:#ff6a00;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:22px;
+    color:#666;
+    font-size:12px;
+    border-top:1px solid #222;
+    background:#101010;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:600px){
+
+    .signup-card{
+        padding:28px 22px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+    .signup-card h1{
+        font-size:25px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+        Auto<span>Lux</span>
+    </a>
+
+    <a href="index.html" class="home-link">
+        ← Back to Home
+    </a>
+
+</nav>
+
+
+<!-- SIGN UP -->
+
+<section class="signup-section">
+
+    <div class="signup-card">
+
+
+        <!-- FORM -->
+
+        <div id="signupForm">
+
+            <div class="logo-small">
+                A
+            </div>
+
+            <h1>
+                Create Your Account
+            </h1>
+
+            <p class="subtitle">
+                Join AutoLux and upgrade your driving experience.
+            </p>
+
+
+            <div
+                class="error"
+                id="errorMessage">
+            </div>
+
+
+            <div class="form-grid">
+
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label>
+                        Full Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name">
+
+                </div>
+
+
+                <!-- PHONE -->
+
+                <div class="form-group">
+
+                    <label>
+                        Phone Number *
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        maxlength="10"
+                        placeholder="10-digit number">
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group full">
+
+                    <label>
+                        Email Address *
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="example@email.com">
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label>
+                        Password *
+                    </label>
+
+                    <div class="password-box">
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Create password"
+                            oninput="checkStrength()">
+
+                        <span
+                            class="eye"
+                            onclick="togglePassword('password')">
+
+                            👁
+
+                        </span>
+
+                    </div>
+
+                    <div class="strength">
+
+                        <div
+                            class="strength-bar"
+                            id="strengthBar">
+                        </div>
+
+                    </div>
+
+                    <div
+                        class="strength-text"
+                        id="strengthText">
+
+                        Enter a password
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="form-group">
+
+                    <label>
+                        Confirm Password *
+                    </label>
+
+                    <div class="password-box">
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Repeat password">
+
+                        <span
+                            class="eye"
+                            onclick="togglePassword('confirmPassword')">
+
+                            👁
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- VEHICLE -->
+
+                <div class="form-group">
+
+                    <label>
+                        Vehicle Model
+                    </label>
+
+                    <input
+                        type="text"
+                        id="vehicle"
+                        placeholder="e.g. Toyota Fortuner">
+
+                </div>
+
+
+                <!-- EV -->
+
+                <div class="form-group">
+
+                    <label>
+                        Do you own an EV?
+                    </label>
+
+                    <select id="ev">
+
+                        <option value="No">
+                            No
+                        </option>
+
+                        <option value="Yes">
+                            Yes
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- TERMS -->
+
+            <div class="terms">
+
+                <input
+                    type="checkbox"
+                    id="terms">
+
+                <span>
+
+                    I agree to the AutoLux
+                    <a href="#">
+                        Terms & Conditions
+                    </a>
+                    and understand that this is a
+                    college project demonstration.
+
+                </span>
+
+            </div>
+
+
+            <button
+                class="signup-btn"
+                onclick="createAccount()">
+
+                Create AutoLux Account
+
+            </button>
+
+
+            <p class="login-text">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Login
+                </a>
+
+            </p>
+
+        </div>
+
+
+        <!-- SUCCESS -->
+
+        <div
+            class="success"
+            id="successBox">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h2>
+                Account Created!
+            </h2>
+
+            <p>
+                Your AutoLux account has been successfully created.
+                Redirecting you to the login page...
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    © 2026 AutoLux — Premium Car Accessories & EV Solutions
+
+</footer>
+
+
+<script>
+
+/* =========================
+   PASSWORD TOGGLE
+========================= */
+
+function togglePassword(id){
+
+    const input =
+        document.getElementById(id);
+
+    if(input.type === "password"){
+
+        input.type = "text";
+
+    }else{
+
+        input.type = "password";
+
+    }
+
+}
+
+
+/* =========================
+   PASSWORD STRENGTH
+========================= */
+
+function checkStrength(){
+
+    const password =
+        document.getElementById("password")
+        .value;
+
+    const bar =
+        document.getElementById("strengthBar");
+
+    const text =
+        document.getElementById("strengthText");
+
+
+    let strength = 0;
+
+
+    if(password.length >= 6){
+        strength++;
+    }
+
+    if(/[A-Z]/.test(password)){
+        strength++;
+    }
+
+    if(/[0-9]/.test(password)){
+        strength++;
+    }
+
+    if(/[^A-Za-z0-9]/.test(password)){
+        strength++;
+    }
+
+
+    if(password.length === 0){
+
+        bar.style.width = "0%";
+        text.textContent =
+            "Enter a password";
+
+    }
+
+    else if(strength <= 1){
+
+        bar.style.width = "25%";
+        text.textContent =
+            "Weak password";
+
+    }
+
+    else if(strength === 2){
+
+        bar.style.width = "50%";
+        text.textContent =
+            "Medium password";
+
+    }
+
+    else if(strength === 3){
+
+        bar.style.width = "75%";
+        text.textContent =
+            "Strong password";
+
+    }
+
+    else{
+
+        bar.style.width = "100%";
+        text.textContent =
+            "Very strong password";
+
+    }
+
+}
+
+
+/* =========================
+   CREATE ACCOUNT
+========================= */
+
+function createAccount(){
+
+    const name =
+        document.getElementById("name")
+        .value.trim();
+
+    const phone =
+        document.getElementById("phone")
+        .value.trim();
+
+    const email =
+        document.getElementById("email")
+        .value.trim()
+        .toLowerCase();
+
+    const password =
+        document.getElementById("password")
+        .value;
+
+    const confirmPassword =
+        document.getElementById("confirmPassword")
+        .value;
+
+    const vehicle =
+        document.getElementById("vehicle")
+        .value.trim();
+
+    const ev =
+        document.getElementById("ev")
+        .value;
+
+    const terms =
+        document.getElementById("terms")
+        .checked;
+
+    const error =
+        document.getElementById("errorMessage");
+
+
+    error.style.display = "none";
+
+
+    /* REQUIRED */
+
+    if(
+        !name ||
+        !phone ||
+        !email ||
+        !password ||
+        !confirmPassword
+    ){
+
+        showError(
+            "Please fill in all required fields."
+        );
+
+        return;
+
+    }
+
+
+    /* PHONE */
+
+    if(!/^[0-9]{10}$/.test(phone)){
+
+        showError(
+            "Please enter a valid 10-digit phone number."
+        );
+
+        return;
+
+    }
+
+
+    /* EMAIL */
+
+    if(
+        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    ){
+
+        showError(
+            "Please enter a valid email address."
+        );
+
+        return;
+
+    }
+
+
+    /* PASSWORD */
+
+    if(password.length < 6){
+
+        showError(
+            "Password must contain at least 6 characters."
+        );
+
+        return;
+
+    }
+
+
+    /* CONFIRM */
+
+    if(password !== confirmPassword){
+
+        showError(
+            "Passwords do not match."
+        );
+
+        return;
+
+    }
+
+
+    /* TERMS */
+
+    if(!terms){
+
+        showError(
+            "Please accept the Terms & Conditions."
+        );
+
+        return;
+
+    }
+
+
+    /* SAVE USER */
+
+    const user = {
+
+        name: name,
+
+        email: email,
+
+        password: password,
+
+        phone: phone,
+
+        vehicle:
+            vehicle || "Not specified",
+
+        ev: ev,
+
+        createdAt:
+            new Date().toLocaleString()
+
+    };
+
+
+    localStorage.setItem(
+        "autoluxUser",
+        JSON.stringify(user)
+    );
+
+
+    /* LOGIN STATE RESET */
+
+    localStorage.removeItem(
+        "autoluxLoggedIn"
+    );
+
+
+    /* SUCCESS */
+
+    document.getElementById("signupForm")
+        .style.display = "none";
+
+    document.getElementById("successBox")
+        .style.display = "block";
+
+
+    /* REDIRECT */
+
+    setTimeout(function(){
+
+        window.location.href =
+            "login.html";
+
+    },1800);
+
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+function showError(message){
+
+    const error =
+        document.getElementById("errorMessage");
+
+    error.textContent =
+        message;
+
+    error.style.display =
+        "block";
+
+}
+
+
+/* =========================
+   ENTER KEY
+========================= */
+
+document
+    .getElementById("confirmPassword")
+    .addEventListener(
+        "keydown",
+        function(event){
+
+            if(event.key === "Enter"){
+                createAccount();
+            }
+
+        }
+    );
+
+</script>
+
+</body>
+</html>

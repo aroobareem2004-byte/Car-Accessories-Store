@@ -1,0 +1,1976 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AutoLux | Premium Car Accessories</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#090909;
+    color:#fff;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+
+    height:76px;
+
+    padding:0 7%;
+
+    background:#111;
+
+    border-bottom:1px solid #292929;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+}
+
+.logo{
+
+    color:#ff6a00;
+
+    font-size:29px;
+
+    font-weight:bold;
+
+    text-decoration:none;
+
+}
+
+.logo span{
+    color:#fff;
+}
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:19px;
+
+}
+
+.nav-links a{
+
+    color:#ddd;
+
+    text-decoration:none;
+
+    font-size:13px;
+
+}
+
+.nav-links a:hover{
+
+    color:#ff6a00;
+
+}
+
+.cart-btn{
+
+    background:#ff6a00;
+
+    color:#fff !important;
+
+    padding:10px 16px;
+
+    border-radius:25px;
+
+}
+
+.account-btn{
+
+    border:1px solid #444;
+
+    padding:9px 15px;
+
+    border-radius:25px;
+
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+
+    min-height:650px;
+
+    padding:120px 7%;
+
+    display:flex;
+
+    align-items:center;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        rgba(0,0,0,.92),
+        rgba(0,0,0,.55),
+        rgba(0,0,0,.25)
+    ),
+
+    url("https://images.unsplash.com/photo-1504215680853-026ed2a45def?auto=format&fit=crop&w=2000&q=90")
+
+    center/cover;
+
+}
+
+.hero-content{
+
+    max-width:650px;
+
+}
+
+.badge{
+
+    display:inline-block;
+
+    padding:9px 16px;
+
+    background:#24140a;
+
+    border:1px solid #63350f;
+
+    border-radius:25px;
+
+    color:#ff914e;
+
+    font-size:12px;
+
+    margin-bottom:20px;
+
+}
+
+.hero h1{
+
+    font-size:64px;
+
+    line-height:1.05;
+
+    margin-bottom:20px;
+
+}
+
+.hero h1 span{
+
+    color:#ff6a00;
+
+}
+
+.hero p{
+
+    color:#aaa;
+
+    font-size:17px;
+
+    line-height:1.7;
+
+    max-width:570px;
+
+    margin-bottom:30px;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.primary-btn,
+.secondary-btn{
+
+    text-decoration:none;
+
+    padding:14px 22px;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+    font-size:14px;
+
+}
+
+.primary-btn{
+
+    background:#ff6a00;
+
+    color:white;
+
+}
+
+.secondary-btn{
+
+    border:1px solid #555;
+
+    color:white;
+
+    background:rgba(0,0,0,.5);
+
+}
+
+
+/* ================= WELCOME ================= */
+
+.welcome{
+
+    display:none;
+
+    padding:15px 7%;
+
+    background:#17110c;
+
+    border-bottom:1px solid #42230e;
+
+    color:#ddd;
+
+}
+
+.welcome strong{
+
+    color:#ff6a00;
+
+}
+
+
+/* ================= SECTION ================= */
+
+.section{
+
+    width:86%;
+
+    max-width:1250px;
+
+    margin:80px auto;
+
+}
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.section-title h2{
+
+    font-size:36px;
+
+    margin-bottom:10px;
+
+}
+
+.section-title h2 span{
+
+    color:#ff6a00;
+
+}
+
+.section-title p{
+
+    color:#777;
+
+}
+
+
+/* ================= CATEGORIES ================= */
+
+.category-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:20px;
+
+}
+
+.category-card{
+
+    height:250px;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    border:1px solid #292929;
+
+    text-decoration:none;
+
+    color:white;
+
+}
+
+.category-card img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+
+}
+
+.category-card:hover img{
+
+    transform:scale(1.08);
+
+}
+
+.category-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        transparent,
+        rgba(0,0,0,.95)
+    );
+
+    display:flex;
+
+    align-items:flex-end;
+
+    padding:22px;
+
+}
+
+.category-overlay h3{
+
+    font-size:20px;
+
+    margin-bottom:5px;
+
+}
+
+.category-overlay p{
+
+    color:#aaa;
+
+    font-size:12px;
+
+}
+
+
+/* ================= EV BANNER ================= */
+
+.ev-banner{
+
+    margin-top:40px;
+
+    min-height:330px;
+
+    border-radius:20px;
+
+    padding:50px;
+
+    display:flex;
+
+    align-items:center;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        rgba(0,0,0,.92),
+        rgba(0,0,0,.4)
+    ),
+
+    url("https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=1600&q=85")
+
+    center/cover;
+
+    border:1px solid #292929;
+
+}
+
+.ev-content{
+
+    max-width:580px;
+
+}
+
+.ev-content small{
+
+    color:#ff6a00;
+
+    font-weight:bold;
+
+}
+
+.ev-content h2{
+
+    font-size:38px;
+
+    margin:12px 0;
+
+}
+
+.ev-content p{
+
+    color:#aaa;
+
+    line-height:1.7;
+
+    margin-bottom:22px;
+
+}
+
+
+/* ================= WORKSHOP ================= */
+
+.workshop-box{
+
+    background:#151515;
+
+    border:1px solid #292929;
+
+    border-radius:20px;
+
+    padding:45px;
+
+    display:grid;
+
+    grid-template-columns:1.2fr 1fr;
+
+    gap:40px;
+
+    align-items:center;
+
+}
+
+.workshop-box h2{
+
+    font-size:34px;
+
+    margin-bottom:15px;
+
+}
+
+.workshop-box h2 span{
+
+    color:#ff6a00;
+
+}
+
+.workshop-box p{
+
+    color:#888;
+
+    line-height:1.7;
+
+    margin-bottom:25px;
+
+}
+
+.feature-list{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:15px;
+
+}
+
+.feature{
+
+    padding:16px;
+
+    background:#0d0d0d;
+
+    border-radius:10px;
+
+    border:1px solid #252525;
+
+}
+
+.feature strong{
+
+    display:block;
+
+    color:#ddd;
+
+    font-size:13px;
+
+    margin-bottom:5px;
+
+}
+
+.feature span{
+
+    color:#777;
+
+    font-size:11px;
+
+}
+
+
+/* ================= LOCATION ================= */
+
+.location-box{
+
+    background:#111;
+
+    border:1px solid #292929;
+
+    border-radius:15px;
+
+    padding:25px;
+
+}
+
+.location-box h3{
+
+    margin-bottom:10px;
+
+}
+
+.location-box p{
+
+    color:#777;
+
+    font-size:13px;
+
+    margin-bottom:15px;
+
+}
+
+.location-input{
+
+    display:flex;
+
+    gap:8px;
+
+}
+
+.location-input input{
+
+    flex:1;
+
+    padding:13px;
+
+    background:#090909;
+
+    color:#fff;
+
+    border:1px solid #333;
+
+    border-radius:7px;
+
+    outline:none;
+
+}
+
+.location-input button{
+
+    padding:13px 18px;
+
+    background:#ff6a00;
+
+    border:none;
+
+    color:white;
+
+    border-radius:7px;
+
+    cursor:pointer;
+
+}
+
+.nearest-result{
+
+    display:none;
+
+    margin-top:15px;
+
+    padding:15px;
+
+    background:#1a130e;
+
+    border:1px solid #543015;
+
+    border-radius:8px;
+
+    color:#ddd;
+
+    font-size:13px;
+
+}
+
+
+/* ================= WHY ================= */
+
+.why-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:18px;
+
+}
+
+.why-card{
+
+    padding:28px 20px;
+
+    background:#151515;
+
+    border:1px solid #292929;
+
+    border-radius:15px;
+
+    text-align:center;
+
+}
+
+.why-icon{
+
+    font-size:32px;
+
+    margin-bottom:15px;
+
+}
+
+.why-card h3{
+
+    font-size:15px;
+
+    margin-bottom:8px;
+
+}
+
+.why-card p{
+
+    color:#777;
+
+    font-size:12px;
+
+    line-height:1.6;
+
+}
+
+
+/* ================= CTA ================= */
+
+.cta{
+
+    text-align:center;
+
+    padding:65px 20px;
+
+    background:#151515;
+
+    border:1px solid #292929;
+
+    border-radius:20px;
+
+}
+
+.cta h2{
+
+    font-size:38px;
+
+    margin-bottom:12px;
+
+}
+
+.cta h2 span{
+
+    color:#ff6a00;
+
+}
+
+.cta p{
+
+    color:#777;
+
+    margin-bottom:25px;
+
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+
+    background:#111;
+
+    border-top:1px solid #292929;
+
+    padding:50px 7% 25px;
+
+}
+
+.footer-grid{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    2fr 1fr 1fr 1fr;
+
+    gap:30px;
+
+}
+
+.footer-column h3{
+
+    color:#ff6a00;
+
+    margin-bottom:15px;
+
+}
+
+.footer-column p{
+
+    color:#777;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+}
+
+.footer-column a{
+
+    display:block;
+
+    color:#888;
+
+    text-decoration:none;
+
+    font-size:13px;
+
+    margin:9px 0;
+
+}
+
+.footer-column a:hover{
+
+    color:#ff6a00;
+
+}
+
+.copyright{
+
+    text-align:center;
+
+    color:#555;
+
+    font-size:12px;
+
+    border-top:1px solid #292929;
+
+    margin-top:35px;
+
+    padding-top:20px;
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:1000px){
+
+    .category-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+    .why-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+    .workshop-box{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:700px){
+
+    .nav-links{
+
+        display:none;
+
+    }
+
+    .hero{
+
+        min-height:550px;
+
+    }
+
+    .hero h1{
+
+        font-size:42px;
+
+    }
+
+    .category-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .why-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+    }
+
+    .ev-banner{
+
+        padding:30px;
+
+    }
+
+    .ev-content h2{
+
+        font-size:30px;
+
+    }
+
+    .feature-list{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .location-input{
+
+        flex-direction:column;
+
+    }
+
+    .footer-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+<a href="index.html" class="logo">
+Auto<span>Lux</span>
+</a>
+
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="accessories.html">
+Accessories
+</a>
+
+<a href="ev-zone.html">
+EV Zone
+</a>
+
+<a href="workshops.html">
+Workshops
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+<a href="cart.html" class="cart-btn">
+
+🛒 Cart
+(<span id="cartCount">0</span>)
+
+</a>
+
+<a
+href="login.html"
+id="accountLink"
+class="account-btn">
+
+Login
+
+</a>
+
+</div>
+
+</nav>
+
+
+<!-- ================= WELCOME ================= -->
+
+<div
+class="welcome"
+id="welcome">
+
+Welcome back,
+<strong id="welcomeName"></strong>!
+Your AutoLux dashboard is ready.
+
+</div>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="badge">
+
+🚗 PREMIUM AUTOMOTIVE PLATFORM
+
+</div>
+
+<h1>
+
+Upgrade Your
+<span>Drive.</span>
+
+</h1>
+
+<p>
+
+Discover premium car accessories,
+smart electronics, EV solutions and
+professional workshop installation —
+all connected through AutoLux.
+
+</p>
+
+
+<div class="hero-buttons">
+
+<a
+href="accessories.html"
+class="primary-btn">
+
+Explore Accessories →
+
+</a>
+
+<a
+href="workshops.html"
+class="secondary-btn">
+
+Find Workshop
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="section">
+
+<div class="section-title">
+
+<h2>
+Shop by <span>Category</span>
+</h2>
+
+<p>
+Everything your car needs in one place.
+</p>
+
+</div>
+
+
+<div class="category-grid">
+
+
+<a
+href="accessories.html?category=interior"
+class="category-card">
+
+<img
+src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=900&q=85">
+
+<div class="category-overlay">
+
+<div>
+
+<h3>
+Interior
+</h3>
+
+<p>
+Seat covers, mats & comfort
+</p>
+
+</div>
+
+</div>
+
+</a>
+
+
+<a
+href="accessories.html?category=exterior"
+class="category-card">
+
+<img
+src="https://images.unsplash.com/photo-1504215680853-026ed2a45def?auto=format&fit=crop&w=900&q=85">
+
+<div class="category-overlay">
+
+<div>
+
+<h3>
+Exterior
+</h3>
+
+<p>
+Lights, styling & protection
+</p>
+
+</div>
+
+</div>
+
+</a>
+
+
+<a
+href="accessories.html?category=electronics"
+class="category-card">
+
+<img
+src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=900&q=85">
+
+<div class="category-overlay">
+
+<div>
+
+<h3>
+Electronics
+</h3>
+
+<p>
+Dashcams, infotainment & cameras
+</p>
+
+</div>
+
+</div>
+
+</a>
+
+
+<a
+href="ev-zone.html"
+class="category-card">
+
+<img
+src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=900&q=85">
+
+<div class="category-overlay">
+
+<div>
+
+<h3>
+EV Zone
+</h3>
+
+<p>
+Electric vehicle accessories
+</p>
+
+</div>
+
+</div>
+
+</a>
+
+
+</div>
+
+
+<!-- EV BANNER -->
+
+<div class="ev-banner">
+
+<div class="ev-content">
+
+<small>
+⚡ AUTOLUX EV ZONE
+</small>
+
+<h2>
+The Future of Driving is Electric.
+</h2>
+
+<p>
+
+Shop EV chargers, Type-2 cables,
+safety kits, floor mats and other
+electric vehicle accessories.
+
+</p>
+
+<a
+href="ev-zone.html"
+class="primary-btn">
+
+Explore EV Products →
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= WORKSHOPS ================= -->
+
+<section class="section">
+
+<div class="section-title">
+
+<h2>
+Accessories + <span>Installation</span>
+</h2>
+
+<p>
+Buy your accessory and get it professionally installed.
+</p>
+
+</div>
+
+
+<div class="workshop-box">
+
+
+<div>
+
+<h2>
+
+Your Car.
+<br>
+
+Our <span>Workshop.</span>
+
+</h2>
+
+<p>
+
+AutoLux connects online shopping with
+professional workshops. Choose your
+preferred location and book an installation
+appointment.
+
+</p>
+
+
+<div class="feature-list">
+
+<div class="feature">
+
+<strong>
+🔧 Professional Installation
+</strong>
+
+<span>
+Trained workshop technicians
+</span>
+
+</div>
+
+
+<div class="feature">
+
+<strong>
+⚡ EV Specialists
+</strong>
+
+<span>
+EV charger & accessory support
+</span>
+
+</div>
+
+
+<div class="feature">
+
+<strong>
+📍 Multiple Locations
+</strong>
+
+<span>
+Find a convenient workshop
+</span>
+
+</div>
+
+
+<div class="feature">
+
+<strong>
+📅 Easy Booking
+</strong>
+
+<span>
+Choose your date and time
+</span>
+
+</div>
+
+</div>
+
+<br>
+
+<a
+href="workshops.html"
+class="primary-btn">
+
+Explore Workshops →
+
+</a>
+
+</div>
+
+
+<!-- LOCATION -->
+
+<div class="location-box">
+
+<h3>
+📍 Find a Nearby Workshop
+</h3>
+
+<p>
+
+Enter your city or area to find
+the nearest AutoLux workshop.
+
+</p>
+
+
+<div class="location-input">
+
+<input
+type="text"
+id="locationInput"
+placeholder="Example: Tirur">
+
+<button
+onclick="findNearest()">
+
+Find
+
+</button>
+
+</div>
+
+
+<div
+class="nearest-result"
+id="nearestResult">
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= WHY AUTOLUX ================= -->
+
+<section class="section">
+
+<div class="section-title">
+
+<h2>
+Why Choose <span>AutoLux?</span>
+</h2>
+
+<p>
+A smarter way to upgrade and maintain your car.
+</p>
+
+</div>
+
+
+<div class="why-grid">
+
+
+<div class="why-card">
+
+<div class="why-icon">
+🛒
+</div>
+
+<h3>
+Premium Products
+</h3>
+
+<p>
+Curated car accessories and
+automotive electronics.
+</p>
+
+</div>
+
+
+<div class="why-card">
+
+<div class="why-icon">
+⚡
+</div>
+
+<h3>
+EV Ready
+</h3>
+
+<p>
+Dedicated products and services
+for modern electric vehicles.
+</p>
+
+</div>
+
+
+<div class="why-card">
+
+<div class="why-icon">
+🔧
+</div>
+
+<h3>
+Workshop Network
+</h3>
+
+<p>
+Connect your online purchase
+with professional installation.
+</p>
+
+</div>
+
+
+<div class="why-card">
+
+<div class="why-icon">
+📍
+</div>
+
+<h3>
+Location Based
+</h3>
+
+<p>
+Find a convenient workshop
+based on your area.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="section">
+
+<div class="cta">
+
+<h2>
+
+Ready to Upgrade Your
+<span>Drive?</span>
+
+</h2>
+
+<p>
+
+Explore premium accessories,
+EV products and professional services.
+
+</p>
+
+<a
+href="accessories.html"
+class="primary-btn">
+
+Start Shopping →
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-grid">
+
+
+<div class="footer-column">
+
+<h3>
+AutoLux
+</h3>
+
+<p>
+
+Premium car accessories,
+EV solutions and professional
+workshop installation connected
+in one smart automotive platform.
+
+</p>
+
+</div>
+
+
+<div class="footer-column">
+
+<h3>
+Shop
+</h3>
+
+<a href="accessories.html">
+Accessories
+</a>
+
+<a href="ev-zone.html">
+EV Zone
+</a>
+
+<a href="compare.html">
+Compare Products
+</a>
+
+<a href="cart.html">
+Cart
+</a>
+
+</div>
+
+
+<div class="footer-column">
+
+<h3>
+Services
+</h3>
+
+<a href="workshops.html">
+Workshops
+</a>
+
+<a href="booking.html">
+Book Installation
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+</div>
+
+
+<div class="footer-column">
+
+<h3>
+Account
+</h3>
+
+<a href="login.html">
+Login
+</a>
+
+<a href="signup.html">
+Create Account
+</a>
+
+<a href="account.html">
+My Account
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 AutoLux — Premium Car Accessories & EV Solutions
+
+</div>
+
+</footer>
+
+
+<script>
+
+
+/* =========================================
+   CART COUNT
+========================================= */
+
+function updateCartCount(){
+
+    const cart =
+        JSON.parse(
+            localStorage.getItem(
+                "autoluxCart"
+            )
+        ) || [];
+
+
+    const count =
+        cart.reduce(
+
+            (total,item) =>
+
+            total +
+            Number(
+                item.quantity || 1
+            ),
+
+            0
+
+        );
+
+
+    document
+    .getElementById(
+        "cartCount"
+    )
+    .textContent =
+        count;
+
+}
+
+
+/* =========================================
+   ACCOUNT
+========================================= */
+
+function updateAccount(){
+
+    const user =
+        JSON.parse(
+            localStorage.getItem(
+                "autoluxUser"
+            )
+        );
+
+
+    const loggedIn =
+        localStorage.getItem(
+            "autoluxLoggedIn"
+        );
+
+
+    const account =
+        document.getElementById(
+            "accountLink"
+        );
+
+
+    const welcome =
+        document.getElementById(
+            "welcome"
+        );
+
+
+    const welcomeName =
+        document.getElementById(
+            "welcomeName"
+        );
+
+
+    if(
+        user &&
+        loggedIn === "true"
+    ){
+
+        account.href =
+            "account.html";
+
+        account.textContent =
+            "👤 My Account";
+
+
+        welcome.style.display =
+            "block";
+
+
+        welcomeName.textContent =
+            user.name;
+
+    }
+
+}
+
+
+/* =========================================
+   NEAREST WORKSHOP
+========================================= */
+
+function findNearest(){
+
+    const input =
+        document
+        .getElementById(
+            "locationInput"
+        )
+        .value
+        .trim()
+        .toLowerCase();
+
+
+    const result =
+        document
+        .getElementById(
+            "nearestResult"
+        );
+
+
+    if(!input){
+
+        result.style.display =
+            "block";
+
+        result.innerHTML =
+            "Please enter your city or area.";
+
+        return;
+
+    }
+
+
+    let workshop = null;
+
+
+    if(
+        input.includes("tirur") ||
+        input.includes("tanur")
+    ){
+
+        workshop = {
+
+            name:
+            "AutoLux Care Tirur",
+
+            location:
+            "Tirur, Malappuram"
+
+        };
+
+    }
+
+
+    else if(
+        input.includes("kottakkal") ||
+        input.includes("valanchery")
+    ){
+
+        workshop = {
+
+            name:
+            "AutoLux Garage Kottakkal",
+
+            location:
+            "Kottakkal, Malappuram"
+
+        };
+
+    }
+
+
+    else if(
+        input.includes("kozhikode") ||
+        input.includes("calicut")
+    ){
+
+        workshop = {
+
+            name:
+            "AutoLux Detail Studio",
+
+            location:
+            "Kozhikode"
+
+        };
+
+    }
+
+
+    else if(
+        input.includes("perinthalmanna") ||
+        input.includes("manjeri")
+    ){
+
+        workshop = {
+
+            name:
+            "AutoLux Shine Garage",
+
+            location:
+            "Perinthalmanna"
+
+        };
+
+    }
+
+
+    else if(
+        input.includes("kochi") ||
+        input.includes("ernakulam")
+    ){
+
+        workshop = {
+
+            name:
+            "AutoLux Electric Centre",
+
+            location:
+            "Kochi"
+
+        };
+
+    }
+
+
+    else if(
+        input.includes("malappuram")
+    ){
+
+        workshop = {
+
+            name:
+            "AutoLux EV Hub",
+
+            location:
+            "Malappuram"
+
+        };
+
+    }
+
+
+    if(workshop){
+
+        result.style.display =
+            "block";
+
+
+        result.innerHTML =
+
+        `
+        <strong style="color:#ff6a00;">
+        ${workshop.name}
+        </strong>
+
+        <br>
+
+        📍 ${workshop.location}
+
+        <br><br>
+
+        <a
+        href="workshops.html"
+        style="color:#ff6a00;text-decoration:none;font-weight:bold;">
+
+        View Workshop →
+
+        </a>
+
+        &nbsp;
+
+        <a
+        href="booking.html?workshop=${encodeURIComponent(workshop.name)}"
+        style="color:#fff;text-decoration:none;font-weight:bold;">
+
+        Book Installation →
+
+        </a>
+        `;
+
+    }
+
+    else{
+
+        result.style.display =
+            "block";
+
+
+        result.innerHTML =
+
+        `No AutoLux workshop matched that area.
+        <br><br>
+        Try:
+        Tirur, Kottakkal, Kozhikode,
+        Perinthalmanna, Malappuram or Kochi.
+        <br><br>
+
+        <a
+        href="workshops.html"
+        style="color:#ff6a00;text-decoration:none;font-weight:bold;">
+
+        View All Workshops →
+
+        </a>`;
+
+    }
+
+}
+
+
+/* =========================================
+   LOGIN SUCCESS MESSAGE
+========================================= */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+if(
+    params.get("login") === "success"
+){
+
+    setTimeout(
+        function(){
+
+            alert(
+                "Welcome back to AutoLux! Login successful."
+            );
+
+        },
+        300
+    );
+
+}
+
+
+if(
+    params.get("login") === "verified"
+){
+
+    setTimeout(
+        function(){
+
+            alert(
+                "Verification successful. Welcome to AutoLux!"
+            );
+
+        },
+        300
+    );
+
+}
+
+
+/* =========================================
+   START
+========================================= */
+
+updateCartCount();
+
+updateAccount();
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoLux | Checkout</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#0b0b0b;
+    color:#fff;
+}
+
+/* NAVBAR */
+.navbar{
+    width:100%;
+    padding:18px 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:#111;
+    border-bottom:1px solid #292929;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    font-size:27px;
+    font-weight:bold;
+    color:#ff6a00;
+    text-decoration:none;
+}
+
+.logo span{
+    color:#fff;
+}
+
+.nav-links{
+    display:flex;
+    gap:24px;
+    align-items:center;
+}
+
+.nav-links a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:15px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#ff6a00;
+}
+
+.cart-link{
+    background:#ff6a00;
+    color:#fff !important;
+    padding:10px 17px;
+    border-radius:25px;
+}
+
+/* PAGE */
+.container{
+    width:86%;
+    max-width:1200px;
+    margin:45px auto;
+}
+
+.page-title{
+    margin-bottom:30px;
+}
+
+.page-title h1{
+    font-size:38px;
+}
+
+.page-title p{
+    color:#aaa;
+    margin-top:8px;
+}
+
+/* LAYOUT */
+.checkout-layout{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:28px;
+}
+
+/* CARD */
+.card{
+    background:#151515;
+    border:1px solid #292929;
+    border-radius:18px;
+    padding:28px;
+    margin-bottom:22px;
+}
+
+.card h2{
+    font-size:21px;
+    margin-bottom:22px;
+}
+
+.section-number{
+    display:inline-flex;
+    width:30px;
+    height:30px;
+    align-items:center;
+    justify-content:center;
+    background:#ff6a00;
+    border-radius:50%;
+    margin-right:8px;
+    font-size:14px;
+}
+
+/* FORM */
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+label{
+    color:#bbb;
+    font-size:14px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    background:#0d0d0d;
+    border:1px solid #333;
+    color:#fff;
+    padding:13px;
+    border-radius:9px;
+    outline:none;
+    font-size:14px;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#ff6a00;
+}
+
+textarea{
+    min-height:85px;
+    resize:vertical;
+}
+
+/* PAYMENT */
+.payment-option{
+    border:1px solid #333;
+    background:#0e0e0e;
+    padding:16px;
+    border-radius:10px;
+    margin-bottom:12px;
+    cursor:pointer;
+}
+
+.payment-option:hover{
+    border-color:#ff6a00;
+}
+
+.payment-option label{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    cursor:pointer;
+    color:#fff;
+}
+
+.payment-option input{
+    width:auto;
+    accent-color:#ff6a00;
+}
+
+.payment-description{
+    margin-left:28px;
+    margin-top:7px;
+    color:#888;
+    font-size:12px;
+}
+
+/* CARD PAYMENT */
+#cardFields{
+    display:none;
+    margin-top:15px;
+    padding:15px;
+    border:1px solid #292929;
+    border-radius:10px;
+}
+
+/* SUMMARY */
+.summary-item{
+    display:flex;
+    gap:13px;
+    padding:13px 0;
+    border-bottom:1px solid #292929;
+}
+
+.summary-item img{
+    width:65px;
+    height:65px;
+    object-fit:cover;
+    border-radius:9px;
+}
+
+.summary-info{
+    flex:1;
+}
+
+.summary-info h4{
+    font-size:14px;
+    margin-bottom:6px;
+}
+
+.summary-info p{
+    color:#999;
+    font-size:12px;
+}
+
+.summary-price{
+    font-weight:bold;
+    color:#ff6a00;
+}
+
+.price-row{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+    color:#bbb;
+}
+
+.price-row.total{
+    border-top:1px solid #333;
+    margin-top:8px;
+    padding-top:18px;
+    color:#fff;
+    font-size:21px;
+    font-weight:bold;
+}
+
+.price-row.total span:last-child{
+    color:#ff6a00;
+}
+
+.coupon{
+    margin:18px 0;
+    display:flex;
+    gap:8px;
+}
+
+.coupon input{
+    flex:1;
+}
+
+.coupon button{
+    border:none;
+    background:#333;
+    color:#fff;
+    padding:0 15px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.coupon button:hover{
+    background:#ff6a00;
+}
+
+#couponMessage{
+    font-size:12px;
+    margin-top:-10px;
+    margin-bottom:12px;
+}
+
+/* BUTTON */
+.place-order{
+    width:100%;
+    padding:16px;
+    background:#ff6a00;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:12px;
+}
+
+.place-order:hover{
+    background:#ff7b1a;
+    transform:translateY(-1px);
+}
+
+.back-cart{
+    display:block;
+    text-align:center;
+    color:#aaa;
+    text-decoration:none;
+    margin-top:16px;
+    font-size:14px;
+}
+
+.back-cart:hover{
+    color:#ff6a00;
+}
+
+/* EMPTY */
+.empty{
+    text-align:center;
+    padding:70px 20px;
+}
+
+.empty h2{
+    font-size:28px;
+    margin-bottom:12px;
+}
+
+.empty p{
+    color:#999;
+    margin-bottom:25px;
+}
+
+.empty a{
+    display:inline-block;
+    background:#ff6a00;
+    color:#fff;
+    text-decoration:none;
+    padding:13px 25px;
+    border-radius:8px;
+}
+
+/* SUCCESS */
+.success{
+    display:none;
+    max-width:700px;
+    margin:60px auto;
+    background:#151515;
+    border:1px solid #333;
+    border-radius:20px;
+    padding:40px;
+    text-align:center;
+}
+
+.success-icon{
+    width:75px;
+    height:75px;
+    background:#ff6a00;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:35px;
+    margin:0 auto 20px;
+}
+
+.success h1{
+    margin-bottom:10px;
+}
+
+.success p{
+    color:#aaa;
+    line-height:1.6;
+}
+
+.order-id{
+    display:inline-block;
+    margin:20px 0;
+    background:#0c0c0c;
+    border:1px dashed #ff6a00;
+    padding:15px 25px;
+    border-radius:10px;
+    color:#ff6a00;
+    font-weight:bold;
+}
+
+.success-details{
+    text-align:left;
+    background:#0d0d0d;
+    border-radius:12px;
+    padding:20px;
+    margin:15px 0 25px;
+}
+
+.success-details p{
+    padding:7px 0;
+    border-bottom:1px solid #222;
+}
+
+.success-details p:last-child{
+    border-bottom:none;
+}
+
+.success-buttons{
+    display:flex;
+    gap:12px;
+    justify-content:center;
+}
+
+.success-buttons a{
+    text-decoration:none;
+    padding:13px 20px;
+    border-radius:8px;
+    color:#fff;
+    background:#ff6a00;
+}
+
+.success-buttons a.secondary{
+    background:#292929;
+}
+
+/* FOOTER */
+footer{
+    background:#111;
+    border-top:1px solid #292929;
+    padding:30px 7%;
+    text-align:center;
+    color:#777;
+    margin-top:50px;
+}
+
+@media(max-width:850px){
+    .checkout-layout{
+        grid-template-columns:1fr;
+    }
+
+    .nav-links{
+        display:none;
+    }
+}
+
+@media(max-width:550px){
+    .container{
+        width:92%;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+    .page-title h1{
+        font-size:30px;
+    }
+
+    .success{
+        margin:30px 15px;
+        padding:25px;
+    }
+
+    .success-buttons{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+        Auto<span>Lux</span>
+    </a>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="accessories.html">Accessories</a>
+        <a href="ev-zone.html">EV Zone</a>
+        <a href="workshops.html">Workshops</a>
+        <a href="cart.html" class="cart-link">
+            🛒 Cart (<span id="cartCount">0</span>)
+        </a>
+    </div>
+
+</nav>
+
+
+<!-- CHECKOUT AREA -->
+<main class="container" id="checkoutArea">
+
+    <div class="page-title">
+        <h1>Secure Checkout</h1>
+        <p>Complete your details and place your AutoLux order.</p>
+    </div>
+
+    <div class="checkout-layout">
+
+        <!-- LEFT SIDE -->
+        <div>
+
+            <!-- CUSTOMER -->
+            <div class="card">
+
+                <h2>
+                    <span class="section-number">1</span>
+                    Customer Details
+                </h2>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter your full name"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number *</label>
+                        <input
+                            type="tel"
+                            id="phone"
+                            maxlength="10"
+                            placeholder="10-digit mobile number"
+                            required>
+                    </div>
+
+                    <div class="form-group full">
+                        <label>Email Address *</label>
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="example@email.com"
+                            required>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ADDRESS -->
+            <div class="card">
+
+                <h2>
+                    <span class="section-number">2</span>
+                    Delivery Address
+                </h2>
+
+                <div class="form-grid">
+
+                    <div class="form-group full">
+                        <label>House / Street Address *</label>
+                        <textarea
+                            id="address"
+                            placeholder="House name, street, area"
+                            required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>City *</label>
+                        <input
+                            type="text"
+                            id="city"
+                            placeholder="City"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>State *</label>
+                        <input
+                            type="text"
+                            id="state"
+                            value="Kerala"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Pincode *</label>
+                        <input
+                            type="text"
+                            id="pincode"
+                            maxlength="6"
+                            placeholder="6-digit pincode"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Delivery Note</label>
+                        <input
+                            type="text"
+                            id="note"
+                            placeholder="Optional note">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PAYMENT -->
+            <div class="card">
+
+                <h2>
+                    <span class="section-number">3</span>
+                    Payment Method
+                </h2>
+
+                <div class="payment-option">
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="Cash on Delivery"
+                            checked
+                            onchange="showCardFields()">
+
+                        <span>💵 Cash on Delivery</span>
+                    </label>
+
+                    <div class="payment-description">
+                        Pay when your AutoLux package is delivered.
+                    </div>
+
+                </div>
+
+
+                <div class="payment-option">
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="UPI"
+                            onchange="showCardFields()">
+
+                        <span>📱 UPI Payment</span>
+                    </label>
+
+                    <div class="payment-description">
+                        Demo UPI payment option for the project.
+                    </div>
+
+                </div>
+
+
+                <div class="payment-option">
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="Credit/Debit Card"
+                            onchange="showCardFields()">
+
+                        <span>💳 Credit / Debit Card</span>
+                    </label>
+
+                    <div class="payment-description">
+                        Demo card payment option.
+                    </div>
+
+                </div>
+
+
+                <!-- DEMO CARD -->
+                <div id="cardFields">
+
+                    <div class="form-grid">
+
+                        <div class="form-group full">
+                            <label>Card Number</label>
+                            <input
+                                type="text"
+                                id="cardNumber"
+                                maxlength="19"
+                                placeholder="XXXX XXXX XXXX XXXX">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Expiry</label>
+                            <input
+                                type="text"
+                                maxlength="5"
+                                placeholder="MM/YY">
+                        </div>
+
+                        <div class="form-group">
+                            <label>CVV</label>
+                            <input
+                                type="password"
+                                maxlength="3"
+                                placeholder="CVV">
+                        </div>
+
+                    </div>
+
+                    <p style="color:#777;font-size:11px;margin-top:12px;">
+                        Demo only — no real payment is processed.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+        <div>
+
+            <div class="card">
+
+                <h2>
+                    Order Summary
+                </h2>
+
+                <div id="summaryItems"></div>
+
+                <div class="coupon">
+
+                    <input
+                        type="text"
+                        id="couponInput"
+                        placeholder="Coupon code">
+
+                    <button onclick="applyCoupon()">
+                        Apply
+                    </button>
+
+                </div>
+
+                <div id="couponMessage"></div>
+
+
+                <div class="price-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">₹0</span>
+                </div>
+
+                <div class="price-row">
+                    <span>Delivery</span>
+                    <span id="delivery">₹0</span>
+                </div>
+
+                <div class="price-row">
+                    <span>Discount</span>
+                    <span id="discount">₹0</span>
+                </div>
+
+                <div class="price-row total">
+                    <span>Total</span>
+                    <span id="total">₹0</span>
+                </div>
+
+
+                <button
+                    class="place-order"
+                    onclick="placeOrder()">
+
+                    🔒 Place Order
+
+                </button>
+
+                <a
+                    href="cart.html"
+                    class="back-cart">
+
+                    ← Back to Cart
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- EMPTY CART -->
+<div
+    class="empty"
+    id="emptyCart"
+    style="display:none;">
+
+    <h2>Your Cart is Empty</h2>
+
+    <p>
+        Add some car accessories before proceeding to checkout.
+    </p>
+
+    <a href="accessories.html">
+        Browse Accessories
+    </a>
+
+</div>
+
+
+<!-- SUCCESS -->
+<div class="success" id="successBox">
+
+    <div class="success-icon">
+        ✓
+    </div>
+
+    <h1>Order Confirmed!</h1>
+
+    <p>
+        Thank you for shopping with AutoLux.
+        Your order has been successfully placed.
+    </p>
+
+    <div class="order-id">
+        Order ID: <span id="orderID"></span>
+    </div>
+
+    <div class="success-details">
+
+        <p>
+            <strong>Customer:</strong>
+            <span id="successName"></span>
+        </p>
+
+        <p>
+            <strong>Phone:</strong>
+            <span id="successPhone"></span>
+        </p>
+
+        <p>
+            <strong>Payment:</strong>
+            <span id="successPayment"></span>
+        </p>
+
+        <p>
+            <strong>Total:</strong>
+            <span id="successTotal"></span>
+        </p>
+
+        <p>
+            <strong>Status:</strong>
+            <span style="color:#ff6a00;">
+                Order Confirmed
+            </span>
+        </p>
+
+    </div>
+
+    <div class="success-buttons">
+
+        <a href="index.html">
+            Back to Home
+        </a>
+
+        <a
+            href="accessories.html"
+            class="secondary">
+
+            Continue Shopping
+
+        </a>
+
+    </div>
+
+</div>
+
+
+<footer>
+    © 2026 AutoLux — Premium Car Accessories & EV Solutions
+</footer>
+
+
+<script>
+
+let cart = JSON.parse(
+    localStorage.getItem("autoluxCart")
+) || [];
+
+let appliedCoupon =
+    localStorage.getItem("autoluxCoupon") || "";
+
+let subtotal = 0;
+let delivery = 0;
+let discount = 0;
+let total = 0;
+
+
+/* =========================
+   LOAD USER DETAILS
+========================= */
+
+function loadUser(){
+
+    const user =
+        JSON.parse(
+            localStorage.getItem("autoluxUser")
+        );
+
+    if(!user) return;
+
+    if(user.name){
+        document.getElementById("name").value =
+            user.name;
+    }
+
+    if(user.email){
+        document.getElementById("email").value =
+            user.email;
+    }
+
+    if(user.phone){
+        document.getElementById("phone").value =
+            user.phone;
+    }
+
+}
+
+
+/* =========================
+   CART COUNT
+========================= */
+
+function updateCartCount(){
+
+    let count = cart.reduce(
+        (sum,item) =>
+        sum + Number(item.quantity || 1),
+        0
+    );
+
+    document.getElementById("cartCount")
+        .textContent = count;
+
+}
+
+
+/* =========================
+   RENDER SUMMARY
+========================= */
+
+function renderSummary(){
+
+    const summary =
+        document.getElementById("summaryItems");
+
+    summary.innerHTML = "";
+
+    if(cart.length === 0){
+
+        document.getElementById("checkoutArea")
+            .style.display = "none";
+
+        document.getElementById("emptyCart")
+            .style.display = "block";
+
+        return;
+
+    }
+
+    subtotal = 0;
+
+    cart.forEach(item => {
+
+        const quantity =
+            Number(item.quantity || 1);
+
+        const itemTotal =
+            Number(item.price) * quantity;
+
+        subtotal += itemTotal;
+
+        summary.innerHTML += `
+
+            <div class="summary-item">
+
+                <img
+                    src="${item.image}"
+                    alt="${item.name}">
+
+                <div class="summary-info">
+
+                    <h4>
+                        ${item.name}
+                    </h4>
+
+                    <p>
+                        Qty: ${quantity}
+                    </p>
+
+                </div>
+
+                <div class="summary-price">
+                    ₹${itemTotal.toLocaleString("en-IN")}
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+
+    /* DELIVERY */
+
+    if(subtotal > 0 && subtotal < 5000){
+        delivery = 99;
+    }else{
+        delivery = 0;
+    }
+
+
+    /* DISCOUNT */
+
+    if(appliedCoupon === "AUTO10"){
+        discount =
+            Math.round(subtotal * 0.10);
+    }else{
+        discount = 0;
+    }
+
+
+    total =
+        subtotal +
+        delivery -
+        discount;
+
+
+    document.getElementById("subtotal")
+        .textContent =
+        "₹" + subtotal.toLocaleString("en-IN");
+
+    document.getElementById("delivery")
+        .textContent =
+        delivery === 0
+        ? "FREE"
+        : "₹" + delivery.toLocaleString("en-IN");
+
+    document.getElementById("discount")
+        .textContent =
+        discount > 0
+        ? "-₹" + discount.toLocaleString("en-IN")
+        : "₹0";
+
+    document.getElementById("total")
+        .textContent =
+        "₹" + total.toLocaleString("en-IN");
+
+
+    if(appliedCoupon === "AUTO10"){
+
+        document.getElementById("couponInput")
+            .value = "AUTO10";
+
+        document.getElementById("couponMessage")
+            .style.color = "#ff6a00";
+
+        document.getElementById("couponMessage")
+            .textContent =
+            "✓ AUTO10 applied — 10% discount";
+
+    }
+
+}
+
+
+/* =========================
+   APPLY COUPON
+========================= */
+
+function applyCoupon(){
+
+    const code =
+        document.getElementById("couponInput")
+        .value
+        .trim()
+        .toUpperCase();
+
+    const message =
+        document.getElementById("couponMessage");
+
+
+    if(code === "AUTO10"){
+
+        appliedCoupon = "AUTO10";
+
+        localStorage.setItem(
+            "autoluxCoupon",
+            "AUTO10"
+        );
+
+        message.style.color =
+            "#ff6a00";
+
+        message.textContent =
+            "✓ Coupon applied! 10% discount.";
+
+    }else{
+
+        appliedCoupon = "";
+
+        localStorage.removeItem(
+            "autoluxCoupon"
+        );
+
+        message.style.color =
+            "#ff5555";
+
+        message.textContent =
+            "Invalid coupon code.";
+
+    }
+
+    renderSummary();
+
+}
+
+
+/* =========================
+   PAYMENT DISPLAY
+========================= */
+
+function showCardFields(){
+
+    const selected =
+        document.querySelector(
+            'input[name="payment"]:checked'
+        ).value;
+
+    const cardFields =
+        document.getElementById("cardFields");
+
+    if(selected === "Credit/Debit Card"){
+        cardFields.style.display = "block";
+    }else{
+        cardFields.style.display = "none";
+    }
+
+}
+
+
+/* =========================
+   GENERATE ORDER ID
+========================= */
+
+function generateOrderID(){
+
+    const number =
+        Math.floor(
+            100000 +
+            Math.random() * 900000
+        );
+
+    return "ALX-" + number;
+
+}
+
+
+/* =========================
+   PLACE ORDER
+========================= */
+
+function placeOrder(){
+
+    const name =
+        document.getElementById("name")
+        .value.trim();
+
+    const phone =
+        document.getElementById("phone")
+        .value.trim();
+
+    const email =
+        document.getElementById("email")
+        .value.trim();
+
+    const address =
+        document.getElementById("address")
+        .value.trim();
+
+    const city =
+        document.getElementById("city")
+        .value.trim();
+
+    const state =
+        document.getElementById("state")
+        .value.trim();
+
+    const pincode =
+        document.getElementById("pincode")
+        .value.trim();
+
+    const note =
+        document.getElementById("note")
+        .value.trim();
+
+
+    const payment =
+        document.querySelector(
+            'input[name="payment"]:checked'
+        ).value;
+
+
+    /* VALIDATION */
+
+    if(!name ||
+       !phone ||
+       !email ||
+       !address ||
+       !city ||
+       !state ||
+       !pincode){
+
+        alert(
+            "Please fill in all required details."
+        );
+
+        return;
+    }
+
+
+    if(!/^[0-9]{10}$/.test(phone)){
+
+        alert(
+            "Please enter a valid 10-digit phone number."
+        );
+
+        return;
+    }
+
+
+    if(!/^[0-9]{6}$/.test(pincode)){
+
+        alert(
+            "Please enter a valid 6-digit pincode."
+        );
+
+        return;
+    }
+
+
+    /* CARD DEMO VALIDATION */
+
+    if(payment === "Credit/Debit Card"){
+
+        const card =
+            document.getElementById("cardNumber")
+            .value
+            .replace(/\s/g,"");
+
+        if(card.length < 12){
+
+            alert(
+                "Please enter a demo card number."
+            );
+
+            return;
+        }
+
+    }
+
+
+    const orderID =
+        generateOrderID();
+
+
+    /* ORDER OBJECT */
+
+    const order = {
+
+        orderID: orderID,
+
+        customer: {
+
+            name: name,
+
+            phone: phone,
+
+            email: email,
+
+            address: address,
+
+            city: city,
+
+            state: state,
+
+            pincode: pincode,
+
+            note: note
+
+        },
+
+        items: cart,
+
+        subtotal: subtotal,
+
+        delivery: delivery,
+
+        discount: discount,
+
+        total: total,
+
+        payment: payment,
+
+        date:
+            new Date().toLocaleString(),
+
+        status:
+            "Order Confirmed"
+
+    };
+
+
+    /* SAVE ORDER */
+
+    localStorage.setItem(
+        "autoluxOrder",
+        JSON.stringify(order)
+    );
+
+
+    /* CLEAR CART */
+
+    localStorage.removeItem(
+        "autoluxCart"
+    );
+
+    localStorage.removeItem(
+        "autoluxCoupon"
+    );
+
+
+    /* SHOW SUCCESS */
+
+    document.getElementById("checkoutArea")
+        .style.display = "none";
+
+    document.getElementById("emptyCart")
+        .style.display = "none";
+
+    document.getElementById("successBox")
+        .style.display = "block";
+
+
+    document.getElementById("orderID")
+        .textContent = orderID;
+
+    document.getElementById("successName")
+        .textContent = name;
+
+    document.getElementById("successPhone")
+        .textContent = phone;
+
+    document.getElementById("successPayment")
+        .textContent = payment;
+
+    document.getElementById("successTotal")
+        .textContent =
+        "₹" + total.toLocaleString("en-IN");
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+loadUser();
+
+updateCartCount();
+
+renderSummary();
+
+</script>
+
+</body>
+</html>

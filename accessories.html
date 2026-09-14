@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AutoLux | Car Accessories</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#090909;
+    color:white;
+}
+
+.navbar{
+    height:76px;
+    padding:0 7%;
+    background:#111;
+    border-bottom:1px solid #292929;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    color:#ff6a00;
+    font-size:29px;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.logo span{
+    color:white;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.nav-links a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.nav-links a:hover{
+    color:#ff6a00;
+}
+
+.cart-btn{
+    background:#ff6a00;
+    color:white !important;
+    padding:10px 17px;
+    border-radius:25px;
+}
+
+.account-btn{
+    border:1px solid #444;
+    padding:9px 15px;
+    border-radius:25px;
+}
+
+
+/* HERO */
+
+.hero{
+    padding:70px 7%;
+    text-align:center;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.75),
+        rgba(0,0,0,.92)
+    ),
+    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.hero h1 span{
+    color:#ff6a00;
+}
+
+.hero p{
+    color:#999;
+}
+
+
+/* FILTER */
+
+.filter-section{
+    width:86%;
+    margin:45px auto 25px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.filter-btn{
+    padding:11px 20px;
+    background:#151515;
+    border:1px solid #333;
+    color:#bbb;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+    background:#ff6a00;
+    color:white;
+    border-color:#ff6a00;
+}
+
+
+/* PRODUCTS */
+
+.products{
+    width:86%;
+    margin:30px auto 70px;
+
+    display:grid;
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:20px;
+}
+
+.product{
+    background:#151515;
+    border:1px solid #292929;
+    border-radius:15px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.product:hover{
+    transform:translateY(-6px);
+    border-color:#ff6a00;
+}
+
+.product-image{
+    width:100%;
+    height:210px;
+    object-fit:cover;
+}
+
+.product-content{
+    padding:18px;
+}
+
+.category{
+    color:#ff6a00;
+    font-size:11px;
+    text-transform:uppercase;
+    margin-bottom:8px;
+}
+
+.product h3{
+    font-size:17px;
+    margin-bottom:8px;
+}
+
+.description{
+    color:#888;
+    font-size:12px;
+    line-height:1.5;
+    min-height:38px;
+}
+
+.price{
+    color:#fff;
+    font-size:20px;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.buttons{
+    display:flex;
+    gap:8px;
+}
+
+.view-btn,
+.add-btn{
+
+    flex:1;
+
+    padding:11px 5px;
+
+    border-radius:7px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    font-size:12px;
+
+    cursor:pointer;
+}
+
+.view-btn{
+    background:#292929;
+    color:white;
+}
+
+.add-btn{
+    background:#ff6a00;
+    color:white;
+    border:none;
+}
+
+.view-btn:hover{
+    background:#3b3b3b;
+}
+
+.add-btn:hover{
+    background:#ff7b1c;
+}
+
+
+/* EMPTY */
+
+.empty{
+    display:none;
+    text-align:center;
+    padding:60px;
+    color:#777;
+    grid-column:1/-1;
+}
+
+
+/* FOOTER */
+
+footer{
+    background:#111;
+    border-top:1px solid #292929;
+    padding:45px 7% 25px;
+}
+
+.footer-grid{
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:
+    2fr 1fr 1fr 1fr;
+
+    gap:30px;
+}
+
+.footer-column h3{
+    color:#ff6a00;
+    margin-bottom:15px;
+}
+
+.footer-column p{
+    color:#777;
+    font-size:13px;
+    line-height:1.7;
+}
+
+.footer-column a{
+    display:block;
+    color:#888;
+    text-decoration:none;
+    font-size:13px;
+    margin:9px 0;
+}
+
+.footer-column a:hover{
+    color:#ff6a00;
+}
+
+.copyright{
+    text-align:center;
+    color:#555;
+    font-size:12px;
+    border-top:1px solid #292929;
+    margin-top:35px;
+    padding-top:20px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+    .products{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:700px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .products{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<a href="index.html" class="logo">
+Auto<span>Lux</span>
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="accessories.html">
+Accessories
+</a>
+
+<a href="ev-zone.html">
+EV Zone
+</a>
+
+<a href="workshops.html">
+Workshops
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+<a href="cart.html" class="cart-btn">
+
+🛒 Cart
+(<span id="cartCount">0</span>)
+
+</a>
+
+<a href="login.html"
+class="account-btn"
+id="accountLink">
+
+Login
+
+</a>
+
+</div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h1>
+Premium <span>Car Accessories</span>
+</h1>
+
+<p>
+Upgrade your car with premium accessories,
+smart electronics and professional installation.
+</p>
+
+</section>
+
+
+<!-- FILTER -->
+
+<div class="filter-section">
+
+<button
+class="filter-btn active"
+data-category="all">
+
+All
+
+</button>
+
+<button
+class="filter-btn"
+data-category="interior">
+
+Interior
+
+</button>
+
+<button
+class="filter-btn"
+data-category="exterior">
+
+Exterior
+
+</button>
+
+<button
+class="filter-btn"
+data-category="electronics">
+
+Electronics
+
+</button>
+
+<button
+class="filter-btn"
+data-category="care">
+
+Car Care
+
+</button>
+
+</div>
+
+
+<!-- PRODUCTS -->
+
+<section class="products" id="products">
+
+
+<!-- PRODUCT 1 -->
+
+<div class="product"
+data-category="interior">
+
+<img
+class="product-image"
+src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80">
+
+<div class="product-content">
+
+<div class="category">
+Interior
+</div>
+
+<h3>
+Premium Seat Covers
+</h3>
+
+<p class="description">
+Luxury leather-style seat covers with
+comfortable premium finishing.
+</p>
+
+<div class="price">
+₹4,999
+</div>
+
+<div class="buttons">
+
+<a
+href="product-details.html?id=seat-covers"
+class="view-btn">
+
+View
+
+</a>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'seat-covers',
+'Premium Seat Covers',
+4999,
+'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80'
+)">
+
+Add
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 2 -->
+
+<div class="product"
+data-category="interior">
+
+<img
+class="product-image"
+src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=800&q=80">
+
+<div class="product-content">
+
+<div class="category">
+Interior
+</div>
+
+<h3>
+Premium Floor Mats
+</h3>
+
+<p class="description">
+Water-resistant premium mats designed
+for everyday protection.
+</p>
+
+<div class="price">
+₹2,999
+</div>
+
+<div class="buttons">
+
+<a
+href="product-details.html?id=floor-mats"
+class="view-btn">
+
+View
+
+</a>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'floor-mats',
+'Premium Floor Mats',
+2999,
+'https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=800&q=80'
+)">
+
+Add
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 3 -->
+
+<div class="product"
+data-category="exterior">
+
+<img
+class="product-image"
+src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=800&q=80">
+
+<div class="product-content">
+
+<div class="category">
+Exterior
+</div>
+
+<h3>
+LED Headlight
+</h3>
+
+<p class="description">
+Bright LED headlights for improved night
+visibility and modern styling.
+</p>
+
+<div class="price">
+₹4,499
+</div>
+
+<div class="buttons">
+
+<a
+href="product-details.html?id=led-headlight"
+class="view-btn">
+
+View
+
+</a>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'led-headlight',
+'LED Headlight',
+4499,
+'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=800&q=80'
+)">
+
+Add
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 4 -->
+
+<div class="product"
+data-category="electronics">
+
+<img
+class="product-image"
+src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?auto=format&fit=crop&w=800&q=80">
+
+<div class="product-content">
+
+<div class="category">
+Electronics
+</div>
+
+<h3>
+Smart Dash Camera
+</h3>
+
+<p class="description">
+Full HD dashboard camera for safer
+driving and video recording.
+</p>
+
+<div class="price">
+₹5,999
+</div>
+
+<div class="buttons">
+
+<a
+href="product-details.html?id=dashcam"
+class="view-btn">
+
+View
+
+</a>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'dashcam',
+'Smart Dash Camera',
+5999,
+'https://images.unsplash.com/photo-1609521263047-f8f205293f24?auto=format&fit=crop&w=800&q=80'
+)">
+
+Add
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 5 -->
+
+<div class="product"
+data-category="electronics">
+
+<img
+class="product-image"
+src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=800&q=80">
+
+<div class="product-content">
+
+<div class="category">
+Electronics
+</div>
+
+<h3>
+Android Infotainment
+</h3>
+
+<p class="description">
+Smart touchscreen infotainment system
+with navigation and entertainment.
+</p>
+
+<div class="price">
+₹14,999
+</div>
+
+<div class="buttons">
+
+<a
+href="product-details.html?id=android-infotainment"
+class="view-btn">
+
+View
+
+</a>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'android-infotainment',
+'Android Infotainment',
+14999,
+'https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=800&q=80'
+)">
+
+Add
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 6 -->
+
+<div class="product"
+data-category="care">
+
+<img
+class="product-image"
+src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=800&q=80">
+
+<div class="product-content">
+
+<div class="category">
+Car Care
+</div>
+
+<h3>
+Professional Car Care Kit
+</h3>
+
+<p class="description">
+Complete cleaning and detailing kit
+for premium vehicle maintenance.
+</p>
+
+<div class="price">
+₹1,999
+</div>
+
+<div class="buttons">
+
+<a
+href="product-details.html?id=car-care-kit"
+class="view-btn">
+
+View
+
+</a>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'car-care-kit',
+'Professional Car Care Kit',
+1999,
+'https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=800&q=80'
+)">
+
+Add
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 7 -->
+
+<div class="product"
+data-category="electronics">
+
+<img
+class="product-image"
+src="https://images.unsplash.com/photo-1610647752706-3bb12232b3ab?auto=format&fit=crop&w=800&q=80">
+
+<div class="product-content">
+
+<div class="category">
+Electronics
+</div>
+
+<h3>
+360° Parking Camera
+</h3>
+
+<p class="description">
+Smart parking camera system for safer
+and easier vehicle parking.
+</p>
+
+<div class="price">
+₹3,999
+</div>
+
+<div class="buttons">
+
+<a
+href="product-details.html?id=parking-camera"
+class="view-btn">
+
+View
+
+</a>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'parking-camera',
+'360° Parking Camera',
+3999,
+'https://images.unsplash.com/photo-1610647752706-3bb12232b3ab?auto=format&fit=crop&w=800&q=80'
+)">
+
+Add
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 8 -->
+
+<div class="product"
+data-category="exterior">
+
+<img
+class="product-image"
+src="https://images.unsplash.com/photo-1504215680853-026ed2a45def?auto=format&fit=crop&w=800&q=80">
+
+<div class="product-content">
+
+<div class="category">
+Exterior
+</div>
+
+<h3>
+Premium Fog Lights
+</h3>
+
+<p class="description">
+Stylish fog lights designed for improved
+visibility in difficult conditions.
+</p>
+
+<div class="price">
+₹3,499
+</div>
+
+<div class="buttons">
+
+<a
+href="product-details.html?id=fog-lights"
+class="view-btn">
+
+View
+
+</a>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'fog-lights',
+'Premium Fog Lights',
+3499,
+'https://images.unsplash.com/photo-1504215680853-026ed2a45def?auto=format&fit=crop&w=800&q=80'
+)">
+
+Add
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="empty" id="empty">
+
+No products found in this category.
+
+</div>
+
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-grid">
+
+<div class="footer-column">
+
+<h3>
+AutoLux
+</h3>
+
+<p>
+Premium car accessories,
+EV solutions and professional
+workshop installation in one
+complete platform.
+</p>
+
+</div>
+
+
+<div class="footer-column">
+
+<h3>
+Shop
+</h3>
+
+<a href="accessories.html">
+Accessories
+</a>
+
+<a href="ev-zone.html">
+EV Zone
+</a>
+
+<a href="compare.html">
+Compare
+</a>
+
+</div>
+
+
+<div class="footer-column">
+
+<h3>
+Services
+</h3>
+
+<a href="workshops.html">
+Workshops
+</a>
+
+<a href="booking.html">
+Installation Booking
+</a>
+
+<a href="contact.html">
+Contact
+</a>
+
+</div>
+
+
+<div class="footer-column">
+
+<h3>
+Account
+</h3>
+
+<a href="login.html">
+Login
+</a>
+
+<a href="signup.html">
+Sign Up
+</a>
+
+<a href="account.html">
+My Account
+</a>
+
+</div>
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 AutoLux — Premium Car Accessories & EV Solutions
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* =====================================
+   CART
+===================================== */
+
+function getCart(){
+
+    return JSON.parse(
+        localStorage.getItem(
+            "autoluxCart"
+        )
+    ) || [];
+
+}
+
+
+function saveCart(cart){
+
+    localStorage.setItem(
+        "autoluxCart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+/* =====================================
+   ADD TO CART
+===================================== */
+
+function addToCart(
+    id,
+    name,
+    price,
+    image
+){
+
+    let cart =
+        getCart();
+
+
+    const existing =
+        cart.find(
+            item =>
+            item.id === id
+        );
+
+
+    if(existing){
+
+        existing.quantity =
+            Number(
+                existing.quantity || 1
+            ) + 1;
+
+    }
+
+    else{
+
+        cart.push({
+
+            id:id,
+
+            name:name,
+
+            price:price,
+
+            image:image,
+
+            quantity:1
+
+        });
+
+    }
+
+
+    saveCart(cart);
+
+    updateCartCount();
+
+
+    alert(
+        name +
+        " added to your cart!"
+    );
+
+}
+
+
+/* =====================================
+   CART COUNT
+===================================== */
+
+function updateCartCount(){
+
+    const cart =
+        getCart();
+
+
+    const count =
+        cart.reduce(
+
+            (total,item) =>
+
+            total +
+            Number(
+                item.quantity || 1
+            ),
+
+            0
+
+        );
+
+
+    document
+    .getElementById(
+        "cartCount"
+    )
+    .textContent =
+        count;
+
+}
+
+
+/* =====================================
+   CATEGORY FILTER
+===================================== */
+
+function filterProducts(category){
+
+    const products =
+        document.querySelectorAll(
+            ".product"
+        );
+
+
+    let visible = 0;
+
+
+    products.forEach(
+        product => {
+
+            const productCategory =
+                product.dataset.category;
+
+
+            if(
+                category === "all"
+                ||
+                productCategory === category
+            ){
+
+                product.style.display =
+                    "block";
+
+                visible++;
+
+            }
+
+            else{
+
+                product.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+
+    document
+    .getElementById(
+        "empty"
+    )
+    .style.display =
+        visible === 0
+        ? "block"
+        : "none";
+
+}
+
+
+/* =====================================
+   FILTER BUTTONS
+===================================== */
+
+document
+.querySelectorAll(
+    ".filter-btn"
+)
+.forEach(
+    button => {
+
+        button.addEventListener(
+            "click",
+            function(){
+
+                document
+                .querySelectorAll(
+                    ".filter-btn"
+                )
+                .forEach(
+                    btn =>
+                    btn.classList.remove(
+                        "active"
+                    )
+                );
+
+
+                this.classList.add(
+                    "active"
+                );
+
+
+                filterProducts(
+                    this.dataset.category
+                );
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================
+   READ CATEGORY FROM HOME PAGE
+===================================== */
+
+function loadURLCategory(){
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const category =
+        params.get(
+            "category"
+        );
+
+
+    if(!category){
+        return;
+    }
+
+
+    const validCategories = [
+        "interior",
+        "exterior",
+        "electronics",
+        "care"
+    ];
+
+
+    if(
+        !validCategories.includes(
+            category
+        )
+    ){
+
+        return;
+
+    }
+
+
+    const button =
+        document.querySelector(
+            `.filter-btn[data-category="${category}"]`
+        );
+
+
+    if(button){
+
+        document
+        .querySelectorAll(
+            ".filter-btn"
+        )
+        .forEach(
+            btn =>
+            btn.classList.remove(
+                "active"
+            )
+        );
+
+
+        button.classList.add(
+            "active"
+        );
+
+
+        filterProducts(
+            category
+        );
+
+    }
+
+}
+
+
+/* =====================================
+   ACCOUNT
+===================================== */
+
+function updateAccount(){
+
+    const user =
+        JSON.parse(
+            localStorage.getItem(
+                "autoluxUser"
+            )
+        );
+
+
+    const loggedIn =
+        localStorage.getItem(
+            "autoluxLoggedIn"
+        );
+
+
+    const account =
+        document.getElementById(
+            "accountLink"
+        );
+
+
+    if(
+        user &&
+        loggedIn === "true"
+    ){
+
+        account.href =
+            "account.html";
+
+        account.textContent =
+            "👤 My Account";
+
+    }
+
+}
+
+
+/* =====================================
+   START
+===================================== */
+
+updateCartCount();
+
+updateAccount();
+
+loadURLCategory();
+
+</script>
+
+
+</body>
+
+</html>

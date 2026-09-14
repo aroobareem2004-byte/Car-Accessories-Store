@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AutoLux | Compare Products</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#090909;
+    color:#fff;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    height:76px;
+    padding:0 7%;
+    background:#111;
+    border-bottom:1px solid #292929;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    color:#ff6a00;
+    text-decoration:none;
+    font-size:29px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#fff;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.nav-links a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.nav-links a:hover{
+    color:#ff6a00;
+}
+
+.cart-btn{
+    background:#ff6a00;
+    color:#fff !important;
+    padding:10px 17px;
+    border-radius:25px;
+}
+
+.account-btn{
+    border:1px solid #444;
+    padding:9px 15px;
+    border-radius:25px;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    padding:70px 7%;
+    text-align:center;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.78),
+        rgba(0,0,0,.92)
+    ),
+    url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+}
+
+.badge{
+    display:inline-block;
+    padding:9px 15px;
+    border-radius:25px;
+
+    color:#ff8b42;
+    background:#26170e;
+    border:1px solid #63350f;
+
+    font-size:12px;
+    margin-bottom:15px;
+}
+
+.hero h1{
+    font-size:50px;
+    margin-bottom:12px;
+}
+
+.hero h1 span{
+    color:#ff6a00;
+}
+
+.hero p{
+    color:#999;
+}
+
+
+/* ================= SECTION ================= */
+
+.section{
+    width:86%;
+    max-width:1200px;
+    margin:65px auto;
+}
+
+.heading{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.heading h2{
+    font-size:32px;
+}
+
+.heading span{
+    color:#ff6a00;
+}
+
+.heading p{
+    color:#777;
+    margin-top:8px;
+}
+
+
+/* ================= SELECTOR ================= */
+
+.selector{
+    background:#151515;
+    border:1px solid #292929;
+    border-radius:18px;
+    padding:30px;
+}
+
+.selector-title{
+    font-size:18px;
+    margin-bottom:20px;
+}
+
+.select-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.select-box label{
+    display:block;
+    color:#bbb;
+    font-size:13px;
+    margin-bottom:8px;
+}
+
+.select-box select{
+    width:100%;
+    padding:14px;
+
+    background:#0d0d0d;
+    color:#fff;
+
+    border:1px solid #333;
+    border-radius:8px;
+
+    outline:none;
+}
+
+.select-box select:focus{
+    border-color:#ff6a00;
+}
+
+
+/* ================= COMPARE BUTTON ================= */
+
+.compare-btn{
+    margin-top:22px;
+    width:100%;
+
+    border:none;
+    padding:14px;
+
+    border-radius:9px;
+
+    background:#ff6a00;
+    color:#fff;
+
+    font-weight:bold;
+    font-size:15px;
+
+    cursor:pointer;
+}
+
+.compare-btn:hover{
+    background:#ff7a1c;
+}
+
+
+/* ================= RESULT ================= */
+
+.result{
+    display:none;
+    margin-top:40px;
+}
+
+.compare-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.product-card{
+    background:#151515;
+    border:1px solid #292929;
+    border-radius:18px;
+    overflow:hidden;
+}
+
+.product-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.product-content{
+    padding:25px;
+}
+
+.product-content h2{
+    margin-bottom:8px;
+}
+
+.category{
+    color:#ff6a00;
+    font-size:12px;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+
+.price{
+    font-size:25px;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.spec{
+    display:flex;
+    justify-content:space-between;
+
+    padding:12px 0;
+
+    border-top:1px solid #292929;
+
+    color:#aaa;
+    font-size:13px;
+}
+
+.spec strong{
+    color:#fff;
+}
+
+.card-actions{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+.card-actions a,
+.card-actions button{
+    flex:1;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    font-weight:bold;
+    font-size:13px;
+
+    cursor:pointer;
+}
+
+.details{
+    background:#292929;
+    color:#fff;
+}
+
+.add{
+    border:none;
+    background:#ff6a00;
+    color:#fff;
+}
+
+.add:hover{
+    background:#ff7a1c;
+}
+
+
+/* ================= VERDICT ================= */
+
+.verdict{
+    margin-top:25px;
+
+    padding:25px;
+
+    background:#17120e;
+    border:1px solid #543015;
+
+    border-radius:15px;
+
+    text-align:center;
+}
+
+.verdict h3{
+    color:#ff6a00;
+    margin-bottom:10px;
+}
+
+.verdict p{
+    color:#aaa;
+    line-height:1.6;
+}
+
+
+/* ================= EMPTY ================= */
+
+.empty{
+    text-align:center;
+
+    padding:50px 20px;
+
+    background:#151515;
+    border:1px dashed #444;
+
+    border-radius:15px;
+
+    color:#777;
+}
+
+
+/* ================= QUICK LINKS ================= */
+
+.quick-links{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.quick{
+    text-decoration:none;
+    color:#fff;
+
+    background:#151515;
+    border:1px solid #292929;
+
+    border-radius:14px;
+
+    padding:22px 10px;
+
+    text-align:center;
+
+    transition:.3s;
+}
+
+.quick:hover{
+    border-color:#ff6a00;
+    transform:translateY(-4px);
+}
+
+.quick-icon{
+    font-size:27px;
+    margin-bottom:10px;
+}
+
+.quick p{
+    color:#777;
+    font-size:12px;
+    margin-top:6px;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+    margin-top:70px;
+    padding:45px 7% 25px;
+
+    background:#111;
+    border-top:1px solid #292929;
+}
+
+.footer-grid{
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:30px;
+}
+
+.footer-column h3{
+    color:#ff6a00;
+    margin-bottom:15px;
+}
+
+.footer-column p{
+    color:#777;
+    font-size:13px;
+    line-height:1.7;
+}
+
+.footer-column a{
+    display:block;
+    color:#888;
+    text-decoration:none;
+    font-size:13px;
+    margin:9px 0;
+}
+
+.footer-column a:hover{
+    color:#ff6a00;
+}
+
+.copyright{
+    text-align:center;
+    color:#555;
+
+    font-size:12px;
+
+    border-top:1px solid #292929;
+
+    margin-top:35px;
+    padding-top:20px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .compare-grid{
+        grid-template-columns:1fr;
+    }
+
+    .quick-links{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .section{
+        width:92%;
+    }
+
+    .select-grid{
+        grid-template-columns:1fr;
+    }
+
+    .quick-links{
+        grid-template-columns:1fr;
+    }
+
+    .card-actions{
+        flex-direction:column;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+        Auto<span>Lux</span>
+    </a>
+
+    <div class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="accessories.html">
+            Accessories
+        </a>
+
+        <a href="ev-zone.html">
+            EV Zone
+        </a>
+
+        <a href="workshops.html">
+            Workshops
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+        <a href="cart.html" class="cart-btn">
+            🛒 Cart
+            (<span id="cartCount">0</span>)
+        </a>
+
+        <a href="login.html"
+           class="account-btn"
+           id="accountLink">
+            Login
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="badge">
+        SMART SHOPPING
+    </div>
+
+    <h1>
+        Compare <span>Products</span>
+    </h1>
+
+    <p>
+        Compare two AutoLux products before making your choice.
+    </p>
+
+</section>
+
+
+<!-- ================= SELECT ================= -->
+
+<section class="section">
+
+    <div class="heading">
+
+        <h2>
+            Choose Two <span>Products</span>
+        </h2>
+
+        <p>
+            Compare features, prices and installation options.
+        </p>
+
+    </div>
+
+
+    <div class="selector">
+
+        <div class="select-grid">
+
+
+            <div class="select-box">
+
+                <label>
+                    Product 1
+                </label>
+
+                <select id="product1">
+
+                    <option value="">
+                        Select Product
+                    </option>
+
+                    <option value="seat-covers">
+                        Premium Seat Covers
+                    </option>
+
+                    <option value="floor-mats">
+                        Premium Floor Mats
+                    </option>
+
+                    <option value="led-headlight">
+                        LED Headlight
+                    </option>
+
+                    <option value="dashcam">
+                        Smart Dash Camera
+                    </option>
+
+                    <option value="android-infotainment">
+                        Android Infotainment
+                    </option>
+
+                    <option value="car-care-kit">
+                        Car Care Kit
+                    </option>
+
+                    <option value="ev-charger-pro">
+                        Portable EV Charger
+                    </option>
+
+                    <option value="ev-type2-cable">
+                        Type-2 Charging Cable
+                    </option>
+
+                    <option value="wallbox-charger">
+                        Wallbox Home Charger
+                    </option>
+
+                    <option value="ev-floor-mat">
+                        EV Premium Floor Mat
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="select-box">
+
+                <label>
+                    Product 2
+                </label>
+
+                <select id="product2">
+
+                    <option value="">
+                        Select Product
+                    </option>
+
+                    <option value="seat-covers">
+                        Premium Seat Covers
+                    </option>
+
+                    <option value="floor-mats">
+                        Premium Floor Mats
+                    </option>
+
+                    <option value="led-headlight">
+                        LED Headlight
+                    </option>
+
+                    <option value="dashcam">
+                        Smart Dash Camera
+                    </option>
+
+                    <option value="android-infotainment">
+                        Android Infotainment
+                    </option>
+
+                    <option value="car-care-kit">
+                        Car Care Kit
+                    </option>
+
+                    <option value="ev-charger-pro">
+                        Portable EV Charger
+                    </option>
+
+                    <option value="ev-type2-cable">
+                        Type-2 Charging Cable
+                    </option>
+
+                    <option value="wallbox-charger">
+                        Wallbox Home Charger
+                    </option>
+
+                    <option value="ev-floor-mat">
+                        EV Premium Floor Mat
+                    </option>
+
+                </select>
+
+            </div>
+
+
+        </div>
+
+
+        <button
+            class="compare-btn"
+            onclick="compareProducts()">
+
+            ⚖ Compare Products
+
+        </button>
+
+    </div>
+
+
+    <!-- ================= RESULT ================= -->
+
+    <div
+        class="result"
+        id="result">
+
+        <div
+            class="compare-grid"
+            id="compareGrid">
+        </div>
+
+        <div
+            class="verdict"
+            id="verdict">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= QUICK LINKS ================= -->
+
+<section class="section">
+
+    <div class="heading">
+
+        <h2>
+            Explore <span>AutoLux</span>
+        </h2>
+
+    </div>
+
+
+    <div class="quick-links">
+
+
+        <a href="accessories.html" class="quick">
+
+            <div class="quick-icon">
+                🛍️
+            </div>
+
+            <strong>
+                Accessories
+            </strong>
+
+            <p>
+                Shop products
+            </p>
+
+        </a>
+
+
+        <a href="ev-zone.html" class="quick">
+
+            <div class="quick-icon">
+                ⚡
+            </div>
+
+            <strong>
+                EV Zone
+            </strong>
+
+            <p>
+                EV products
+            </p>
+
+        </a>
+
+
+        <a href="workshops.html" class="quick">
+
+            <div class="quick-icon">
+                🔧
+            </div>
+
+            <strong>
+                Workshops
+            </strong>
+
+            <p>
+                Installation
+            </p>
+
+        </a>
+
+
+        <a href="cart.html" class="quick">
+
+            <div class="quick-icon">
+                🛒
+            </div>
+
+            <strong>
+                Cart
+            </strong>
+
+            <p>
+                View cart
+            </p>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-grid">
+
+
+        <div class="footer-column">
+
+            <h3>
+                AutoLux
+            </h3>
+
+            <p>
+                Premium car accessories,
+                EV solutions and workshop
+                services connected in one platform.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Shop
+            </h3>
+
+            <a href="accessories.html">
+                Accessories
+            </a>
+
+            <a href="ev-zone.html">
+                EV Zone
+            </a>
+
+            <a href="compare.html">
+                Compare
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Services
+            </h3>
+
+            <a href="workshops.html">
+                Workshops
+            </a>
+
+            <a href="booking.html">
+                Booking
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Account
+            </h3>
+
+            <a href="login.html">
+                Login
+            </a>
+
+            <a href="signup.html">
+                Sign Up
+            </a>
+
+            <a href="account.html">
+                My Account
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 AutoLux — Premium Car Accessories & EV Solutions
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   PRODUCT DATABASE
+========================= */
+
+const products = {
+
+    "seat-covers":{
+        name:"Premium Seat Covers",
+        category:"Interior",
+        price:4999,
+        image:"https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=900&q=80",
+        material:"Premium Leather",
+        warranty:"1 Year",
+        installation:"Available"
+    },
+
+    "floor-mats":{
+        name:"Premium Floor Mats",
+        category:"Interior",
+        price:2999,
+        image:"https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=900&q=80",
+        material:"Waterproof Rubber",
+        warranty:"1 Year",
+        installation:"Available"
+    },
+
+    "led-headlight":{
+        name:"LED Headlight",
+        category:"Exterior",
+        price:4499,
+        image:"https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=900&q=80",
+        material:"LED Technology",
+        warranty:"1 Year",
+        installation:"Available"
+    },
+
+    "dashcam":{
+        name:"Smart Dash Camera",
+        category:"Electronics",
+        price:5999,
+        image:"https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=900&q=80",
+        material:"Full HD Camera",
+        warranty:"1 Year",
+        installation:"Available"
+    },
+
+    "android-infotainment":{
+        name:"Android Infotainment",
+        category:"Electronics",
+        price:14999,
+        image:"https://images.unsplash.com/photo-1551830820-330a71b99659?auto=format&fit=crop&w=900&q=80",
+        material:"Touch Display",
+        warranty:"1 Year",
+        installation:"Available"
+    },
+
+    "car-care-kit":{
+        name:"Car Care Kit",
+        category:"Car Care",
+        price:1999,
+        image:"https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=900&q=80",
+        material:"Professional Kit",
+        warranty:"6 Months",
+        installation:"Not Required"
+    },
+
+    "ev-charger-pro":{
+        name:"Portable EV Charger",
+        category:"EV Charging",
+        price:18999,
+        image:"https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=900&q=80",
+        material:"Portable Charger",
+        warranty:"2 Years",
+        installation:"Available"
+    },
+
+    "ev-type2-cable":{
+        name:"Type-2 Charging Cable",
+        category:"EV Cable",
+        price:9499,
+        image:"https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=900&q=80",
+        material:"Type-2 Cable",
+        warranty:"2 Years",
+        installation:"Available"
+    },
+
+    "wallbox-charger":{
+        name:"Wallbox Home Charger",
+        category:"EV Charging",
+        price:32999,
+        image:"https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=900&q=80",
+        material:"Smart Wallbox",
+        warranty:"3 Years",
+        installation:"Available"
+    },
+
+    "ev-floor-mat":{
+        name:"EV Premium Floor Mat",
+        category:"EV Interior",
+        price:3999,
+        image:"https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=900&q=80",
+        material:"EV Rubber Mat",
+        warranty:"1 Year",
+        installation:"Not Required"
+    }
+
+};
+
+
+/* =========================
+   COMPARE
+========================= */
+
+function compareProducts(){
+
+    const id1 =
+        document.getElementById("product1").value;
+
+    const id2 =
+        document.getElementById("product2").value;
+
+
+    if(!id1 || !id2){
+
+        alert(
+            "Please select both products."
+        );
+
+        return;
+
+    }
+
+
+    if(id1 === id2){
+
+        alert(
+            "Please select two different products."
+        );
+
+        return;
+
+    }
+
+
+    const p1 = products[id1];
+
+    const p2 = products[id2];
+
+
+    document
+    .getElementById("result")
+    .style.display = "block";
+
+
+    document
+    .getElementById("compareGrid")
+    .innerHTML =
+
+    createCard(p1,id1) +
+    createCard(p2,id2);
+
+
+    /* =====================
+       VERDICT
+    ===================== */
+
+    let verdict = "";
+
+    if(p1.price < p2.price){
+
+        verdict =
+        `<h3>🏆 Budget Winner: ${p1.name}</h3>
+        <p>
+        ${p1.name} is the more affordable option.
+        ${p2.name} offers a higher price point with
+        its own additional features.
+        </p>`;
+
+    }
+
+    else if(p2.price < p1.price){
+
+        verdict =
+        `<h3>🏆 Budget Winner: ${p2.name}</h3>
+        <p>
+        ${p2.name} is the more affordable option.
+        ${p1.name} offers a higher price point with
+        its own additional features.
+        </p>`;
+
+    }
+
+    else{
+
+        verdict =
+        `<h3>⚖ Price Match</h3>
+        <p>
+        Both products have the same price.
+        Compare their features and choose the one
+        that best suits your vehicle.
+        </p>`;
+
+    }
+
+
+    document
+    .getElementById("verdict")
+    .innerHTML = verdict;
+
+
+    window.scrollTo({
+
+        top:
+        document
+        .getElementById("result")
+        .offsetTop - 90,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+
+/* =========================
+   PRODUCT CARD
+========================= */
+
+function createCard(product,id){
+
+    return `
+
+    <div class="product-card">
+
+        <img
+            src="${product.image}"
+            alt="${product.name}">
+
+        <div class="product-content">
+
+            <div class="category">
+                ${product.category}
+            </div>
+
+            <h2>
+                ${product.name}
+            </h2>
+
+            <div class="price">
+                ₹${product.price.toLocaleString("en-IN")}
+            </div>
+
+
+            <div class="spec">
+                <span>Material</span>
+                <strong>${product.material}</strong>
+            </div>
+
+            <div class="spec">
+                <span>Warranty</span>
+                <strong>${product.warranty}</strong>
+            </div>
+
+            <div class="spec">
+                <span>Workshop Installation</span>
+                <strong>${product.installation}</strong>
+            </div>
+
+
+            <div class="card-actions">
+
+                <a
+                    class="details"
+                    href="product-details.html?id=${id}">
+
+                    View Details
+
+                </a>
+
+                <button
+                    class="add"
+                    onclick="addToCart('${id}')">
+
+                    🛒 Add to Cart
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =========================
+   ADD TO CART
+========================= */
+
+function addToCart(id){
+
+    const product =
+        products[id];
+
+
+    let cart =
+        JSON.parse(
+            localStorage.getItem(
+                "autoluxCart"
+            )
+        ) || [];
+
+
+    const existing =
+        cart.find(
+            item => item.id === id
+        );
+
+
+    if(existing){
+
+        existing.quantity =
+            Number(existing.quantity || 1) + 1;
+
+    }else{
+
+        cart.push({
+
+            id:id,
+
+            name:product.name,
+
+            price:product.price,
+
+            image:product.image,
+
+            quantity:1
+
+        });
+
+    }
+
+
+    localStorage.setItem(
+        "autoluxCart",
+        JSON.stringify(cart)
+    );
+
+
+    updateCartCount();
+
+
+    alert(
+        product.name +
+        " added to cart!"
+    );
+
+}
+
+
+/* =========================
+   CART COUNT
+========================= */
+
+function updateCartCount(){
+
+    const cart =
+        JSON.parse(
+            localStorage.getItem(
+                "autoluxCart"
+            )
+        ) || [];
+
+
+    const count =
+        cart.reduce(
+
+            (sum,item) =>
+            sum +
+            Number(item.quantity || 1),
+
+            0
+
+        );
+
+
+    document
+    .getElementById("cartCount")
+    .textContent = count;
+
+}
+
+
+/* =========================
+   ACCOUNT
+========================= */
+
+function checkAccount(){
+
+    const user =
+        JSON.parse(
+            localStorage.getItem(
+                "autoluxUser"
+            )
+        );
+
+    const loggedIn =
+        localStorage.getItem(
+            "autoluxLoggedIn"
+        );
+
+
+    const account =
+        document.getElementById(
+            "accountLink"
+        );
+
+
+    if(
+        user &&
+        loggedIn === "true"
+    ){
+
+        account.href =
+            "account.html";
+
+        account.textContent =
+            "👤 My Account";
+
+    }
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+updateCartCount();
+
+checkAccount();
+
+</script>
+
+</body>
+</html>

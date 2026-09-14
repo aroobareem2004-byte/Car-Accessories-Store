@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AutoLux | Product Details</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+    color:#111;
+}
+
+/* NAVBAR */
+
+header{
+    background:#080808;
+    color:white;
+    padding:16px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    color:#ff6a00;
+    text-decoration:none;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:white;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+}
+
+nav a:hover{
+    color:#ff6a00;
+}
+
+.cart{
+    background:#ff6a00;
+    padding:8px 14px;
+    border-radius:20px;
+}
+
+/* BREADCRUMB */
+
+.breadcrumb{
+    width:90%;
+    max-width:1200px;
+    margin:25px auto 0;
+    color:#777;
+    font-size:13px;
+}
+
+.breadcrumb a{
+    color:#ff6a00;
+    text-decoration:none;
+}
+
+/* PRODUCT */
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:25px auto 60px;
+}
+
+.product-box{
+    background:white;
+    border-radius:20px;
+    padding:35px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:45px;
+    box-shadow:0 8px 30px rgba(0,0,0,.07);
+}
+
+/* IMAGE */
+
+.product-image{
+    height:470px;
+    border-radius:16px;
+    overflow:hidden;
+    background:#eee;
+    position:relative;
+}
+
+.product-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.ev-badge{
+    position:absolute;
+    top:18px;
+    left:18px;
+    background:#ff6a00;
+    color:white;
+    padding:8px 15px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+/* DETAILS */
+
+.category{
+    color:#ff6a00;
+    font-size:13px;
+    font-weight:bold;
+    text-transform:uppercase;
+    margin-bottom:10px;
+}
+
+.product-title{
+    font-size:38px;
+    margin-bottom:12px;
+}
+
+.rating{
+    color:#ff6a00;
+    margin-bottom:20px;
+}
+
+.rating span{
+    color:#777;
+    font-size:13px;
+}
+
+.description{
+    color:#666;
+    line-height:1.7;
+    font-size:15px;
+    margin-bottom:20px;
+}
+
+.price{
+    font-size:32px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.stock{
+    display:inline-block;
+    color:#16833b;
+    background:#e9f8ee;
+    padding:7px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+/* FEATURES */
+
+.features{
+    border-top:1px solid #eee;
+    border-bottom:1px solid #eee;
+    padding:18px 0;
+    margin-bottom:22px;
+}
+
+.features p{
+    margin:9px 0;
+    font-size:13px;
+    color:#555;
+}
+
+/* QUANTITY */
+
+.quantity-area{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.quantity-area label{
+    font-weight:bold;
+}
+
+.quantity{
+    display:flex;
+    align-items:center;
+    border:1px solid #ddd;
+    border-radius:8px;
+    overflow:hidden;
+}
+
+.quantity button{
+    width:35px;
+    height:35px;
+    border:none;
+    background:#f3f3f3;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.quantity span{
+    width:40px;
+    text-align:center;
+    font-weight:bold;
+}
+
+/* BUTTONS */
+
+.buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.add-btn,
+.buy-btn{
+    flex:1;
+    min-width:180px;
+    padding:14px;
+    border-radius:9px;
+    border:none;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:14px;
+}
+
+.add-btn{
+    background:#ff6a00;
+    color:white;
+}
+
+.buy-btn{
+    background:#111;
+    color:white;
+}
+
+.add-btn:hover{
+    background:#e85d00;
+}
+
+.buy-btn:hover{
+    background:#333;
+}
+
+/* INSTALLATION */
+
+.installation{
+    margin-top:18px;
+    padding:18px;
+    border-radius:12px;
+    background:#fff5ed;
+    border:1px solid #ffd6b8;
+}
+
+.installation h3{
+    margin-bottom:7px;
+}
+
+.installation p{
+    color:#666;
+    font-size:13px;
+    line-height:1.5;
+}
+
+.installation a{
+    display:inline-block;
+    margin-top:10px;
+    color:#ff6a00;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+/* REVIEWS */
+
+.reviews-section{
+    margin-top:45px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.section-title h2{
+    font-size:30px;
+}
+
+.section-title span{
+    color:#ff6a00;
+}
+
+.review-layout{
+    display:grid;
+    grid-template-columns:1fr 1.5fr;
+    gap:25px;
+}
+
+.review-summary,
+.review-list{
+    background:white;
+    border-radius:16px;
+    padding:25px;
+    box-shadow:0 6px 22px rgba(0,0,0,.06);
+}
+
+.big-rating{
+    text-align:center;
+    font-size:45px;
+    font-weight:bold;
+}
+
+.big-stars{
+    color:#ff6a00;
+    font-size:22px;
+    margin:5px 0 10px;
+}
+
+.review-summary p{
+    color:#777;
+    font-size:13px;
+    text-align:center;
+}
+
+.review{
+    padding:17px 0;
+    border-bottom:1px solid #eee;
+}
+
+.review:last-child{
+    border-bottom:none;
+}
+
+.review-top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:7px;
+}
+
+.review-name{
+    font-weight:bold;
+}
+
+.review-stars{
+    color:#ff6a00;
+}
+
+.review p{
+    color:#666;
+    font-size:13px;
+    line-height:1.5;
+}
+
+/* ADD REVIEW */
+
+.add-review{
+    margin-top:25px;
+    background:white;
+    padding:25px;
+    border-radius:16px;
+    box-shadow:0 6px 22px rgba(0,0,0,.06);
+}
+
+.add-review h3{
+    margin-bottom:18px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+label{
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+input,
+textarea,
+select{
+    border:1px solid #ddd;
+    border-radius:8px;
+    padding:12px;
+    outline:none;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+    border-color:#ff6a00;
+}
+
+textarea{
+    resize:vertical;
+    min-height:90px;
+}
+
+.submit-review{
+    margin-top:15px;
+    background:#ff6a00;
+    color:white;
+    border:none;
+    padding:12px 22px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* RELATED */
+
+.related{
+    margin-top:50px;
+}
+
+.related-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.related-card{
+    background:white;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+.related-card img{
+    width:100%;
+    height:170px;
+    object-fit:cover;
+}
+
+.related-info{
+    padding:15px;
+}
+
+.related-info h3{
+    font-size:15px;
+    margin-bottom:8px;
+}
+
+.related-info p{
+    color:#ff6a00;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.related-info a{
+    color:#111;
+    font-size:12px;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+/* TOAST */
+
+.toast{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    background:#080808;
+    color:white;
+    padding:15px 20px;
+    border-radius:10px;
+    opacity:0;
+    transform:translateY(100px);
+    transition:.3s;
+    z-index:3000;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.toast span{
+    color:#ff6a00;
+    font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+    background:#080808;
+    color:white;
+    text-align:center;
+    padding:35px 20px;
+    margin-top:60px;
+}
+
+.footer-logo{
+    color:#ff6a00;
+    font-size:26px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+footer p{
+    color:#aaa;
+    font-size:13px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .product-box,
+    .review-layout{
+        grid-template-columns:1fr;
+    }
+
+    .related-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .product-box{
+        padding:20px;
+    }
+
+    .product-image{
+        height:330px;
+    }
+
+    .product-title{
+        font-size:29px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+    .related-grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+
+<a href="index.html" class="logo">
+    Auto<span>Lux</span>
+</a>
+
+<nav>
+
+<a href="index.html">Home</a>
+
+<a href="accessories.html">
+    Accessories
+</a>
+
+<a href="ev-zone.html">
+    EV Zone
+</a>
+
+<a href="workshops.html">
+    Workshops
+</a>
+
+<a href="compare.html">
+    Compare
+</a>
+
+<a href="about.html">
+    About
+</a>
+
+<a href="contact.html">
+    Contact
+</a>
+
+<a href="login.html">
+    Account
+</a>
+
+<a href="cart.html" class="cart">
+    🛒 Cart <span id="cartCount">0</span>
+</a>
+
+</nav>
+
+</header>
+
+
+<!-- BREADCRUMB -->
+
+<div class="breadcrumb">
+
+<a href="index.html">Home</a>
+&nbsp; / &nbsp;
+<a href="accessories.html">Accessories</a>
+&nbsp; / &nbsp;
+Product Details
+
+</div>
+
+
+<div class="container">
+
+
+<!-- PRODUCT -->
+
+<div class="product-box">
+
+<!-- IMAGE -->
+
+<div class="product-image">
+
+<img id="productImage"
+src=""
+alt="AutoLux Product">
+
+<div class="ev-badge" id="evBadge">
+    AUTOLUX
+</div>
+
+</div>
+
+
+<!-- DETAILS -->
+
+<div>
+
+<div class="category" id="productCategory">
+    ACCESSORY
+</div>
+
+<h1 class="product-title" id="productName">
+    Product
+</h1>
+
+<div class="rating">
+    ★★★★★
+    <span>
+        4.8/5 • Customer Rated
+    </span>
+</div>
+
+<p class="description" id="productDescription">
+    Premium automotive accessory from AutoLux.
+</p>
+
+<div class="price" id="productPrice">
+    ₹0
+</div>
+
+<div class="stock">
+    ✓ In Stock
+</div>
+
+
+<div class="features">
+
+<p>✓ Premium quality materials</p>
+
+<p>✓ Compatible with selected vehicles</p>
+
+<p>✓ Professional installation available</p>
+
+<p>✓ AutoLux customer support</p>
+
+</div>
+
+
+<!-- QUANTITY -->
+
+<div class="quantity-area">
+
+<label>Quantity:</label>
+
+<div class="quantity">
+
+<button onclick="changeQuantity(-1)">
+    −
+</button>
+
+<span id="quantity">
+    1
+</span>
+
+<button onclick="changeQuantity(1)">
+    +
+</button>
+
+</div>
+
+</div>
+
+
+<!-- BUTTONS -->
+
+<div class="buttons">
+
+<button class="add-btn" onclick="addProduct()">
+    🛒 Add to Cart
+</button>
+
+<button class="buy-btn" onclick="buyNow()">
+    Buy Now →
+</button>
+
+</div>
+
+
+<!-- INSTALLATION -->
+
+<div class="installation">
+
+<h3>
+    🔧 Need Installation?
+</h3>
+
+<p>
+    Purchase your accessory and book professional
+    installation at a nearby AutoLux workshop.
+</p>
+
+<a href="booking.html">
+    Book Workshop Installation →
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- REVIEWS -->
+
+<section class="reviews-section">
+
+<div class="section-title">
+
+<h2>
+    Customer <span>Reviews</span>
+</h2>
+
+</div>
+
+
+<div class="review-layout">
+
+
+<div class="review-summary">
+
+<div class="big-rating">
+    4.8
+</div>
+
+<div class="big-stars">
+    ★★★★★
+</div>
+
+<p>
+    Based on AutoLux customer reviews
+</p>
+
+</div>
+
+
+<div class="review-list" id="reviewList">
+
+<div class="review">
+
+<div class="review-top">
+
+<span class="review-name">
+    Rahul K.
+</span>
+
+<span class="review-stars">
+    ★★★★★
+</span>
+
+</div>
+
+<p>
+    Excellent quality and the installation was very neat.
+</p>
+
+</div>
+
+
+<div class="review">
+
+<div class="review-top">
+
+<span class="review-name">
+    Fathima A.
+</span>
+
+<span class="review-stars">
+    ★★★★★
+</span>
+
+</div>
+
+<p>
+    Product arrived quickly and matched the description.
+</p>
+
+</div>
+
+
+<div class="review">
+
+<div class="review-top">
+
+<span class="review-name">
+    Arjun P.
+</span>
+
+<span class="review-stars">
+    ★★★★☆
+</span>
+
+</div>
+
+<p>
+    Good product. Workshop installation was also convenient.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ADD REVIEW -->
+
+<div class="add-review">
+
+<h3>
+    Write a Review
+</h3>
+
+<form id="reviewForm">
+
+<div class="form-grid">
+
+<div class="form-group">
+
+<label>
+    Your Name
+</label>
+
+<input
+type="text"
+id="reviewName"
+placeholder="Enter your name"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+    Rating
+</label>
+
+<select id="reviewRating">
+
+<option value="5">
+    ★★★★★ - Excellent
+</option>
+
+<option value="4">
+    ★★★★☆ - Very Good
+</option>
+
+<option value="3">
+    ★★★☆☆ - Good
+</option>
+
+<option value="2">
+    ★★☆☆☆ - Average
+</option>
+
+<option value="1">
+    ★☆☆☆☆ - Poor
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group full">
+
+<label>
+    Your Review
+</label>
+
+<textarea
+id="reviewText"
+placeholder="Share your experience..."
+required></textarea>
+
+</div>
+
+</div>
+
+
+<button
+type="submit"
+class="submit-review">
+
+Submit Review
+
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+
+<!-- RELATED PRODUCTS -->
+
+<section class="related">
+
+<div class="section-title">
+
+<h2>
+    You May Also <span>Like</span>
+</h2>
+
+</div>
+
+
+<div class="related-grid">
+
+
+<div class="related-card">
+
+<img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=700&q=80">
+
+<div class="related-info">
+
+<h3>
+    Premium Floor Mats
+</h3>
+
+<p>
+    ₹2,999
+</p>
+
+<a href="product-details.html?id=floor-mats">
+    View Product →
+</a>
+
+</div>
+
+</div>
+
+
+<div class="related-card">
+
+<img src="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=700&q=80">
+
+<div class="related-info">
+
+<h3>
+    LED Headlights
+</h3>
+
+<p>
+    ₹4,499
+</p>
+
+<a href="product-details.html?id=led-headlight">
+    View Product →
+</a>
+
+</div>
+
+</div>
+
+
+<div class="related-card">
+
+<img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=700&q=80">
+
+<div class="related-info">
+
+<h3>
+    EV Charger
+</h3>
+
+<p>
+    ₹18,999
+</p>
+
+<a href="product-details.html?id=ev-charger">
+    View Product →
+</a>
+
+</div>
+
+</div>
+
+
+<div class="related-card">
+
+<img src="https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=700&q=80">
+
+<div class="related-info">
+
+<h3>
+    EV Phone Mount
+</h3>
+
+<p>
+    ₹2,999
+</p>
+
+<a href="product-details.html?id=ev-phone-mount">
+    View Product →
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div class="toast" id="toast">
+
+✓ <span id="toastMessage">
+    Added to cart
+</span>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-logo">
+    AutoLux
+</div>
+
+<p>
+    Smart Accessories • Professional Workshops • EV Solutions
+</p>
+
+<p style="margin-top:10px;">
+    © 2026 AutoLux. All Rights Reserved.
+</p>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   PRODUCT DATABASE
+========================= */
+
+const products = {
+
+    "seat-covers":{
+        name:"Premium Seat Covers",
+        category:"Interior",
+        price:4999,
+        image:"https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1000&q=80",
+        description:"Premium automotive seat covers designed to improve comfort, protection and the overall appearance of your car interior."
+    },
+
+    "floor-mats":{
+        name:"Premium Floor Mats",
+        category:"Interior",
+        price:2999,
+        image:"https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1000&q=80",
+        description:"Durable and water-resistant floor mats designed to protect your vehicle interior from dirt, dust and spills."
+    },
+
+    "led-headlight":{
+        name:"LED Headlight Kit",
+        category:"Exterior",
+        price:4499,
+        image:"https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1000&q=80",
+        description:"Bright LED headlights that provide improved visibility and a modern appearance for compatible vehicles."
+    },
+
+    "dashcam":{
+        name:"Smart Dash Camera",
+        category:"Electronics",
+        price:5999,
+        image:"https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1000&q=80",
+        description:"Smart dashboard camera for recording your journeys and improving driving awareness."
+    },
+
+    "android-infotainment":{
+        name:"Android Infotainment System",
+        category:"Electronics",
+        price:14999,
+        image:"https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1000&q=80",
+        description:"Modern Android infotainment system with entertainment and connectivity features."
+    },
+
+    "car-care-kit":{
+        name:"Premium Car Care Kit",
+        category:"Care",
+        price:1999,
+        image:"https://images.unsplash.com/photo-1609521263047-f8f205293f24?auto=format&fit=crop&w=1000&q=80",
+        description:"Complete car care kit for cleaning and maintaining your vehicle."
+    },
+
+    "air-purifier":{
+        name:"Car Air Purifier",
+        category:"Comfort",
+        price:2499,
+        image:"https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1000&q=80",
+        description:"Compact car air purifier designed to improve the air quality inside your vehicle."
+    },
+
+    "ev-charger":{
+        name:"EV Charger",
+        category:"EV Charging",
+        price:18999,
+        image:"https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=1000&q=80",
+        description:"Convenient EV charging equipment designed for compatible electric vehicles."
+    },
+
+    "ev-type2-cable":{
+        name:"EV Type-2 Charging Cable",
+        category:"EV Cable",
+        price:9499,
+        image:"https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=1000&q=80",
+        description:"Durable Type-2 charging cable for compatible electric vehicles and charging stations."
+    },
+
+    "ev-phone-mount":{
+        name:"EV Wireless Phone Mount",
+        category:"EV Interior",
+        price:2999,
+        image:"https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1000&q=80",
+        description:"Convenient wireless phone mount designed for modern vehicle interiors."
+    },
+
+    "fog-lights":{
+        name:"LED Fog Lights",
+        category:"Exterior",
+        price:3499,
+        image:"https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1000&q=80",
+        description:"Modern LED fog lights designed to improve visibility in difficult weather conditions."
+    },
+
+    "parking-camera":{
+        name:"HD Parking Camera",
+        category:"Safety",
+        price:3999,
+        image:"https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1000&q=80",
+        description:"HD parking camera designed to improve rear visibility and parking convenience."
+    },
+
+    "ev-charger-pro":{
+        name:"Portable EV Charger",
+        category:"EV Charging",
+        price:18999,
+        image:"https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=1000&q=80",
+        description:"Portable EV charging solution for compatible electric vehicles."
+    },
+
+    "wallbox-charger":{
+        name:"Wallbox Home Charger",
+        category:"EV Charging",
+        price:32999,
+        image:"https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=1000&q=80",
+        description:"Compact home charging solution designed for everyday electric vehicle charging."
+    },
+
+    "ev-floor-mat":{
+        name:"EV Premium Floor Mat",
+        category:"EV Interior",
+        price:3999,
+        image:"https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1000&q=80",
+        description:"Water-resistant custom-fit floor mats designed for electric vehicle interiors."
+    },
+
+    "ev-safety-kit":{
+        name:"EV Emergency Safety Kit",
+        category:"EV Safety",
+        price:2499,
+        image:"https://images.unsplash.com/photo-1615906655593-ad0386982a0f?auto=format&fit=crop&w=1000&q=80",
+        description:"Essential emergency equipment for everyday electric vehicle travel."
+    },
+
+    "ev-wireless-mount":{
+        name:"Wireless EV Phone Mount",
+        category:"EV Interior",
+        price:2999,
+        image:"https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1000&q=80",
+        description:"Smart dashboard phone mount with convenient wireless charging."
+    },
+
+    "ev-extension":{
+        name:"EV Extension Cable",
+        category:"EV Cable",
+        price:5499,
+        image:"https://images.unsplash.com/photo-1625047509248-ec889cbff17f?auto=format&fit=crop&w=1000&q=80",
+        description:"Durable extension cable for convenient EV charging setups."
+    },
+
+    "ev-tyre-inflator":{
+        name:"Digital Tyre Inflator",
+        category:"EV Safety",
+        price:2799,
+        image:"https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1000&q=80",
+        description:"Compact digital inflator for quick tyre pressure maintenance."
+    }
+
+};
+
+
+/* =========================
+   GET PRODUCT ID
+========================= */
+
+const params =
+    new URLSearchParams(window.location.search);
+
+const productID =
+    params.get("id") || "seat-covers";
+
+const product =
+    products[productID] || products["seat-covers"];
+
+
+/* =========================
+   DISPLAY PRODUCT
+========================= */
+
+document.getElementById("productName")
+    .textContent = product.name;
+
+document.getElementById("productCategory")
+    .textContent = product.category;
+
+document.getElementById("productPrice")
+    .textContent =
+    "₹" + product.price.toLocaleString("en-IN");
+
+document.getElementById("productDescription")
+    .textContent = product.description;
+
+document.getElementById("productImage")
+    .src = product.image;
+
+document.getElementById("productImage")
+    .alt = product.name;
+
+
+/* =========================
+   QUANTITY
+========================= */
+
+let quantity = 1;
+
+
+function changeQuantity(amount){
+
+    quantity += amount;
+
+    if(quantity < 1){
+        quantity = 1;
+    }
+
+    if(quantity > 10){
+        quantity = 10;
+    }
+
+    document.getElementById("quantity")
+        .textContent = quantity;
+
+}
+
+
+/* =========================
+   CART
+========================= */
+
+function getCart(){
+
+    return JSON.parse(
+        localStorage.getItem("autoluxCart")
+    ) || [];
+
+}
+
+
+function saveCart(cart){
+
+    localStorage.setItem(
+        "autoluxCart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+function addProduct(){
+
+    let cart = getCart();
+
+    const existing =
+        cart.find(item => item.id === productID);
+
+
+    if(existing){
+
+        existing.quantity =
+            (Number(existing.quantity) || 1)
+            + quantity;
+
+    }else{
+
+        cart.push({
+
+            id:productID,
+
+            name:product.name,
+
+            price:product.price,
+
+            image:product.image,
+
+            quantity:quantity
+
+        });
+
+    }
+
+
+    saveCart(cart);
+
+    updateCartCount();
+
+    showToast(
+        product.name +
+        " added to cart!"
+    );
+
+}
+
+
+/* =========================
+   BUY NOW
+========================= */
+
+function buyNow(){
+
+    addProduct();
+
+    setTimeout(function(){
+
+        window.location.href =
+            "checkout.html";
+
+    },500);
+
+}
+
+
+/* =========================
+   CART COUNT
+========================= */
+
+function updateCartCount(){
+
+    const cart = getCart();
+
+    let count = 0;
+
+    cart.forEach(item => {
+
+        count +=
+            Number(item.quantity) || 1;
+
+    });
+
+    document.getElementById("cartCount")
+        .textContent = count;
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    document.getElementById(
+        "toastMessage"
+    ).textContent = message;
+
+
+    toast.classList.add("show");
+
+
+    setTimeout(function(){
+
+        toast.classList.remove("show");
+
+    },2500);
+
+}
+
+
+/* =========================
+   REVIEWS
+========================= */
+
+document.getElementById("reviewForm")
+.addEventListener("submit",function(event){
+
+    event.preventDefault();
+
+
+    const name =
+        document.getElementById(
+            "reviewName"
+        ).value.trim();
+
+    const rating =
+        Number(
+            document.getElementById(
+                "reviewRating"
+            ).value
+        );
+
+    const text =
+        document.getElementById(
+            "reviewText"
+        ).value.trim();
+
+
+    if(!name || !text){
+        return;
+    }
+
+
+    const stars =
+        "★".repeat(rating) +
+        "☆".repeat(5-rating);
+
+
+    const review =
+        document.createElement("div");
+
+    review.className = "review";
+
+
+    review.innerHTML = `
+
+        <div class="review-top">
+
+            <span class="review-name">
+                ${escapeHTML(name)}
+            </span>
+
+            <span class="review-stars">
+                ${stars}
+            </span>
+
+        </div>
+
+        <p>
+            ${escapeHTML(text)}
+        </p>
+
+    `;
+
+
+    document.getElementById("reviewList")
+        .prepend(review);
+
+
+    document.getElementById("reviewForm")
+        .reset();
+
+
+    showToast(
+        "Thank you! Your review was added."
+    );
+
+});
+
+
+/* =========================
+   SAFE TEXT
+========================= */
+
+function escapeHTML(text){
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+updateCartCount();
+
+</script>
+
+</body>
+</html>

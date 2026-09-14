@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AutoLux | EV Zone</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+    color:#111;
+}
+
+/* NAVBAR */
+header{
+    background:#080808;
+    color:white;
+    padding:16px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    color:#ff6a00;
+    text-decoration:none;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:white;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#ff6a00;
+}
+
+.cart{
+    background:#ff6a00;
+    padding:8px 14px;
+    border-radius:20px;
+}
+
+/* HERO */
+.hero{
+    min-height:430px;
+    background:
+    linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.72)),
+    url("https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    padding:40px 20px;
+}
+
+.hero-content{
+    max-width:800px;
+}
+
+.badge{
+    display:inline-block;
+    background:#ff6a00;
+    padding:8px 18px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.hero h1 span{
+    color:#ff6a00;
+}
+
+.hero p{
+    color:#ddd;
+    line-height:1.7;
+    font-size:17px;
+}
+
+.hero-buttons{
+    margin-top:28px;
+}
+
+.btn{
+    display:inline-block;
+    padding:13px 24px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+    margin:5px;
+}
+
+.btn-orange{
+    background:#ff6a00;
+    color:white;
+}
+
+.btn-dark{
+    border:1px solid white;
+    color:white;
+}
+
+/* CONTAINER */
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:50px auto;
+}
+
+/* TITLE */
+.section-title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.section-title h2{
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.section-title span{
+    color:#ff6a00;
+}
+
+.section-title p{
+    color:#777;
+}
+
+/* EV FEATURES */
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    margin-bottom:55px;
+}
+
+.feature{
+    background:white;
+    padding:25px 18px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 6px 22px rgba(0,0,0,.07);
+}
+
+.feature-icon{
+    width:60px;
+    height:60px;
+    background:#111;
+    color:#ff6a00;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:27px;
+    margin:0 auto 15px;
+}
+
+.feature h3{
+    margin-bottom:8px;
+}
+
+.feature p{
+    color:#777;
+    font-size:13px;
+    line-height:1.5;
+}
+
+/* CATEGORY BUTTONS */
+.categories{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:35px;
+}
+
+.category-btn{
+    border:1px solid #ddd;
+    background:white;
+    padding:11px 20px;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.category-btn:hover,
+.category-btn.active{
+    background:#ff6a00;
+    color:white;
+    border-color:#ff6a00;
+}
+
+/* PRODUCTS */
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+}
+
+.product{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 6px 25px rgba(0,0,0,.07);
+    transition:.3s;
+}
+
+.product:hover{
+    transform:translateY(-6px);
+}
+
+.product-image{
+    height:210px;
+    overflow:hidden;
+    position:relative;
+}
+
+.product-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.4s;
+}
+
+.product:hover img{
+    transform:scale(1.06);
+}
+
+.ev-label{
+    position:absolute;
+    top:12px;
+    left:12px;
+    background:#ff6a00;
+    color:white;
+    padding:6px 10px;
+    border-radius:15px;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.product-info{
+    padding:18px;
+}
+
+.product-category{
+    color:#ff6a00;
+    font-size:11px;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+
+.product h3{
+    margin:7px 0;
+    font-size:17px;
+}
+
+.product p{
+    color:#777;
+    font-size:13px;
+    line-height:1.5;
+    min-height:40px;
+}
+
+.price{
+    font-size:20px;
+    font-weight:bold;
+    margin:14px 0;
+}
+
+.actions{
+    display:flex;
+    gap:8px;
+}
+
+.add-btn,
+.details-btn{
+    flex:1;
+    padding:10px 5px;
+    border-radius:7px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:12px;
+}
+
+.add-btn{
+    background:#ff6a00;
+    color:white;
+    border:none;
+}
+
+.details-btn{
+    background:white;
+    border:1px solid #ddd;
+    color:#111;
+    text-decoration:none;
+    text-align:center;
+}
+
+.add-btn:hover{
+    background:#e85d00;
+}
+
+/* EV BANNER */
+.ev-banner{
+    margin-top:60px;
+    padding:45px;
+    border-radius:20px;
+    background:#080808;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
+}
+
+.ev-banner h2{
+    font-size:31px;
+    margin-bottom:10px;
+}
+
+.ev-banner h2 span{
+    color:#ff6a00;
+}
+
+.ev-banner p{
+    color:#bbb;
+    line-height:1.6;
+    max-width:700px;
+}
+
+/* WORKSHOP */
+.workshop-box{
+    margin-top:35px;
+    background:white;
+    border-radius:18px;
+    padding:30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+.workshop-box h2{
+    margin-bottom:8px;
+}
+
+.workshop-box p{
+    color:#777;
+}
+
+/* TOAST */
+.toast{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    background:#080808;
+    color:white;
+    padding:15px 20px;
+    border-radius:10px;
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+    transform:translateY(120px);
+    opacity:0;
+    transition:.4s;
+    z-index:2000;
+}
+
+.toast.show{
+    transform:translateY(0);
+    opacity:1;
+}
+
+.toast span{
+    color:#ff6a00;
+    font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+    margin-top:60px;
+    background:#080808;
+    color:white;
+    text-align:center;
+    padding:35px 20px;
+}
+
+.footer-logo{
+    color:#ff6a00;
+    font-size:26px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+footer p{
+    color:#aaa;
+    font-size:13px;
+}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .feature-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:650px){
+
+    header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .product-grid,
+    .feature-grid{
+        grid-template-columns:1fr;
+    }
+
+    .ev-banner,
+    .workshop-box{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+
+<a href="index.html" class="logo">
+    Auto<span>Lux</span>
+</a>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="accessories.html">Accessories</a>
+    <a href="ev-zone.html">EV Zone</a>
+    <a href="workshops.html">Workshops</a>
+    <a href="compare.html">Compare</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Account</a>
+
+    <a href="cart.html" class="cart">
+        🛒 Cart <span id="cartCount">0</span>
+    </a>
+</nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="badge">
+    ⚡ FUTURE OF MOBILITY
+</div>
+
+<h1>
+    AutoLux <span>EV Zone</span>
+</h1>
+
+<p>
+    Discover smart accessories, charging equipment and
+    essential components designed for modern electric vehicles.
+    Shop online and get professional installation at AutoLux workshops.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#evProducts" class="btn btn-orange">
+    Explore EV Parts
+</a>
+
+<a href="workshops.html" class="btn btn-dark">
+    Find EV Workshop
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<div class="container">
+
+
+<!-- FEATURES -->
+
+<section>
+
+<div class="section-title">
+
+<h2>
+    Everything Your <span>EV Needs</span>
+</h2>
+
+<p>
+    Upgrade, protect and maintain your electric vehicle.
+</p>
+
+</div>
+
+
+<div class="feature-grid">
+
+
+<div class="feature">
+
+<div class="feature-icon">
+    ⚡
+</div>
+
+<h3>EV Charging</h3>
+
+<p>
+Home chargers, Type-2 cables and charging accessories.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+    🔋
+</div>
+
+<h3>Battery Care</h3>
+
+<p>
+Smart accessories designed to support EV battery usage.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+    🔌
+</div>
+
+<h3>EV Connectors</h3>
+
+<p>
+Charging connectors and cables for compatible electric cars.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+    🛠️
+</div>
+
+<h3>EV Workshop</h3>
+
+<p>
+Get professional EV accessory installation and service.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section id="evProducts">
+
+<div class="section-title">
+
+<h2>
+    EV <span>Accessories & Parts</span>
+</h2>
+
+<p>
+    Select a category and explore AutoLux EV products.
+</p>
+
+</div>
+
+
+<div class="categories">
+
+<button class="category-btn active"
+onclick="filterProducts('all',this)">
+    All
+</button>
+
+<button class="category-btn"
+onclick="filterProducts('charging',this)">
+    Charging
+</button>
+
+<button class="category-btn"
+onclick="filterProducts('cable',this)">
+    Cables
+</button>
+
+<button class="category-btn"
+onclick="filterProducts('interior',this)">
+    Interior
+</button>
+
+<button class="category-btn"
+onclick="filterProducts('safety',this)">
+    Safety
+</button>
+
+</div>
+
+
+<div class="product-grid" id="productGrid">
+
+
+<!-- PRODUCT 1 -->
+
+<div class="product" data-category="charging">
+
+<div class="product-image">
+
+<img src="https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=800&q=80">
+
+<div class="ev-label">EV</div>
+
+</div>
+
+<div class="product-info">
+
+<div class="product-category">
+    Charging
+</div>
+
+<h3>Portable EV Charger</h3>
+
+<p>
+Portable charging solution for compatible electric vehicles.
+</p>
+
+<div class="price">
+    ₹18,999
+</div>
+
+<div class="actions">
+
+<button class="add-btn"
+onclick="addToCart(
+'ev-charger-pro',
+'Portable EV Charger',
+18999,
+'https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=800&q=80'
+)">
+    Add to Cart
+</button>
+
+<a href="product-details.html?id=ev-charger-pro"
+class="details-btn">
+    Details
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 2 -->
+
+<div class="product" data-category="cable">
+
+<div class="product-image">
+
+<img src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=800&q=80">
+
+<div class="ev-label">EV</div>
+
+</div>
+
+<div class="product-info">
+
+<div class="product-category">
+    Cable
+</div>
+
+<h3>Type-2 Charging Cable</h3>
+
+<p>
+High-quality Type-2 cable for compatible EV charging stations.
+</p>
+
+<div class="price">
+    ₹9,499
+</div>
+
+<div class="actions">
+
+<button class="add-btn"
+onclick="addToCart(
+'ev-type2-cable',
+'Type-2 Charging Cable',
+9499,
+'https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=800&q=80'
+)">
+    Add to Cart
+</button>
+
+<a href="product-details.html?id=ev-type2-cable"
+class="details-btn">
+    Details
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 3 -->
+
+<div class="product" data-category="charging">
+
+<div class="product-image">
+
+<img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=800&q=80">
+
+<div class="ev-label">EV</div>
+
+</div>
+
+<div class="product-info">
+
+<div class="product-category">
+    Charging
+</div>
+
+<h3>Wallbox Home Charger</h3>
+
+<p>
+Compact home charging solution for everyday EV owners.
+</p>
+
+<div class="price">
+    ₹32,999
+</div>
+
+<div class="actions">
+
+<button class="add-btn"
+onclick="addToCart(
+'wallbox-charger',
+'Wallbox Home Charger',
+32999,
+'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=800&q=80'
+)">
+    Add to Cart
+</button>
+
+<a href="product-details.html?id=wallbox-charger"
+class="details-btn">
+    Details
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 4 -->
+
+<div class="product" data-category="interior">
+
+<div class="product-image">
+
+<img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=800&q=80">
+
+<div class="ev-label">EV</div>
+
+</div>
+
+<div class="product-info">
+
+<div class="product-category">
+    Interior
+</div>
+
+<h3>EV Premium Floor Mat</h3>
+
+<p>
+Water-resistant custom-fit mats designed for EV interiors.
+</p>
+
+<div class="price">
+    ₹3,999
+</div>
+
+<div class="actions">
+
+<button class="add-btn"
+onclick="addToCart(
+'ev-floor-mat',
+'EV Premium Floor Mat',
+3999,
+'https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=800&q=80'
+)">
+    Add to Cart
+</button>
+
+<a href="product-details.html?id=ev-floor-mat"
+class="details-btn">
+    Details
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 5 -->
+
+<div class="product" data-category="safety">
+
+<div class="product-image">
+
+<img src="https://images.unsplash.com/photo-1615906655593-ad0386982a0f?auto=format&fit=crop&w=800&q=80">
+
+<div class="ev-label">EV</div>
+
+</div>
+
+<div class="product-info">
+
+<div class="product-category">
+    Safety
+</div>
+
+<h3>EV Emergency Safety Kit</h3>
+
+<p>
+Essential emergency equipment for everyday electric-car travel.
+</p>
+
+<div class="price">
+    ₹2,499
+</div>
+
+<div class="actions">
+
+<button class="add-btn"
+onclick="addToCart(
+'ev-safety-kit',
+'EV Emergency Safety Kit',
+2499,
+'https://images.unsplash.com/photo-1615906655593-ad0386982a0f?auto=format&fit=crop&w=800&q=80'
+)">
+    Add to Cart
+</button>
+
+<a href="product-details.html?id=ev-safety-kit"
+class="details-btn">
+    Details
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 6 -->
+
+<div class="product" data-category="interior">
+
+<div class="product-image">
+
+<img src="https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=800&q=80">
+
+<div class="ev-label">EV</div>
+
+</div>
+
+<div class="product-info">
+
+<div class="product-category">
+    Interior
+</div>
+
+<h3>Wireless EV Phone Mount</h3>
+
+<p>
+Smart dashboard phone mount with convenient wireless charging.
+</p>
+
+<div class="price">
+    ₹2,999
+</div>
+
+<div class="actions">
+
+<button class="add-btn"
+onclick="addToCart(
+'ev-wireless-mount',
+'Wireless EV Phone Mount',
+2999,
+'https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=800&q=80'
+)">
+    Add to Cart
+</button>
+
+<a href="product-details.html?id=ev-wireless-mount"
+class="details-btn">
+    Details
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 7 -->
+
+<div class="product" data-category="cable">
+
+<div class="product-image">
+
+<img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?auto=format&fit=crop&w=800&q=80">
+
+<div class="ev-label">EV</div>
+
+</div>
+
+<div class="product-info">
+
+<div class="product-category">
+    Cable
+</div>
+
+<h3>EV Extension Cable</h3>
+
+<p>
+Durable extension cable for convenient EV charging setups.
+</p>
+
+<div class="price">
+    ₹5,499
+</div>
+
+<div class="actions">
+
+<button class="add-btn"
+onclick="addToCart(
+'ev-extension',
+'EV Extension Cable',
+5499,
+'https://images.unsplash.com/photo-1625047509248-ec889cbff17f?auto=format&fit=crop&w=800&q=80'
+)">
+    Add to Cart
+</button>
+
+<a href="product-details.html?id=ev-extension"
+class="details-btn">
+    Details
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 8 -->
+
+<div class="product" data-category="safety">
+
+<div class="product-image">
+
+<img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80">
+
+<div class="ev-label">EV</div>
+
+</div>
+
+<div class="product-info">
+
+<div class="product-category">
+    Safety
+</div>
+
+<h3>Digital Tyre Inflator</h3>
+
+<p>
+Compact digital inflator for quick tyre pressure maintenance.
+</p>
+
+<div class="price">
+    ₹2,799
+</div>
+
+<div class="actions">
+
+<button class="add-btn"
+onclick="addToCart(
+'ev-tyre-inflator',
+'Digital Tyre Inflator',
+2799,
+'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80'
+)">
+    Add to Cart
+</button>
+
+<a href="product-details.html?id=ev-tyre-inflator"
+class="details-btn">
+    Details
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- EV INNOVATION BANNER -->
+
+<section class="ev-banner">
+
+<div>
+
+<h2>
+    ⚡ EV <span>Installation Service</span>
+</h2>
+
+<p>
+    Bought an EV accessory from AutoLux?
+    Don't worry about installation. Select a nearby
+    AutoLux workshop and book professional installation
+    for your electric vehicle.
+</p>
+
+</div>
+
+<a href="booking.html" class="btn btn-orange">
+    Book Installation
+</a>
+
+</section>
+
+
+<!-- WORKSHOP -->
+
+<div class="workshop-box">
+
+<div>
+
+<h2>
+    Need help with your EV?
+</h2>
+
+<p>
+    Find an AutoLux EV specialist workshop and get
+    professional assistance.
+</p>
+
+</div>
+
+<a href="workshops.html" class="btn btn-orange">
+    Find EV Workshop →
+</a>
+
+</div>
+
+
+</div>
+
+
+<!-- TOAST -->
+
+<div class="toast" id="toast">
+    ✓ <span id="toastText">Product added to cart</span>
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-logo">
+    AutoLux
+</div>
+
+<p>
+    Smart Accessories • Professional Workshops • EV Solutions
+</p>
+
+<p style="margin-top:10px;">
+    © 2026 AutoLux. All Rights Reserved.
+</p>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   CART
+========================= */
+
+function getCart(){
+
+    return JSON.parse(
+        localStorage.getItem("autoluxCart")
+    ) || [];
+
+}
+
+
+function saveCart(cart){
+
+    localStorage.setItem(
+        "autoluxCart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+/* =========================
+   CART COUNT
+========================= */
+
+function updateCartCount(){
+
+    const cart = getCart();
+
+    let count = 0;
+
+    cart.forEach(item => {
+
+        count += Number(item.quantity) || 1;
+
+    });
+
+    document.getElementById("cartCount")
+        .textContent = count;
+
+}
+
+
+/* =========================
+   ADD TO CART
+========================= */
+
+function addToCart(id,name,price,image){
+
+    let cart = getCart();
+
+    const existing =
+        cart.find(item => item.id === id);
+
+    if(existing){
+
+        existing.quantity =
+            (Number(existing.quantity) || 1) + 1;
+
+    }else{
+
+        cart.push({
+
+            id:id,
+            name:name,
+            price:price,
+            image:image,
+            quantity:1
+
+        });
+
+    }
+
+    saveCart(cart);
+
+    updateCartCount();
+
+    showToast(name + " added to cart!");
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    document.getElementById("toastText")
+        .textContent = message;
+
+    toast.classList.add("show");
+
+    setTimeout(function(){
+
+        toast.classList.remove("show");
+
+    },2500);
+
+}
+
+
+/* =========================
+   FILTER PRODUCTS
+========================= */
+
+function filterProducts(category,button){
+
+    const products =
+        document.querySelectorAll(".product");
+
+    const buttons =
+        document.querySelectorAll(".category-btn");
+
+
+    buttons.forEach(btn => {
+
+        btn.classList.remove("active");
+
+    });
+
+    button.classList.add("active");
+
+
+    products.forEach(product => {
+
+        if(
+            category === "all" ||
+            product.dataset.category === category
+        ){
+
+            product.style.display = "block";
+
+        }else{
+
+            product.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+updateCartCount();
+
+</script>
+
+</body>
+</html>
